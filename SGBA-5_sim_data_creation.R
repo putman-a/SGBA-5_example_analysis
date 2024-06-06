@@ -147,7 +147,7 @@ outcome_bin_pos_gid <- append(outcome_bin_pos_high, outcome_bin_pos_low) %>%
   factor()
 
 
-# by g_rol: high (yes = .3, no = .7), low (yes = .8, no = .2)
+# by g_rol: high (yes = .3, no = .5), low (yes = .8, no = .2)
 outcome_bin_pos_high <- sample(
   c('yes','no'), 12, replace = TRUE, prob = c(.3, .7)
 )
@@ -195,4 +195,4 @@ sim_data <- tibble(
 
 
 # save simulated df
-write_rds(sim_data, file = "~/[DESIREDFOLDER]/sim_data.RDS") # replace [DESIREDFOLDER] with folder to save data set into
+write_rds(sim_data, file = "~/[DESIREDFOLDER]/sim.data.RDS") # replace [DESIREDFOLDER] with folder to save data set into
