@@ -4,6 +4,9 @@ fig:02-univar-gi-plot
 tab:02-tab
 tab:02-tab02
 fig:04-binary-pos-plot
+tab:03-tab-int
+tab:03-tab-no-int
+tab:unnamed-chunk-1
 about
 further-resources
 data-structure
@@ -13,12 +16,8 @@ descriptive-analysis
 visualize-distribution-of-sgba-5-responses
 continuous
 biological-sex
-simulated-data-creation
-session-info-for-data-creation
-tab:03-tab-int
-tab:03-tab-no-int
-cover-image-path-to-the-social-sharing-image-like-imagescover.jpg
-tab:unnamed-chunk-1
 density-plot
 summary-statistics
 statistical-test
+simulated-data-creation
+session-info-for-data-creation
