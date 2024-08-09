@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>Chapter 4 SGBA of a Continuous Variable | Example Analyses: Using the SGBA-5 with Simulated Data</title>
+<meta name="author" content="A Putman">
+<meta name="author" content="S Dogra">
+<meta name="description" content="Note: for conciseness, the following examples will only show results for two of the four gendered aspects of health items from the SGBA-5 (gender identity, and gender roles)  4.1 Biological Sex A...">
+<meta name="generator" content="bookdown 0.40 with bs4_book()">
+<meta property="og:title" content="Chapter 4 SGBA of a Continuous Variable | Example Analyses: Using the SGBA-5 with Simulated Data">
+<meta property="og:type" content="book">
+<meta property="og:url" content="https://github.com/putman-a/SGBA-5_example_analysis/docs/continuous.html">
+<meta property="og:description" content="Note: for conciseness, the following examples will only show results for two of the four gendered aspects of health items from the SGBA-5 (gender identity, and gender roles)  4.1 Biological Sex A...">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Chapter 4 SGBA of a Continuous Variable | Example Analyses: Using the SGBA-5 with Simulated Data">
+<meta name="twitter:description" content="Note: for conciseness, the following examples will only show results for two of the four gendered aspects of health items from the SGBA-5 (gender identity, and gender roles)  4.1 Biological Sex A...">
+<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.7.0/transition.js"></script><script src="libs/bs3compat-0.7.0/tabs.js"></script><script src="libs/bs3compat-0.7.0/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><style type="text/css">
+    
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  </style>
+</head>
+<body data-spy="scroll" data-target="#toc">
+
+<div class="container-fluid">
+<div class="row">
+  <header class="col-sm-12 col-lg-3 sidebar sidebar-book"><a class="sr-only sr-only-focusable" href="#content">Skip to main content</a>
+
+    <div class="d-flex align-items-start justify-content-between">
+      <h1>
+        <a href="index.html" title="">Example Analyses: Using the SGBA-5 with Simulated Data</a>
+      </h1>
+      <button class="btn btn-outline-primary d-lg-none ml-2 mt-1" type="button" data-toggle="collapse" data-target="#main-nav" aria-expanded="true" aria-controls="main-nav"><i class="fas fa-bars"></i><span class="sr-only">Show table of contents</span></button>
+    </div>
+
+    <div id="main-nav" class="collapse-lg">
+      <form role="search">
+        <input id="search" class="form-control" type="search" placeholder="Search" aria-label="Search">
+</form>
+
+      <nav aria-label="Table of contents"><h2>Table of contents</h2>
+        <ul class="book-toc list-unstyled"><li><a class="" href="index.html"><span class="header-section-number">Chapter 4</span> SGBA of a Continuous Variable</a></li></ul>
+
+        <div class="book-extra">
+          
+        </div>
+      </nav>
+</div>
+  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="continuous" class="section level1" number="4">
+<h1>
+<span class="header-section-number">4</span> SGBA of a Continuous Variable<a class="anchor" aria-label="anchor" href="#continuous"><i class="fas fa-link"></i></a>
+</h1>
+<blockquote>
+<p><em>Note: for conciseness, the following examples will only show results for two of the four gendered aspects of health items from the SGBA-5 (gender identity, and gender roles)</em></p>
+</blockquote>
+<div id="biological-sex" class="section level2" number="4.1">
+<h2>
+<span class="header-section-number">4.1</span> Biological Sex<a class="anchor" aria-label="anchor" href="#biological-sex"><i class="fas fa-link"></i></a>
+</h2>
+<p>A good idea is to start by visualizing the continuous variable’s distribution disaggregated by sex like the density plot in Figure <a href="continuous.html#fig:04-binary-pos-plot">4.1</a>. Then calculate disaggregated summary statistics for the continuous variable disaggregated by sex (Table A4), and conduct a statistical test of difference in means (Welch’s t- test for this example).</p>
+<div id="density-plot" class="section level3" number="4.1.1">
+<h3>
+<span class="header-section-number">4.1.1</span> Density Plot<a class="anchor" aria-label="anchor" href="#density-plot"><i class="fas fa-link"></i></a>
+</h3>
+<p><em>Interpretation:</em> From the above density plots (Figure <a href="continuous.html#fig:04-binary-pos-plot">4.1</a>) we can see a distinct overlap in the <em>“No interaction example”</em> with suggests that in that example’s sample does not have a meaningful difference in the continuous outcome by sex. Conversely, the <em>“Interaction example”</em> density plot has two distinct peaks which suggests that its sample’s continuous outcome scores are associated with a participant’s sex.</p>
+<div class="figure" style="text-align: center">
+<span style="display:block;" id="fig:04-binary-pos-plot"></span>
+<img src="03-continuous_files/figure-html/04-binary-pos-plot-1.png" alt="Density Plot of Continuous Variable by Biological Sex Examples" width="50%"><img src="03-continuous_files/figure-html/04-binary-pos-plot-2.png" alt="Density Plot of Continuous Variable by Biological Sex Examples" width="50%"><p class="caption">
+Figure 4.1: Density Plot of Continuous Variable by Biological Sex Examples
+</p>
+</div>
+</div>
+<div id="summary-statistics" class="section level3" number="4.1.2">
+<h3>
+<span class="header-section-number">4.1.2</span> Summary Statistics<a class="anchor" aria-label="anchor" href="#summary-statistics"><i class="fas fa-link"></i></a>
+</h3>
+<p><em>Interpretation:</em> As with the density plots, we see that the standard deviations of the continuous variable for both males and females overlap in the <em>“No interaction example”</em> (Table <a href="continuous.html#tab:03-tab-int">4.1</a>) - indicating a lack of significant difference by sex. The standard deviations of the continuous variable for both males and females do not overlap in the <em>“Interaction example”</em> (Table <a href="continuous.html#tab:03-tab-no-int">4.2</a>) - indicating a potential association between the continuous outcome and sex.</p>
+<div class="inline-table"><table class="table table-sm">
+<caption>
+<span id="tab:03-tab-int">Table 4.1: </span>Interation example summary statisitics: Continuous outcome and biological sex</caption>
+<colgroup>
+<col width="18%">
+<col width="3%">
+<col width="19%">
+<col width="17%">
+<col width="22%">
+<col width="18%">
+</colgroup>
+<thead><tr class="header">
+<th align="left">biological sex</th>
+<th align="right">n</th>
+<th align="right">mean continuous</th>
+<th align="right">SD continuous</th>
+<th align="right">median continuous</th>
+<th align="right">IQR continuous</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td align="left">Female</td>
+<td align="right">14</td>
+<td align="right">3.5</td>
+<td align="right">1.94</td>
+<td align="right">4</td>
+<td align="right">2</td>
+</tr>
+<tr class="even">
+<td align="left">Male</td>
+<td align="right">16</td>
+<td align="right">11.3</td>
+<td align="right">2.95</td>
+<td align="right">11</td>
+<td align="right">2</td>
+</tr>
+</tbody>
+</table></div>
+<div class="inline-table"><table class="table table-sm">
+<caption>
+<span id="tab:03-tab-no-int">Table 4.2: </span>No interation example summary statisitics: Continuous outcome and biological sex</caption>
+<colgroup>
+<col width="18%">
+<col width="3%">
+<col width="19%">
+<col width="17%">
+<col width="22%">
+<col width="18%">
+</colgroup>
+<thead><tr class="header">
+<th align="left">biological sex</th>
+<th align="right">n</th>
+<th align="right">mean continuous</th>
+<th align="right">SD continuous</th>
+<th align="right">median continuous</th>
+<th align="right">IQR continuous</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td align="left">Female</td>
+<td align="right">14</td>
+<td align="right">9.0</td>
+<td align="right">1.84</td>
+<td align="right">9</td>
+<td align="right">2</td>
+</tr>
+<tr class="even">
+<td align="left">Male</td>
+<td align="right">16</td>
+<td align="right">10.8</td>
+<td align="right">3.47</td>
+<td align="right">11</td>
+<td align="right">3</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div id="statistical-test" class="section level3" number="4.1.3">
+<h3>
+<span class="header-section-number">4.1.3</span> Statistical Test<a class="anchor" aria-label="anchor" href="#statistical-test"><i class="fas fa-link"></i></a>
+</h3>
+<p><strong>No interaction: Welch’s t-test</strong></p>
+<div class="inline-table"><table class="table table-sm">
+<caption>
+<span id="tab:unnamed-chunk-1">Table 4.3: </span>Simulated sample characteristics.</caption>
+<colgroup>
+<col width="22%">
+<col width="22%">
+<col width="12%">
+<col width="22%">
+<col width="7%">
+<col width="12%">
+</colgroup>
+<thead><tr class="header">
+<th align="left">Example</th>
+<th align="left">Test</th>
+<th align="right">T-score</th>
+<th align="left">95% CI</th>
+<th align="right">df</th>
+<th align="right">p-value</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td align="left">Interaction</td>
+<td align="left">Welch’s t-test</td>
+<td align="right">-1.80</td>
+<td align="left">(-3.85, 0.26)</td>
+<td align="right">23.4</td>
+<td align="right">0.084</td>
+</tr>
+<tr class="even">
+<td align="left">No interaction</td>
+<td align="left">Welch’s t-test</td>
+<td align="right">-8.73</td>
+<td align="left">(-9.72, -6.02)</td>
+<td align="right">26.1</td>
+<td align="right">0.000</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+</div>
+  <div class="chapter-nav">
+<div class="empty"></div>
+<div class="empty"></div>
+</div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
+    <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
+      <div id="book-on-this-page"></div>
+
+      <div class="book-extra">
+        <ul class="list-unstyled">
+          
+        </ul>
+</div>
+    </nav>
+</div>
+
+</div>
+</div> <!-- .container -->
+
+<footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>"<strong>Example Analyses: Using the SGBA-5 with Simulated Data</strong>" was written by A Putman, S Dogra. It was last built on 2024-08-09.</p>
+  </div>
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>This book was built by the <a class="text-light" href="https://bookdown.org">bookdown</a> R package.</p>
+  </div>
+
+</div></div>
+</footer>
+</body>
+</html>

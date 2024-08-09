@@ -3,7 +3,7 @@ title: "Example Analyses: Using the SGBA-5 with Simulated Data"
 author: 
 - "A Putman"
 - "S Dogra"
-date: "`r Sys.Date()`"
+date: "2024-08-09"
 site: "bookdown::bookdown_site"
 output:
   bookdown::gitbook: default
