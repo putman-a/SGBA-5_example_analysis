@@ -49,9 +49,9 @@ Table: (\#tab:02-tab02)Simulated sample characteristics.
 |SGBA Item                        |Sample (n = 30)     |
 |:--------------------------------|:-------------------|
 |Biological Sex (n(%))            |                    |
-|__Female                         |14(47%)             |
-|__Intersex                       |NA                  |
-|_Male                            |16(53%)             |
+|<i>Female</i>                    |14(47%)             |
+|<i>Intersex</i>                  |NA                  |
+|<i>Male</i>                      |16(53%)             |
 |Gendered Aspect of Health (skew) |                    |
-|__Gender Identity                |Not strongly skewed |
-|__Gendered Roles                 |Not strongly skewed |
+|<i>Gender Identity</i>           |Not strongly skewed |
+|<i>Gendered Roles</i>            |Not strongly skewed |

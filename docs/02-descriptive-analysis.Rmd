@@ -97,7 +97,7 @@ Taking all these together, an example of a sample characteristics table of the S
 ``` {r 02-tab02, echo=FALSE}
 # example of collected data
 sum_tab <- tibble(
-  "SGBA Item" = c("Biological Sex (n(%))", "__Female", "__Intersex", "_Male", "Gendered Aspect of Health (skew)", "__Gender Identity", "__Gendered Roles"),
+  "SGBA Item" = c("Biological Sex (n(%))", "<i>Female</i>", "<i>Intersex</i>", "<i>Male</i>", "Gendered Aspect of Health (skew)", "<i>Gender Identity</i>", "<i>Gendered Roles</i>"),
   "Sample (n = 30)" = c(" ", "14(47%)", NA, "16(53%)", " ", "  Not strongly skewed", "  Not strongly skewed")
 )
 
