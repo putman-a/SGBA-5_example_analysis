@@ -5,22 +5,9 @@
 After collecting responses from the SGBA-5 you will have a dataset that looks something like this:
 
 
-```
-## ── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
-## ✔ dplyr     1.1.4     ✔ readr     2.1.5
-## ✔ forcats   1.0.0     ✔ stringr   1.5.1
-## ✔ ggplot2   3.5.1     ✔ tibble    3.2.1
-## ✔ lubridate 1.9.3     ✔ tidyr     1.3.1
-## ✔ purrr     1.0.2     
-## ── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
-## ✖ dplyr::filter() masks stats::filter()
-## ✖ dplyr::lag()    masks stats::lag()
-## ℹ Use the conflicted package (<http://conflicted.r-lib.org/>) to force all conflicts to become errors
-```
 
 
-
-Table: (\#tab:01-data)Example Data Structure
+Table: (\#tab:01-example-table)Example Data Structure
 
 | pt_id|sex    | gen_id| gen_exp| gen_role| gen_rel|
 |-----:|:------|------:|-------:|--------:|-------:|
@@ -33,7 +20,7 @@ Table: (\#tab:01-data)Example Data Structure
 __Note:__
 The values in this table are placeholders for the example, not real data
 
-Where:  
+Where:
 
 `pt_id` is the participant identifier.  
 
@@ -60,4 +47,4 @@ Where:
 
 ## Simulated Data
 
-This example analysis uses simulated data, if you wish to replicate the simulate data the code to do so is included in [Appendix A]() or can be downloaded from this example's [github page](https://github.com/putman-a/SGBA-5_example_analysis/%s).
+This example analysis uses simulated data, if you wish to replicate the simulate data the code to do so is included in the [Appendix](#appendix) or can be downloaded from this example's [github page](https://github.com/putman-a/SGBA-5_example_analysis/%s).

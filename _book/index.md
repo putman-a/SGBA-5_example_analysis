@@ -3,25 +3,23 @@ title: "Example Analyses: Using the SGBA-5 with Simulated Data"
 author: 
 - "A Putman"
 - "S Dogra"
-date: "2024-08-09"
+date: "2024-08-30"
 site: "bookdown::bookdown_site"
-output:
-  bookdown::gitbook: default
 documentclass: book
-bibliography: [book.bib, packages.bib]
+bibliography: ["book.bib", "packages.bib"]
 biblio-style: apalike
+link-citations: yes
 url: "https://github.com/putman-a/SGBA-5_example_analysis/docs"
 # cover-image: path to the social sharing image like images/cover.jpg
 description: |
-  The example analyses presented in this document are a demonstration of how sex-and gender-based analysis (SGBA) can be conducted using results from the Sex- and Gender-Based Analysis Tool – 5 item (SGBA-5) by Putman and Dogra.
-link-citations: yes
+  The example analyses presented in this document are a demonstration of how sex-and gender-based analysis (SGBA) can be conducted using results from the Sex- and Gender-Based Analysis Tool – 5 item (SGBA-5) by Putman and Dogra.\
 github-repo: "putman-a/SGBA-5_example_analysis"
 ---
 
 
 # About
 
-The example analyses presented in this document are a demonstration of how sex-and gender-based analysis (SGBA) can be conducted using results from the Sex- and Gender-Based Analysis Tool – 5 item (SGBA-5) by Putman and Dogra [DOI].The examples in this document demonstrate a [descriptive analysis](##descriptive-analysis) of simulated SGBA-5 responses and SGBA of simulated health outcomes that are [continuous](#continuous), ordered (Likert scale), or categorical (binary) to examine potential interactions with the biological sex item and two of the gendered aspects of health items.
+The example analyses presented in this document are a demonstration of how sex-and gender-based analysis (SGBA) can be conducted using results from the Sex- and Gender-Based Analysis Tool – 5 item (SGBA-5) by Putman and Dogra [DOI].The examples in this document demonstrate a [descriptive analysis](#descriptive-analysis) of simulated SGBA-5 responses and SGBA of simulated health outcomes that are [continuous](#continuous), ordered (Likert scale), or categorical (binary) to examine potential interactions with the biological sex item and two of the gendered aspects of health items.
 
 The examples do not cover all potential analyses that could be done using the SGBA-5 but does provide a solid foundation from which researchers can select from and build upon.
 

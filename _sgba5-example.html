@@ -1,0 +1,872 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Example Analyses: Using the SGBA-5 with Simulated Data</title>
+  <meta name="description" content="<p>The example analyses presented in this document are a demonstration of how sex-and gender-based analysis (SGBA) can be conducted using results from the Sex- and Gender-Based Analysis Tool – 5 item (SGBA-5) by Putman and Dogra.<br />
+</p>" />
+  <meta name="generator" content="bookdown #bookdown:version# and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Example Analyses: Using the SGBA-5 with Simulated Data" />
+  <meta property="og:type" content="book" />
+  
+  <meta property="og:description" content="<p>The example analyses presented in this document are a demonstration of how sex-and gender-based analysis (SGBA) can be conducted using results from the Sex- and Gender-Based Analysis Tool – 5 item (SGBA-5) by Putman and Dogra.<br />
+</p>" />
+  <meta name="github-repo" content="putman-a/SGBA-5_example_analysis" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Example Analyses: Using the SGBA-5 with Simulated Data" />
+  
+  <meta name="twitter:description" content="<p>The example analyses presented in this document are a demonstration of how sex-and gender-based analysis (SGBA) can be conducted using results from the Sex- and Gender-Based Analysis Tool – 5 item (SGBA-5) by Putman and Dogra.<br />
+</p>" />
+  
+
+<meta name="author" content="A Putman" />
+<meta name="author" content="S Dogra" />
+
+
+<meta name="date" content="2024-08-30" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<!--bookdown:link_prev-->
+<!--bookdown:link_next-->
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+<!--bookdown:title:start-->
+<div id="header">
+<h1 class="title">Example Analyses: Using the SGBA-5 with Simulated Data</h1>
+<p class="author"><em>A Putman</em></p>
+<p class="author"><em>S Dogra</em></p>
+<p class="date"><em>2024-08-30</em></p>
+</div>
+<!--bookdown:title:end-->
+
+<!--bookdown:toc:start-->
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+<!--bookdown:toc2:start-->
+<ul>
+<li><a href="#about" id="toc-about"><span class="toc-section-number">1</span> About</a>
+<ul>
+<li><a href="#further-resources" id="toc-further-resources"><span class="toc-section-number">1.1</span> Further Resources</a></li>
+</ul></li>
+<li><a href="#data-structure" id="toc-data-structure"><span class="toc-section-number">2</span> Data Structure</a>
+<ul>
+<li><a href="#collected-sgba-5-responses" id="toc-collected-sgba-5-responses"><span class="toc-section-number">2.1</span> Collected SGBA-5 Responses</a></li>
+<li><a href="#simulated-data" id="toc-simulated-data"><span class="toc-section-number">2.2</span> Simulated Data</a></li>
+</ul></li>
+<li><a href="#descriptive-analysis" id="toc-descriptive-analysis"><span class="toc-section-number">3</span> Descriptive Analysis</a>
+<ul>
+<li><a href="#visualize-distribution-of-sgba-5-responses" id="toc-visualize-distribution-of-sgba-5-responses"><span class="toc-section-number">3.1</span> Visualize Distribution of SGBA-5 Responses</a>
+<ul>
+<li><a href="#biological-sex-item" id="toc-biological-sex-item"><span class="toc-section-number">3.1.1</span> Biological Sex Item</a></li>
+<li><a href="#gendered-aspect-of-health-items" id="toc-gendered-aspect-of-health-items"><span class="toc-section-number">3.1.2</span> Gendered Aspect of Health Items</a></li>
+</ul></li>
+<li><a href="#descriptive-table-of-sgba-5-responses" id="toc-descriptive-table-of-sgba-5-responses"><span class="toc-section-number">3.2</span> Descriptive Table of SGBA-5 Responses</a></li>
+</ul></li>
+<li><a href="#continuous" id="toc-continuous"><span class="toc-section-number">4</span> SGBA of a Continuous Variable</a>
+<ul>
+<li><a href="#biological-sex" id="toc-biological-sex"><span class="toc-section-number">4.1</span> Biological Sex</a>
+<ul>
+<li><a href="#density-plot" id="toc-density-plot"><span class="toc-section-number">4.1.1</span> Density Plot</a></li>
+<li><a href="#summary-statistics" id="toc-summary-statistics"><span class="toc-section-number">4.1.2</span> Summary Statistics</a></li>
+<li><a href="#statistical-test" id="toc-statistical-test"><span class="toc-section-number">4.1.3</span> Statistical Test</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#appendix" id="toc-appendix"><span class="toc-section-number">5</span> Appendix</a>
+<ul>
+<li><a href="#simulated-data-creation" id="toc-simulated-data-creation"><span class="toc-section-number">5.1</span> Simulated Data Creation</a>
+<ul>
+<li><a href="#session-info-for-data-creation" id="toc-session-info-for-data-creation"><span class="toc-section-number">5.1.1</span> Session Info for Data Creation</a></li>
+</ul></li>
+</ul></li>
+</ul>
+<!--bookdown:toc2:end-->
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Example Analyses: Using the SGBA-5 with Simulated Data</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<!--bookdown:toc:end-->
+<!--bookdown:body:start-->
+<div id="about" class="section level1 hasAnchor" number="1">
+<h1 class="hasAnchor"><span class="header-section-number">1</span> About<a href="#about" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>The example analyses presented in this document are a demonstration of how sex-and gender-based analysis (SGBA) can be conducted using results from the Sex- and Gender-Based Analysis Tool – 5 item (SGBA-5) by Putman and Dogra [DOI].The examples in this document demonstrate a <a href="#descriptive-analysis">descriptive analysis</a> of simulated SGBA-5 responses and SGBA of simulated health outcomes that are <a href="#continuous">continuous</a>, ordered (Likert scale), or categorical (binary) to examine potential interactions with the biological sex item and two of the gendered aspects of health items.</p>
+<p>The examples do not cover all potential analyses that could be done using the SGBA-5 but does provide a solid foundation from which researchers can select from and build upon.</p>
+<div id="further-resources" class="section level2 hasAnchor" number="1.1">
+<h2 class="hasAnchor"><span class="header-section-number">1.1</span> Further Resources<a href="#further-resources" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>More information on the SGBA-5, instructions for its use, and rationale for are included in the SGBA-5’s documentation [SUPPLEMENTARY MATERIAL URL]. Initial reliability and validity testing of the SGBA-5 are reported in the paper by Putman, Cole, &amp; Dogra [DOI] and in A Putman’s <a href="https://ontariotechu.scholaris.ca/items/fddf2667-8cd6-429d-85bd-74b0076ab561">thesis work</a>.</p>
+<!--chapter:end:index.Rmd-->
+</div>
+</div>
+<div id="data-structure" class="section level1 hasAnchor" number="2">
+<h1 class="hasAnchor"><span class="header-section-number">2</span> Data Structure<a href="#data-structure" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="collected-sgba-5-responses" class="section level2 hasAnchor" number="2.1">
+<h2 class="hasAnchor"><span class="header-section-number">2.1</span> Collected SGBA-5 Responses<a href="#collected-sgba-5-responses" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>After collecting responses from the SGBA-5 you will have a dataset that looks something like this:</p>
+<table>
+<caption>(#tab:01-example-table)Example Data Structure</caption>
+<thead>
+<tr class="header">
+<th align="right">pt_id</th>
+<th align="left">sex</th>
+<th align="right">gen_id</th>
+<th align="right">gen_exp</th>
+<th align="right">gen_role</th>
+<th align="right">gen_rel</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="right">1</td>
+<td align="left">Female</td>
+<td align="right">48</td>
+<td align="right">99</td>
+<td align="right">70</td>
+<td align="right">25</td>
+</tr>
+<tr class="even">
+<td align="right">2</td>
+<td align="left">Male</td>
+<td align="right">100</td>
+<td align="right">17</td>
+<td align="right">99</td>
+<td align="right">2</td>
+</tr>
+<tr class="odd">
+<td align="right">3</td>
+<td align="left">Female</td>
+<td align="right">64</td>
+<td align="right">48</td>
+<td align="right">88</td>
+<td align="right">40</td>
+</tr>
+<tr class="even">
+<td align="right">4</td>
+<td align="left">Female</td>
+<td align="right">24</td>
+<td align="right">46</td>
+<td align="right">36</td>
+<td align="right">88</td>
+</tr>
+<tr class="odd">
+<td align="right">5</td>
+<td align="left">Male</td>
+<td align="right">73</td>
+<td align="right">23</td>
+<td align="right">19</td>
+<td align="right">26</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Note:</strong>
+The values in this table are placeholders for the example, not real data</p>
+<p>Where:</p>
+<p><code>pt_id</code> is the participant identifier.</p>
+<p><code>sex</code> is the SGBA-5 categorical Biological Sex item.</p>
+<ul>
+<li>response options of “male”, “female”, and “intersex”.</li>
+</ul>
+<p><code>gen_id</code> is the SGBA-5 Gender Identity gendered aspect of health item.</p>
+<ul>
+<li>Responses are recorded as ordinal values between 0 to 100 on a feminine to masculine scale (measured in mm if completed on paper).</li>
+</ul>
+<p><code>gen_exp</code> is the SGBA-5 Gender Expression gendered aspect of health item.</p>
+<ul>
+<li>Responses are recorded as ordinal values between 0 to 100 on a feminine to masculine scale (measured in mm if completed on paper).</li>
+</ul>
+<p><code>gen_role</code> is the SGBA-5 Gender Role gendered aspect of health item.</p>
+<ul>
+<li>Responses are recorded as ordinal values between 0 to 100 on a feminine to masculine scale (measured in mm if completed on paper).</li>
+</ul>
+<p><code>gen_rel</code> is the SGBA-5 Gender Relations gendered aspect of health item.</p>
+<ul>
+<li>Responses are recorded as ordinal values between 0 to 100 on a feminine to masculine scale (measured in mm if completed on paper).</li>
+</ul>
+</div>
+<div id="simulated-data" class="section level2 hasAnchor" number="2.2">
+<h2 class="hasAnchor"><span class="header-section-number">2.2</span> Simulated Data<a href="#simulated-data" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>This example analysis uses simulated data, if you wish to replicate the simulate data the code to do so is included in the <a href="#appendix">Appendix</a> or can be downloaded from this example’s <a href="https://github.com/putman-a/SGBA-5_example_analysis/%s">github page</a>.</p>
+<!--chapter:end:01-data-structures.Rmd-->
+</div>
+</div>
+<div id="descriptive-analysis" class="section level1 hasAnchor" number="3">
+<h1 class="hasAnchor"><span class="header-section-number">3</span> Descriptive Analysis<a href="#descriptive-analysis" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<blockquote>
+<p><em>Note: for conciseness, the following examples will only show results for two of the four gendered aspects of health items from the SGBA-5 (gender identity, and gender roles)</em></p>
+</blockquote>
+<div id="visualize-distribution-of-sgba-5-responses" class="section level2 hasAnchor" number="3.1">
+<h2 class="hasAnchor"><span class="header-section-number">3.1</span> Visualize Distribution of SGBA-5 Responses<a href="#visualize-distribution-of-sgba-5-responses" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="biological-sex-item" class="section level3 hasAnchor" number="3.1.1">
+<h3 class="hasAnchor"><span class="header-section-number">3.1.1</span> Biological Sex Item<a href="#biological-sex-item" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>In plot @ref(fig:02-univar-sex-plot) we see that there are more participants who report their <strong>biological sex</strong> as assigned as female at birth (n=18) than males (n=12).</p>
+<div class="figure" style="text-align: center">
+<img src="02-descriptive-analysis_files/figure-html/02-univar-sex-plot-1.png" alt="Barplot of Biological Sex Responses" width="50%" />
+<p class="caption">
+(#fig:02-univar-sex-plot)Barplot of Biological Sex Responses
+</p>
+</div>
+</div>
+<div id="gendered-aspect-of-health-items" class="section level3 hasAnchor" number="3.1.2">
+<h3 class="hasAnchor"><span class="header-section-number">3.1.2</span> Gendered Aspect of Health Items<a href="#gendered-aspect-of-health-items" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Looking at the density plots for <strong>gender identity</strong> and <strong>gender role</strong> (figure @ref(fig:02-univar-gi-plot)), we see that while both variables are bimodal, the <strong>gender identity</strong> responses is more strongly bimodal with one peak closer to the feminine side of the feminine-masculine continuum and one peak closer to masculine end of that continuum. Further, we can also see that in general, participants reported their <strong>gender identity</strong> and <strong>roles</strong> as being more feminine, again with the <strong>gender identity</strong> responses showing this trend more strongly than the <strong>gender role</strong> responses.</p>
+<div class="figure" style="text-align: center">
+<img src="02-descriptive-analysis_files/figure-html/02-univar-gi-plot-1.png" alt="Density plots of Gender Identity and Roles" width="50%" /><img src="02-descriptive-analysis_files/figure-html/02-univar-gi-plot-2.png" alt="Density plots of Gender Identity and Roles" width="50%" />
+<p class="caption">
+(#fig:02-univar-gi-plot)Density plots of Gender Identity and Roles
+</p>
+</div>
+<p>Presently, there is <em><span style="color:red">no clear consensus on how to present descriptive statistics of bimodal variables in health research.</span></em> Reporting the mean(sd) or median(IQR) of a variable does not clearly communicate that there is more than one peak in a bimodal variable’s distribution.</p>
+<p>When taken alongside the SGBA-5’s assumption that the feminine-masculine continuum doesn’t have a true 0 value, it is our suggestion that:</p>
+<blockquote>
+<p><em>If researchers decide to report a descriptive statistic for a bimodally distributed variable, they should report a nominal description of the variable’s distriubtion <strong>skew</strong>.</em></p>
+</blockquote>
+<p>For example, if a gendered aspect of health item from the SGBA-5 demonstrates a bimodal distribution, the variable’s <strong>skew</strong> can be described along the feminine-masculine continuum instead of reporting the numerical average alone.</p>
+<p>To be able to describe the <strong>skew</strong> of one of the gender variables, the authors suggest calculating the variable’s mean score along the feminine-masculine continuum and then reporting the skew using the suggested nominal classification guide seen in Table @ref(tab:02-tab).</p>
+<p><em>Please note that these suggested classification guidelines are arbitrary and may not be appropriate in all circumstances.</em></p>
+<table>
+<caption>(#tab:02-tab)Potential Interpretation of Sample Means for Gendered Aspect of Health Items.</caption>
+<thead>
+<tr class="header">
+<th align="left">Mean</th>
+<th align="left">Interpretation</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">&gt;70</td>
+<td align="left">“Skews masculine”</td>
+</tr>
+<tr class="even">
+<td align="left">55 to 70</td>
+<td align="left">“More masculine than feminine”</td>
+</tr>
+<tr class="odd">
+<td align="left">45 to 55</td>
+<td align="left">“Not strongly skewed”</td>
+</tr>
+<tr class="even">
+<td align="left">30 to 45</td>
+<td align="left">“More feminine than masculine”</td>
+</tr>
+<tr class="odd">
+<td align="left">&lt;30</td>
+<td align="left">“Skews feminine”</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Note:</strong>
+This table assumes you have recorded the gendered aspects of health items as 0 being the most feminine score and 100 being the most masculine score.</p>
+<p>For the simulated dataset represented in the density plots above, the mean score for the <strong>gender identity</strong> item was 50.2 and 46.8 for the <strong>gender role</strong> item. This means that when reporting descriptive statistics on the simulated sample we could report that: <span style="color:purple">“<em>The simulated sample was not strongly skewed on a feminine to masculine continuum for either the gender identity or gender role measures from the SGBA-5</em>”</span>.</p>
+</div>
+</div>
+<div id="descriptive-table-of-sgba-5-responses" class="section level2 hasAnchor" number="3.2">
+<h2 class="hasAnchor"><span class="header-section-number">3.2</span> Descriptive Table of SGBA-5 Responses<a href="#descriptive-table-of-sgba-5-responses" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Taking all these together, an example of a sample characteristics table of the SGBA-5 items in the simulated dataset could be presented as has been displayed in Table @ref(tab:02-tab02)</p>
+<table>
+<caption>(#tab:02-tab02)Simulated sample characteristics.</caption>
+<thead>
+<tr class="header">
+<th align="left">SGBA Item</th>
+<th align="left">Sample (n = 30)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">Biological Sex (n(%))</td>
+<td align="left"></td>
+</tr>
+<tr class="even">
+<td align="left"><i>Female</i></td>
+<td align="left">14(47%)</td>
+</tr>
+<tr class="odd">
+<td align="left"><i>Intersex</i></td>
+<td align="left">NA</td>
+</tr>
+<tr class="even">
+<td align="left"><i>Male</i></td>
+<td align="left">16(53%)</td>
+</tr>
+<tr class="odd">
+<td align="left">Gendered Aspect of Health (skew)</td>
+<td align="left"></td>
+</tr>
+<tr class="even">
+<td align="left"><i>Gender Identity</i></td>
+<td align="left">Not strongly skewed</td>
+</tr>
+<tr class="odd">
+<td align="left"><i>Gendered Roles</i></td>
+<td align="left">Not strongly skewed</td>
+</tr>
+</tbody>
+</table>
+<!--chapter:end:02-descriptive-analysis.Rmd-->
+</div>
+</div>
+<div id="continuous" class="section level1 hasAnchor" number="4">
+<h1 class="hasAnchor"><span class="header-section-number">4</span> SGBA of a Continuous Variable<a href="#continuous" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<blockquote>
+<p><em>Note: for conciseness, the following examples will only show results for two of the four gendered aspects of health items from the SGBA-5 (gender identity, and gender roles)</em></p>
+</blockquote>
+<div id="biological-sex" class="section level2 hasAnchor" number="4.1">
+<h2 class="hasAnchor"><span class="header-section-number">4.1</span> Biological Sex<a href="#biological-sex" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>A good idea is to start by visualizing the continuous variable’s distribution disaggregated by sex like the density plot in Figure @ref(fig:04-binary-pos-plot). Then calculate disaggregated summary statistics for the continuous variable disaggregated by sex (Table A4), and conduct a statistical test of difference in means (Welch’s t- test for this example).</p>
+<div id="density-plot" class="section level3 hasAnchor" number="4.1.1">
+<h3 class="hasAnchor"><span class="header-section-number">4.1.1</span> Density Plot<a href="#density-plot" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p><em>Interpretation:</em> From the above density plots (Figure @ref(fig:04-binary-pos-plot)) we can see a distinct overlap in the <em>“No interaction example”</em> with suggests that in that example’s sample does not have a meaningful difference in the continuous outcome by sex. Conversely, the <em>“Interaction example”</em> density plot has two distinct peaks which suggests that its sample’s continuous outcome scores are associated with a participant’s sex.</p>
+<div class="figure" style="text-align: center">
+<img src="03-continuous_files/figure-html/04-binary-pos-plot-1.png" alt="Density Plot of Continuous Variable by Biological Sex Examples" width="50%" /><img src="03-continuous_files/figure-html/04-binary-pos-plot-2.png" alt="Density Plot of Continuous Variable by Biological Sex Examples" width="50%" />
+<p class="caption">
+(#fig:04-binary-pos-plot)Density Plot of Continuous Variable by Biological Sex Examples
+</p>
+</div>
+</div>
+<div id="summary-statistics" class="section level3 hasAnchor" number="4.1.2">
+<h3 class="hasAnchor"><span class="header-section-number">4.1.2</span> Summary Statistics<a href="#summary-statistics" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p><em>Interpretation:</em> As with the density plots, we see that the standard deviations of the continuous variable for both males and females overlap in the <em>“No interaction example”</em> (Table @ref(tab:03-tab-int)) - indicating a lack of significant difference by sex. The standard deviations of the continuous variable for both males and females do not overlap in the <em>“Interaction example”</em> (Table @ref(tab:03-tab-no-int)) - indicating a potential association between the continuous outcome and sex.</p>
+<table>
+<caption>(#tab:03-tab-int)Interation example summary statisitics: Continuous outcome and biological sex</caption>
+<colgroup>
+<col width="18%" />
+<col width="3%" />
+<col width="19%" />
+<col width="17%" />
+<col width="22%" />
+<col width="18%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">biological sex</th>
+<th align="right">n</th>
+<th align="right">mean continuous</th>
+<th align="right">SD continuous</th>
+<th align="right">median continuous</th>
+<th align="right">IQR continuous</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">Female</td>
+<td align="right">14</td>
+<td align="right">3.5</td>
+<td align="right">1.94</td>
+<td align="right">4</td>
+<td align="right">2</td>
+</tr>
+<tr class="even">
+<td align="left">Male</td>
+<td align="right">16</td>
+<td align="right">11.3</td>
+<td align="right">2.95</td>
+<td align="right">11</td>
+<td align="right">2</td>
+</tr>
+</tbody>
+</table>
+<table>
+<caption>(#tab:03-tab-no-int)No interation example summary statisitics: Continuous outcome and biological sex</caption>
+<colgroup>
+<col width="18%" />
+<col width="3%" />
+<col width="19%" />
+<col width="17%" />
+<col width="22%" />
+<col width="18%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">biological sex</th>
+<th align="right">n</th>
+<th align="right">mean continuous</th>
+<th align="right">SD continuous</th>
+<th align="right">median continuous</th>
+<th align="right">IQR continuous</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">Female</td>
+<td align="right">14</td>
+<td align="right">9.0</td>
+<td align="right">1.84</td>
+<td align="right">9</td>
+<td align="right">2</td>
+</tr>
+<tr class="even">
+<td align="left">Male</td>
+<td align="right">16</td>
+<td align="right">10.8</td>
+<td align="right">3.47</td>
+<td align="right">11</td>
+<td align="right">3</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="statistical-test" class="section level3 hasAnchor" number="4.1.3">
+<h3 class="hasAnchor"><span class="header-section-number">4.1.3</span> Statistical Test<a href="#statistical-test" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p><strong>No interaction: Welch’s t-test</strong></p>
+<table>
+<caption>(#tab:unnamed-chunk-1)Simulated sample characteristics.</caption>
+<colgroup>
+<col width="22%" />
+<col width="22%" />
+<col width="12%" />
+<col width="22%" />
+<col width="7%" />
+<col width="12%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">Example</th>
+<th align="left">Test</th>
+<th align="right">T-score</th>
+<th align="left">95% CI</th>
+<th align="right">df</th>
+<th align="right">p-value</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">Interaction</td>
+<td align="left">Welch’s t-test</td>
+<td align="right">-1.80</td>
+<td align="left">(-3.85, 0.26)</td>
+<td align="right">23.4</td>
+<td align="right">0.084</td>
+</tr>
+<tr class="even">
+<td align="left">No interaction</td>
+<td align="left">Welch’s t-test</td>
+<td align="right">-8.73</td>
+<td align="left">(-9.72, -6.02)</td>
+<td align="right">26.1</td>
+<td align="right">0.000</td>
+</tr>
+</tbody>
+</table>
+<!--chapter:end:03-continuous.Rmd-->
+</div>
+</div>
+</div>
+<div id="appendix" class="section level1 hasAnchor" number="5">
+<h1 class="hasAnchor"><span class="header-section-number">5</span> Appendix<a href="#appendix" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="simulated-data-creation" class="section level2 hasAnchor" number="5.1">
+<h2 class="hasAnchor"><span class="header-section-number">5.1</span> Simulated Data Creation<a href="#simulated-data-creation" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Below is the code used to create the simulated data that will be used to create the example SGBA seen throughout the rest of this example analysis.</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" tabindex="-1"></a><span class="co"># load libraries ----------------------------------------------------------</span></span>
+<span id="cb1-2"><a href="#cb1-2" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code></pre></div>
+<pre><code>## ── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
+## ✔ dplyr     1.1.4     ✔ readr     2.1.5
+## ✔ forcats   1.0.0     ✔ stringr   1.5.1
+## ✔ ggplot2   3.5.1     ✔ tibble    3.2.1
+## ✔ lubridate 1.9.3     ✔ tidyr     1.3.1
+## ✔ purrr     1.0.2     
+## ── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
+## ✖ dplyr::filter() masks stats::filter()
+## ✖ dplyr::lag()    masks stats::lag()
+## ℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors</code></pre>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" tabindex="-1"></a><span class="co"># set seed for predictability</span></span>
+<span id="cb3-2"><a href="#cb3-2" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">42</span>, <span class="at">kind =</span> <span class="st">&quot;Mersenne-Twister&quot;</span>)</span>
+<span id="cb3-3"><a href="#cb3-3" tabindex="-1"></a></span>
+<span id="cb3-4"><a href="#cb3-4" tabindex="-1"></a><span class="co"># write simulation functions ----------------------------------------------</span></span>
+<span id="cb3-5"><a href="#cb3-5" tabindex="-1"></a></span>
+<span id="cb3-6"><a href="#cb3-6" tabindex="-1"></a><span class="co"># function for simulating bimodal gender variables</span></span>
+<span id="cb3-7"><a href="#cb3-7" tabindex="-1"></a>binom_bounded <span class="ot">&lt;-</span> <span class="cf">function</span>(</span>
+<span id="cb3-8"><a href="#cb3-8" tabindex="-1"></a>    n, prop, mean1, sd1, mean2, sd2, <span class="at">lim_low =</span> <span class="sc">-</span><span class="cn">Inf</span>, <span class="at">lim_up =</span> <span class="cn">Inf</span>, round</span>
+<span id="cb3-9"><a href="#cb3-9" tabindex="-1"></a>    ){</span>
+<span id="cb3-10"><a href="#cb3-10" tabindex="-1"></a>  <span class="co"># error checking</span></span>
+<span id="cb3-11"><a href="#cb3-11" tabindex="-1"></a>  <span class="cf">if</span>(prop <span class="sc">&gt;</span> <span class="dv">1</span> <span class="sc">||</span> prop<span class="sc">&lt;</span> <span class="dv">0</span>){<span class="fu">stop</span>(<span class="st">&quot;binomial proportion should be between 0 and 1&quot;</span>)}</span>
+<span id="cb3-12"><a href="#cb3-12" tabindex="-1"></a>  <span class="cf">if</span>(n <span class="sc">&lt;</span> <span class="dv">1</span>){<span class="fu">stop</span>(<span class="st">&quot;n must be greater than or equal to 1&quot;</span>)}</span>
+<span id="cb3-13"><a href="#cb3-13" tabindex="-1"></a>  <span class="cf">if</span>(sd1 <span class="sc">&lt;</span> <span class="dv">0</span> <span class="sc">||</span> sd2 <span class="sc">&lt;</span> <span class="dv">0</span>){<span class="fu">stop</span>(<span class="st">&quot;standard deviations must be non-negative&quot;</span>)}</span>
+<span id="cb3-14"><a href="#cb3-14" tabindex="-1"></a>  <span class="co"># create index</span></span>
+<span id="cb3-15"><a href="#cb3-15" tabindex="-1"></a>  index <span class="ot">&lt;-</span> <span class="fu">rbinom</span>(n, <span class="at">size =</span> <span class="dv">1</span>, <span class="at">prob =</span> prop)</span>
+<span id="cb3-16"><a href="#cb3-16" tabindex="-1"></a>  <span class="co"># simulate each peak using a bounded `rnorm()`</span></span>
+<span id="cb3-17"><a href="#cb3-17" tabindex="-1"></a>  binom_sim1 <span class="ot">&lt;-</span> index <span class="sc">*</span> <span class="fu">qnorm</span>(</span>
+<span id="cb3-18"><a href="#cb3-18" tabindex="-1"></a>    <span class="fu">runif</span>(</span>
+<span id="cb3-19"><a href="#cb3-19" tabindex="-1"></a>      n, <span class="fu">pnorm</span>(lim_low, mean1, sd1), <span class="fu">pnorm</span>(lim_up, mean1, sd1)</span>
+<span id="cb3-20"><a href="#cb3-20" tabindex="-1"></a>      ), </span>
+<span id="cb3-21"><a href="#cb3-21" tabindex="-1"></a>    mean1, sd1)</span>
+<span id="cb3-22"><a href="#cb3-22" tabindex="-1"></a>  binom_sim0 <span class="ot">&lt;-</span> (<span class="dv">1</span> <span class="sc">-</span> index) <span class="sc">*</span> <span class="fu">qnorm</span>(</span>
+<span id="cb3-23"><a href="#cb3-23" tabindex="-1"></a>    <span class="fu">runif</span>(</span>
+<span id="cb3-24"><a href="#cb3-24" tabindex="-1"></a>      n, <span class="fu">pnorm</span>(lim_low, mean2, sd2), <span class="fu">pnorm</span>(lim_up, mean2, sd2)</span>
+<span id="cb3-25"><a href="#cb3-25" tabindex="-1"></a>      ), </span>
+<span id="cb3-26"><a href="#cb3-26" tabindex="-1"></a>    mean2, sd2)</span>
+<span id="cb3-27"><a href="#cb3-27" tabindex="-1"></a>  binom_sim <span class="ot">&lt;-</span> binom_sim0 <span class="sc">+</span> binom_sim1</span>
+<span id="cb3-28"><a href="#cb3-28" tabindex="-1"></a>  binom_sim <span class="ot">&lt;-</span> <span class="fu">round</span>(binom_sim, round)</span>
+<span id="cb3-29"><a href="#cb3-29" tabindex="-1"></a>  binom_sim</span>
+<span id="cb3-30"><a href="#cb3-30" tabindex="-1"></a>}</span>
+<span id="cb3-31"><a href="#cb3-31" tabindex="-1"></a></span>
+<span id="cb3-32"><a href="#cb3-32" tabindex="-1"></a></span>
+<span id="cb3-33"><a href="#cb3-33" tabindex="-1"></a><span class="co"># function for simulating Likert/ordinal outcome variable</span></span>
+<span id="cb3-34"><a href="#cb3-34" tabindex="-1"></a>ordinal_sim <span class="ot">&lt;-</span> <span class="cf">function</span>(</span>
+<span id="cb3-35"><a href="#cb3-35" tabindex="-1"></a>    n, mean, sd, <span class="at">lim_low =</span> <span class="sc">-</span><span class="cn">Inf</span>, <span class="at">lim_up =</span> <span class="cn">Inf</span></span>
+<span id="cb3-36"><a href="#cb3-36" tabindex="-1"></a>    ){</span>
+<span id="cb3-37"><a href="#cb3-37" tabindex="-1"></a>  ord_sim <span class="ot">&lt;-</span> <span class="fu">qnorm</span>(</span>
+<span id="cb3-38"><a href="#cb3-38" tabindex="-1"></a>    <span class="fu">runif</span>(</span>
+<span id="cb3-39"><a href="#cb3-39" tabindex="-1"></a>      n, <span class="fu">pnorm</span>(lim_low, mean, sd), <span class="fu">pnorm</span>(lim_up, mean, sd)</span>
+<span id="cb3-40"><a href="#cb3-40" tabindex="-1"></a>      ),</span>
+<span id="cb3-41"><a href="#cb3-41" tabindex="-1"></a>    mean, sd)</span>
+<span id="cb3-42"><a href="#cb3-42" tabindex="-1"></a>  ord_sim <span class="ot">&lt;-</span> <span class="fu">round</span>(ord_sim, <span class="dv">0</span>)</span>
+<span id="cb3-43"><a href="#cb3-43" tabindex="-1"></a>  ord_sim</span>
+<span id="cb3-44"><a href="#cb3-44" tabindex="-1"></a>}</span>
+<span id="cb3-45"><a href="#cb3-45" tabindex="-1"></a></span>
+<span id="cb3-46"><a href="#cb3-46" tabindex="-1"></a></span>
+<span id="cb3-47"><a href="#cb3-47" tabindex="-1"></a><span class="co"># simulate SGBA-5 data with n of 30 -------------------------------------</span></span>
+<span id="cb3-48"><a href="#cb3-48" tabindex="-1"></a></span>
+<span id="cb3-49"><a href="#cb3-49" tabindex="-1"></a><span class="co"># biological sex: categorical (female, intersex, male)</span></span>
+<span id="cb3-50"><a href="#cb3-50" tabindex="-1"></a>bio_sex <span class="ot">&lt;-</span> <span class="fu">factor</span>(</span>
+<span id="cb3-51"><a href="#cb3-51" tabindex="-1"></a>  <span class="fu">sample</span>(<span class="fu">c</span>(<span class="st">&#39;Female&#39;</span>, <span class="st">&#39;Male&#39;</span>), <span class="dv">30</span>, <span class="at">replace=</span><span class="cn">TRUE</span>, <span class="at">prob=</span><span class="fu">c</span>(<span class="fl">0.6</span>, <span class="fl">0.4</span>)),</span>
+<span id="cb3-52"><a href="#cb3-52" tabindex="-1"></a>  )</span>
+<span id="cb3-53"><a href="#cb3-53" tabindex="-1"></a></span>
+<span id="cb3-54"><a href="#cb3-54" tabindex="-1"></a><span class="co"># gender identity: ordered (0 [feminine] to 100 [masculine])</span></span>
+<span id="cb3-55"><a href="#cb3-55" tabindex="-1"></a>gen_id <span class="ot">&lt;-</span> <span class="fu">binom_bounded</span>(</span>
+<span id="cb3-56"><a href="#cb3-56" tabindex="-1"></a>  <span class="at">n =</span> <span class="dv">30</span>, <span class="at">prop =</span> <span class="fl">0.6</span>, <span class="at">mean1 =</span> <span class="dv">20</span>, <span class="at">sd1 =</span> <span class="dv">20</span>, <span class="at">mean2 =</span> <span class="dv">85</span>, <span class="at">sd2 =</span> <span class="dv">15</span>, <span class="at">lim_low =</span> <span class="dv">0</span>,</span>
+<span id="cb3-57"><a href="#cb3-57" tabindex="-1"></a>  <span class="at">lim_up =</span> <span class="dv">100</span>, <span class="at">round =</span> <span class="dv">0</span></span>
+<span id="cb3-58"><a href="#cb3-58" tabindex="-1"></a>)</span>
+<span id="cb3-59"><a href="#cb3-59" tabindex="-1"></a></span>
+<span id="cb3-60"><a href="#cb3-60" tabindex="-1"></a><span class="co"># gender role: ordered (0 [feminine] to 100 [masculine])</span></span>
+<span id="cb3-61"><a href="#cb3-61" tabindex="-1"></a>gen_role <span class="ot">&lt;-</span> <span class="fu">binom_bounded</span>(</span>
+<span id="cb3-62"><a href="#cb3-62" tabindex="-1"></a>  <span class="at">n =</span> <span class="dv">30</span>, <span class="at">prop =</span> <span class="fl">0.6</span>, <span class="at">mean1 =</span> <span class="dv">25</span>, <span class="at">sd1 =</span> <span class="dv">20</span>, <span class="at">mean2 =</span> <span class="dv">80</span>, <span class="at">sd2 =</span> <span class="dv">20</span>, <span class="at">lim_low =</span> <span class="dv">0</span>,</span>
+<span id="cb3-63"><a href="#cb3-63" tabindex="-1"></a>  <span class="at">lim_up =</span> <span class="dv">100</span>, <span class="at">round =</span> <span class="dv">0</span></span>
+<span id="cb3-64"><a href="#cb3-64" tabindex="-1"></a>)</span>
+<span id="cb3-65"><a href="#cb3-65" tabindex="-1"></a></span>
+<span id="cb3-66"><a href="#cb3-66" tabindex="-1"></a></span>
+<span id="cb3-67"><a href="#cb3-67" tabindex="-1"></a><span class="co"># simulate example positive outcome data with n of 30 -----------------------</span></span>
+<span id="cb3-68"><a href="#cb3-68" tabindex="-1"></a></span>
+<span id="cb3-69"><a href="#cb3-69" tabindex="-1"></a><span class="do">## simulated numerical outcome: --------------------------------------------</span></span>
+<span id="cb3-70"><a href="#cb3-70" tabindex="-1"></a></span>
+<span id="cb3-71"><a href="#cb3-71" tabindex="-1"></a><span class="co"># by sex: males (mean = 12, SD = 3), females (mean = 4, sd = 2)</span></span>
+<span id="cb3-72"><a href="#cb3-72" tabindex="-1"></a>outcome_num_pos_m <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="at">n =</span> <span class="dv">16</span>, <span class="at">mean =</span> <span class="dv">12</span>, <span class="at">sd =</span> <span class="dv">3</span>)</span>
+<span id="cb3-73"><a href="#cb3-73" tabindex="-1"></a>outcome_num_pos_f <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="at">n =</span> <span class="dv">14</span>, <span class="at">mean =</span> <span class="dv">4</span>, <span class="at">sd =</span> <span class="dv">2</span>)</span>
+<span id="cb3-74"><a href="#cb3-74" tabindex="-1"></a>outcome_num_pos_sex <span class="ot">&lt;-</span> <span class="fu">c</span>(outcome_num_pos_f, outcome_num_pos_m)</span>
+<span id="cb3-75"><a href="#cb3-75" tabindex="-1"></a></span>
+<span id="cb3-76"><a href="#cb3-76" tabindex="-1"></a><span class="co"># by g_id: high (mean = 12, SD = 3), low (mean = 4, sd = 2)</span></span>
+<span id="cb3-77"><a href="#cb3-77" tabindex="-1"></a>outcome_num_pos_gid_high <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="at">n =</span> <span class="dv">15</span>, <span class="at">mean =</span> <span class="dv">12</span>, <span class="at">sd =</span> <span class="dv">3</span>)</span>
+<span id="cb3-78"><a href="#cb3-78" tabindex="-1"></a>outcome_num_pos_gid_low <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="at">n =</span> <span class="dv">15</span>, <span class="at">mean =</span> <span class="dv">4</span>, <span class="at">sd =</span> <span class="dv">2</span>)</span>
+<span id="cb3-79"><a href="#cb3-79" tabindex="-1"></a>outcome_num_pos_gid <span class="ot">&lt;-</span> <span class="fu">c</span>(outcome_num_pos_gid_high, outcome_num_pos_gid_low)</span>
+<span id="cb3-80"><a href="#cb3-80" tabindex="-1"></a></span>
+<span id="cb3-81"><a href="#cb3-81" tabindex="-1"></a><span class="co"># by g_role: high (mean = 12, SD = 3), low (mean = 4, sd = 2)</span></span>
+<span id="cb3-82"><a href="#cb3-82" tabindex="-1"></a>outcome_num_pos_grol_high <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="at">n =</span> <span class="dv">12</span>, <span class="at">mean =</span> <span class="dv">12</span>, <span class="at">sd =</span> <span class="dv">3</span>)</span>
+<span id="cb3-83"><a href="#cb3-83" tabindex="-1"></a>outcome_num_pos_grol_low <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="at">n =</span> <span class="dv">18</span>, <span class="at">mean =</span> <span class="dv">7</span>, <span class="at">sd =</span> <span class="dv">2</span>)</span>
+<span id="cb3-84"><a href="#cb3-84" tabindex="-1"></a>outcome_num_pos_grol <span class="ot">&lt;-</span> <span class="fu">c</span>(outcome_num_pos_grol_high, outcome_num_pos_grol_low)</span>
+<span id="cb3-85"><a href="#cb3-85" tabindex="-1"></a></span>
+<span id="cb3-86"><a href="#cb3-86" tabindex="-1"></a></span>
+<span id="cb3-87"><a href="#cb3-87" tabindex="-1"></a><span class="do">## simulated Likert outcome: ---------------------------------------------</span></span>
+<span id="cb3-88"><a href="#cb3-88" tabindex="-1"></a></span>
+<span id="cb3-89"><a href="#cb3-89" tabindex="-1"></a><span class="co"># by sex males (mean = 2, SD = 1), females (mean = 5, sd = 2)</span></span>
+<span id="cb3-90"><a href="#cb3-90" tabindex="-1"></a>outcome_ord_pos_m <span class="ot">&lt;-</span> <span class="fu">ordinal_sim</span>(</span>
+<span id="cb3-91"><a href="#cb3-91" tabindex="-1"></a>  <span class="at">n =</span> <span class="dv">16</span>, <span class="at">mean =</span> <span class="dv">2</span>, <span class="at">sd =</span> <span class="dv">1</span>, <span class="at">lim_low =</span> <span class="dv">1</span>, <span class="at">lim_up =</span> <span class="dv">7</span></span>
+<span id="cb3-92"><a href="#cb3-92" tabindex="-1"></a>)</span>
+<span id="cb3-93"><a href="#cb3-93" tabindex="-1"></a>outcome_ord_pos_f <span class="ot">&lt;-</span> <span class="fu">ordinal_sim</span>(</span>
+<span id="cb3-94"><a href="#cb3-94" tabindex="-1"></a>  <span class="at">n =</span> <span class="dv">14</span>, <span class="at">mean =</span> <span class="dv">5</span>, <span class="at">sd =</span> <span class="dv">1</span>, <span class="at">lim_low =</span> <span class="dv">1</span>, <span class="at">lim_up =</span> <span class="dv">7</span></span>
+<span id="cb3-95"><a href="#cb3-95" tabindex="-1"></a>)</span>
+<span id="cb3-96"><a href="#cb3-96" tabindex="-1"></a>outcome_ord_pos_sex <span class="ot">&lt;-</span> <span class="fu">c</span>(outcome_ord_pos_f, outcome_ord_pos_m) <span class="sc">%&gt;%</span></span>
+<span id="cb3-97"><a href="#cb3-97" tabindex="-1"></a>  <span class="fu">factor</span>(., <span class="at">levels =</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>,<span class="dv">6</span>,<span class="dv">7</span>), <span class="at">ordered =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb3-98"><a href="#cb3-98" tabindex="-1"></a></span>
+<span id="cb3-99"><a href="#cb3-99" tabindex="-1"></a></span>
+<span id="cb3-100"><a href="#cb3-100" tabindex="-1"></a><span class="co"># by g_id: high (mean = 5, SD = 2), low (mean = 1, sd = 2)</span></span>
+<span id="cb3-101"><a href="#cb3-101" tabindex="-1"></a>outcome_ord_pos_high <span class="ot">&lt;-</span> <span class="fu">ordinal_sim</span>(</span>
+<span id="cb3-102"><a href="#cb3-102" tabindex="-1"></a>  <span class="at">n =</span> <span class="dv">15</span>, <span class="at">mean =</span> <span class="dv">5</span>, <span class="at">sd =</span> <span class="dv">2</span>, <span class="at">lim_low =</span> <span class="dv">1</span>, <span class="at">lim_up =</span> <span class="dv">7</span></span>
+<span id="cb3-103"><a href="#cb3-103" tabindex="-1"></a>)</span>
+<span id="cb3-104"><a href="#cb3-104" tabindex="-1"></a>outcome_ord_pos_low <span class="ot">&lt;-</span> <span class="fu">ordinal_sim</span>(</span>
+<span id="cb3-105"><a href="#cb3-105" tabindex="-1"></a>  <span class="at">n =</span> <span class="dv">15</span>, <span class="at">mean =</span> <span class="dv">1</span>, <span class="at">sd =</span> <span class="dv">2</span>, <span class="at">lim_low =</span> <span class="dv">1</span>, <span class="at">lim_up =</span> <span class="dv">7</span></span>
+<span id="cb3-106"><a href="#cb3-106" tabindex="-1"></a>)</span>
+<span id="cb3-107"><a href="#cb3-107" tabindex="-1"></a>outcome_ord_pos_gid <span class="ot">&lt;-</span> <span class="fu">c</span>(outcome_ord_pos_high, outcome_ord_pos_low) <span class="sc">%&gt;%</span></span>
+<span id="cb3-108"><a href="#cb3-108" tabindex="-1"></a>  <span class="fu">factor</span>(., <span class="at">levels =</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>,<span class="dv">6</span>,<span class="dv">7</span>), <span class="at">ordered =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb3-109"><a href="#cb3-109" tabindex="-1"></a></span>
+<span id="cb3-110"><a href="#cb3-110" tabindex="-1"></a></span>
+<span id="cb3-111"><a href="#cb3-111" tabindex="-1"></a><span class="co"># by g_role: high (mean = 5, SD = 2), low (mean = 1, sd = 2)</span></span>
+<span id="cb3-112"><a href="#cb3-112" tabindex="-1"></a>outcome_ord_pos_high <span class="ot">&lt;-</span> <span class="fu">ordinal_sim</span>(</span>
+<span id="cb3-113"><a href="#cb3-113" tabindex="-1"></a>  <span class="at">n =</span> <span class="dv">12</span>, <span class="at">mean =</span> <span class="dv">5</span>, <span class="at">sd =</span> <span class="dv">2</span>, <span class="at">lim_low =</span> <span class="dv">1</span>, <span class="at">lim_up =</span> <span class="dv">7</span></span>
+<span id="cb3-114"><a href="#cb3-114" tabindex="-1"></a>)</span>
+<span id="cb3-115"><a href="#cb3-115" tabindex="-1"></a>outcome_ord_pos_low <span class="ot">&lt;-</span> <span class="fu">ordinal_sim</span>(</span>
+<span id="cb3-116"><a href="#cb3-116" tabindex="-1"></a>  <span class="at">n =</span> <span class="dv">18</span>, <span class="at">mean =</span> <span class="dv">1</span>, <span class="at">sd =</span> <span class="dv">2</span>, <span class="at">lim_low =</span> <span class="dv">1</span>, <span class="at">lim_up =</span> <span class="dv">7</span></span>
+<span id="cb3-117"><a href="#cb3-117" tabindex="-1"></a>)</span>
+<span id="cb3-118"><a href="#cb3-118" tabindex="-1"></a>outcome_ord_pos_grol <span class="ot">&lt;-</span> <span class="fu">c</span>(outcome_ord_pos_high, outcome_ord_pos_low) <span class="sc">%&gt;%</span></span>
+<span id="cb3-119"><a href="#cb3-119" tabindex="-1"></a>  <span class="fu">factor</span>(., <span class="at">levels =</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>,<span class="dv">6</span>,<span class="dv">7</span>), <span class="at">ordered =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb3-120"><a href="#cb3-120" tabindex="-1"></a></span>
+<span id="cb3-121"><a href="#cb3-121" tabindex="-1"></a></span>
+<span id="cb3-122"><a href="#cb3-122" tabindex="-1"></a><span class="do">## simulated binary outcome: -----------------------------------------------</span></span>
+<span id="cb3-123"><a href="#cb3-123" tabindex="-1"></a></span>
+<span id="cb3-124"><a href="#cb3-124" tabindex="-1"></a><span class="co"># by sex males (yes = .2, no = .8), females (yes = .8, no = .2)</span></span>
+<span id="cb3-125"><a href="#cb3-125" tabindex="-1"></a>outcome_bin_pos_m <span class="ot">&lt;-</span> <span class="fu">sample</span>(</span>
+<span id="cb3-126"><a href="#cb3-126" tabindex="-1"></a>  <span class="fu">c</span>(<span class="st">&#39;yes&#39;</span>,<span class="st">&#39;no&#39;</span>), <span class="dv">16</span>, <span class="at">replace =</span> <span class="cn">TRUE</span>, <span class="at">prob =</span> <span class="fu">c</span>(.<span class="dv">2</span>, .<span class="dv">8</span>)</span>
+<span id="cb3-127"><a href="#cb3-127" tabindex="-1"></a>)</span>
+<span id="cb3-128"><a href="#cb3-128" tabindex="-1"></a>outcome_bin_pos_f <span class="ot">&lt;-</span> <span class="fu">sample</span>(</span>
+<span id="cb3-129"><a href="#cb3-129" tabindex="-1"></a>  <span class="fu">c</span>(<span class="st">&#39;yes&#39;</span>,<span class="st">&#39;no&#39;</span>), <span class="dv">14</span>, <span class="at">replace =</span> <span class="cn">TRUE</span>, <span class="at">prob =</span> <span class="fu">c</span>(.<span class="dv">8</span>, .<span class="dv">2</span>)</span>
+<span id="cb3-130"><a href="#cb3-130" tabindex="-1"></a>)</span>
+<span id="cb3-131"><a href="#cb3-131" tabindex="-1"></a>outcome_bin_pos_sex <span class="ot">&lt;-</span> <span class="fu">append</span>(outcome_bin_pos_f, outcome_bin_pos_m) <span class="sc">%&gt;%</span></span>
+<span id="cb3-132"><a href="#cb3-132" tabindex="-1"></a>  <span class="fu">factor</span>()</span>
+<span id="cb3-133"><a href="#cb3-133" tabindex="-1"></a></span>
+<span id="cb3-134"><a href="#cb3-134" tabindex="-1"></a></span>
+<span id="cb3-135"><a href="#cb3-135" tabindex="-1"></a><span class="co"># by g_id: high (yes = .4, no = .6), low (yes = .8, no = .2)</span></span>
+<span id="cb3-136"><a href="#cb3-136" tabindex="-1"></a>outcome_bin_pos_high <span class="ot">&lt;-</span> <span class="fu">sample</span>(</span>
+<span id="cb3-137"><a href="#cb3-137" tabindex="-1"></a>  <span class="fu">c</span>(<span class="st">&#39;yes&#39;</span>,<span class="st">&#39;no&#39;</span>), <span class="dv">15</span>, <span class="at">replace =</span> <span class="cn">TRUE</span>, <span class="at">prob =</span> <span class="fu">c</span>(.<span class="dv">4</span>, .<span class="dv">6</span>)</span>
+<span id="cb3-138"><a href="#cb3-138" tabindex="-1"></a>)</span>
+<span id="cb3-139"><a href="#cb3-139" tabindex="-1"></a>outcome_bin_pos_low <span class="ot">&lt;-</span> <span class="fu">sample</span>(</span>
+<span id="cb3-140"><a href="#cb3-140" tabindex="-1"></a>  <span class="fu">c</span>(<span class="st">&#39;yes&#39;</span>,<span class="st">&#39;no&#39;</span>), <span class="dv">15</span>, <span class="at">replace =</span> <span class="cn">TRUE</span>, <span class="at">prob =</span> <span class="fu">c</span>(.<span class="dv">8</span>, .<span class="dv">2</span>)</span>
+<span id="cb3-141"><a href="#cb3-141" tabindex="-1"></a>)</span>
+<span id="cb3-142"><a href="#cb3-142" tabindex="-1"></a>outcome_bin_pos_gid <span class="ot">&lt;-</span> <span class="fu">append</span>(outcome_bin_pos_high, outcome_bin_pos_low) <span class="sc">%&gt;%</span></span>
+<span id="cb3-143"><a href="#cb3-143" tabindex="-1"></a>  <span class="fu">factor</span>()</span>
+<span id="cb3-144"><a href="#cb3-144" tabindex="-1"></a></span>
+<span id="cb3-145"><a href="#cb3-145" tabindex="-1"></a></span>
+<span id="cb3-146"><a href="#cb3-146" tabindex="-1"></a><span class="co"># by g_rol: high (yes = .3, no = .5), low (yes = .8, no = .2)</span></span>
+<span id="cb3-147"><a href="#cb3-147" tabindex="-1"></a>outcome_bin_pos_high <span class="ot">&lt;-</span> <span class="fu">sample</span>(</span>
+<span id="cb3-148"><a href="#cb3-148" tabindex="-1"></a>  <span class="fu">c</span>(<span class="st">&#39;yes&#39;</span>,<span class="st">&#39;no&#39;</span>), <span class="dv">12</span>, <span class="at">replace =</span> <span class="cn">TRUE</span>, <span class="at">prob =</span> <span class="fu">c</span>(.<span class="dv">3</span>, .<span class="dv">7</span>)</span>
+<span id="cb3-149"><a href="#cb3-149" tabindex="-1"></a>)</span>
+<span id="cb3-150"><a href="#cb3-150" tabindex="-1"></a>outcome_bin_pos_low <span class="ot">&lt;-</span> <span class="fu">sample</span>(</span>
+<span id="cb3-151"><a href="#cb3-151" tabindex="-1"></a>  <span class="fu">c</span>(<span class="st">&#39;yes&#39;</span>,<span class="st">&#39;no&#39;</span>), <span class="dv">18</span>, <span class="at">replace =</span> <span class="cn">TRUE</span>, <span class="at">prob =</span> <span class="fu">c</span>(.<span class="dv">8</span>, .<span class="dv">2</span>)</span>
+<span id="cb3-152"><a href="#cb3-152" tabindex="-1"></a>)</span>
+<span id="cb3-153"><a href="#cb3-153" tabindex="-1"></a>outcome_bin_pos_grol <span class="ot">&lt;-</span> <span class="fu">append</span>(outcome_bin_pos_high, outcome_bin_pos_low) <span class="sc">%&gt;%</span></span>
+<span id="cb3-154"><a href="#cb3-154" tabindex="-1"></a>  <span class="fu">factor</span>()</span>
+<span id="cb3-155"><a href="#cb3-155" tabindex="-1"></a></span>
+<span id="cb3-156"><a href="#cb3-156" tabindex="-1"></a></span>
+<span id="cb3-157"><a href="#cb3-157" tabindex="-1"></a><span class="co"># simulate example negative outcome data with n of 30 -----------------------</span></span>
+<span id="cb3-158"><a href="#cb3-158" tabindex="-1"></a></span>
+<span id="cb3-159"><a href="#cb3-159" tabindex="-1"></a><span class="co"># simulated numerical outcome: continuous (mean = 10, SD = 3)</span></span>
+<span id="cb3-160"><a href="#cb3-160" tabindex="-1"></a>outcome_num_neg <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="at">n =</span> <span class="dv">30</span>, <span class="at">mean =</span> <span class="dv">10</span>, <span class="at">sd =</span> <span class="dv">3</span>)</span>
+<span id="cb3-161"><a href="#cb3-161" tabindex="-1"></a></span>
+<span id="cb3-162"><a href="#cb3-162" tabindex="-1"></a><span class="co"># simulated Likert outcome: 7-point Likert scale (mean = 4, SD = 2)</span></span>
+<span id="cb3-163"><a href="#cb3-163" tabindex="-1"></a>outcome_ord_neg <span class="ot">&lt;-</span> <span class="fu">ordinal_sim</span>(</span>
+<span id="cb3-164"><a href="#cb3-164" tabindex="-1"></a>  <span class="at">n =</span> <span class="dv">30</span>, <span class="at">mean =</span> <span class="dv">4</span>, <span class="at">sd =</span> <span class="dv">2</span>, <span class="at">lim_low =</span> <span class="dv">1</span>, <span class="at">lim_up =</span> <span class="dv">7</span></span>
+<span id="cb3-165"><a href="#cb3-165" tabindex="-1"></a>)</span>
+<span id="cb3-166"><a href="#cb3-166" tabindex="-1"></a></span>
+<span id="cb3-167"><a href="#cb3-167" tabindex="-1"></a><span class="co"># simulated binary outcome: categorical (yes, no)</span></span>
+<span id="cb3-168"><a href="#cb3-168" tabindex="-1"></a>outcome_bin_neg <span class="ot">&lt;-</span> <span class="fu">factor</span>(</span>
+<span id="cb3-169"><a href="#cb3-169" tabindex="-1"></a>  <span class="fu">sample</span>(<span class="fu">c</span>(<span class="st">&#39;yes&#39;</span>,<span class="st">&#39;no&#39;</span>), <span class="dv">30</span>, <span class="at">replace =</span> <span class="cn">TRUE</span>, <span class="at">prob =</span> <span class="fu">c</span>(<span class="fl">0.67</span>, <span class="fl">0.33</span>))</span>
+<span id="cb3-170"><a href="#cb3-170" tabindex="-1"></a>)</span>
+<span id="cb3-171"><a href="#cb3-171" tabindex="-1"></a></span>
+<span id="cb3-172"><a href="#cb3-172" tabindex="-1"></a></span>
+<span id="cb3-173"><a href="#cb3-173" tabindex="-1"></a><span class="co"># create example data frame -----------------------------------------------</span></span>
+<span id="cb3-174"><a href="#cb3-174" tabindex="-1"></a></span>
+<span id="cb3-175"><a href="#cb3-175" tabindex="-1"></a><span class="co"># combine into dataframe</span></span>
+<span id="cb3-176"><a href="#cb3-176" tabindex="-1"></a>sim_data <span class="ot">&lt;-</span> <span class="fu">tibble</span>(</span>
+<span id="cb3-177"><a href="#cb3-177" tabindex="-1"></a>  bio_sex, gen_id, gen_role, <span class="co">#outcome_bin_pos, </span></span>
+<span id="cb3-178"><a href="#cb3-178" tabindex="-1"></a>  outcome_num_neg, outcome_ord_neg, outcome_bin_neg</span>
+<span id="cb3-179"><a href="#cb3-179" tabindex="-1"></a>  ) <span class="sc">%&gt;%</span> <span class="fu">arrange</span>(., bio_sex) <span class="sc">%&gt;%</span> </span>
+<span id="cb3-180"><a href="#cb3-180" tabindex="-1"></a>  <span class="fu">cbind</span>(., outcome_num_pos_sex) <span class="sc">%&gt;%</span></span>
+<span id="cb3-181"><a href="#cb3-181" tabindex="-1"></a>  <span class="fu">cbind</span>(., outcome_ord_pos_sex) <span class="sc">%&gt;%</span></span>
+<span id="cb3-182"><a href="#cb3-182" tabindex="-1"></a>  <span class="fu">cbind</span>(., outcome_bin_pos_sex) <span class="sc">%&gt;%</span></span>
+<span id="cb3-183"><a href="#cb3-183" tabindex="-1"></a>  <span class="fu">arrange</span>(., gen_id) <span class="sc">%&gt;%</span> </span>
+<span id="cb3-184"><a href="#cb3-184" tabindex="-1"></a>  <span class="fu">cbind</span>(., outcome_num_pos_gid) <span class="sc">%&gt;%</span> </span>
+<span id="cb3-185"><a href="#cb3-185" tabindex="-1"></a>  <span class="fu">cbind</span>(., outcome_ord_pos_gid) <span class="sc">%&gt;%</span></span>
+<span id="cb3-186"><a href="#cb3-186" tabindex="-1"></a>  <span class="fu">cbind</span>(., outcome_bin_pos_gid) <span class="sc">%&gt;%</span></span>
+<span id="cb3-187"><a href="#cb3-187" tabindex="-1"></a>  <span class="fu">arrange</span>(., gen_role) <span class="sc">%&gt;%</span> </span>
+<span id="cb3-188"><a href="#cb3-188" tabindex="-1"></a>  <span class="fu">cbind</span>(., outcome_num_pos_grol) <span class="sc">%&gt;%</span> </span>
+<span id="cb3-189"><a href="#cb3-189" tabindex="-1"></a>  <span class="fu">cbind</span>(., outcome_ord_pos_grol) <span class="sc">%&gt;%</span></span>
+<span id="cb3-190"><a href="#cb3-190" tabindex="-1"></a>  <span class="fu">cbind</span>(., outcome_bin_pos_grol)</span>
+<span id="cb3-191"><a href="#cb3-191" tabindex="-1"></a></span>
+<span id="cb3-192"><a href="#cb3-192" tabindex="-1"></a></span>
+<span id="cb3-193"><a href="#cb3-193" tabindex="-1"></a><span class="co"># save simulated df</span></span>
+<span id="cb3-194"><a href="#cb3-194" tabindex="-1"></a><span class="fu">write_csv</span>(sim_data, <span class="at">file =</span> <span class="st">&quot;sim-data.csv&quot;</span>)</span></code></pre></div>
+<div id="session-info-for-data-creation" class="section level3 hasAnchor" number="5.1.1">
+<h3 class="hasAnchor"><span class="header-section-number">5.1.1</span> Session Info for Data Creation<a href="#session-info-for-data-creation" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" tabindex="-1"></a>sessioninfo<span class="sc">::</span><span class="fu">session_info</span>(<span class="at">pkgs =</span> <span class="st">&quot;loaded&quot;</span>)</span></code></pre></div>
+<pre><code>## ─ Session info ───────────────────────────────────────────────────────────────
+##  setting  value
+##  version  R version 4.4.1 (2024-06-14)
+##  os       macOS Sonoma 14.6.1
+##  system   aarch64, darwin20
+##  ui       X11
+##  language (EN)
+##  collate  en_US.UTF-8
+##  ctype    en_US.UTF-8
+##  tz       America/Toronto
+##  date     2024-08-30
+##  pandoc   3.1.11 @ /Applications/RStudio.app/Contents/Resources/app/quarto/bin/tools/aarch64/ (via rmarkdown)
+## 
+## ─ Packages ───────────────────────────────────────────────────────────────────
+##  package     * version    date (UTC) lib source
+##  bit           4.0.5      2022-11-15 [1] CRAN (R 4.4.0)
+##  bit64         4.0.5      2020-08-30 [1] CRAN (R 4.4.0)
+##  bookdown      0.40       2024-07-02 [1] CRAN (R 4.4.0)
+##  bslib         0.7.0      2024-03-29 [1] CRAN (R 4.4.0)
+##  cachem        1.1.0      2024-05-16 [1] CRAN (R 4.4.0)
+##  cli           3.6.3      2024-06-21 [1] CRAN (R 4.4.0)
+##  colorspace    2.1-0      2023-01-23 [1] CRAN (R 4.4.0)
+##  crayon        1.5.3      2024-06-20 [1] CRAN (R 4.4.0)
+##  digest        0.6.36     2024-06-23 [1] CRAN (R 4.4.0)
+##  dplyr       * 1.1.4      2023-11-17 [1] CRAN (R 4.4.0)
+##  evaluate      0.24.0     2024-06-10 [1] CRAN (R 4.4.0)
+##  fansi         1.0.6      2023-12-08 [1] CRAN (R 4.4.0)
+##  fastmap       1.2.0      2024-05-15 [1] CRAN (R 4.4.0)
+##  forcats     * 1.0.0      2023-01-29 [1] CRAN (R 4.4.0)
+##  generics      0.1.3      2022-07-05 [1] CRAN (R 4.4.0)
+##  ggplot2     * 3.5.1      2024-04-23 [1] CRAN (R 4.4.0)
+##  glue          1.7.0      2024-01-09 [1] CRAN (R 4.4.0)
+##  gtable        0.3.5      2024-04-22 [1] CRAN (R 4.4.0)
+##  hms           1.1.3      2023-03-21 [1] CRAN (R 4.4.0)
+##  htmltools     0.5.8.1    2024-04-04 [1] CRAN (R 4.4.0)
+##  jquerylib     0.1.4      2021-04-26 [1] CRAN (R 4.4.0)
+##  jsonlite      1.8.8      2023-12-04 [1] CRAN (R 4.4.0)
+##  knitr         1.47       2024-05-29 [1] CRAN (R 4.4.0)
+##  lifecycle     1.0.4      2023-11-07 [1] CRAN (R 4.4.0)
+##  lubridate   * 1.9.3      2023-09-27 [1] CRAN (R 4.4.0)
+##  magrittr      2.0.3      2022-03-30 [1] CRAN (R 4.4.0)
+##  munsell       0.5.1      2024-04-01 [1] CRAN (R 4.4.0)
+##  pillar        1.9.0      2023-03-22 [1] CRAN (R 4.4.0)
+##  pkgconfig     2.0.3      2019-09-22 [1] CRAN (R 4.4.0)
+##  purrr       * 1.0.2      2023-08-10 [1] CRAN (R 4.4.0)
+##  R6            2.5.1      2021-08-19 [1] CRAN (R 4.4.0)
+##  readr       * 2.1.5      2024-01-10 [1] CRAN (R 4.4.0)
+##  rlang         1.1.4      2024-06-04 [1] CRAN (R 4.4.0)
+##  rmarkdown     2.27       2024-05-17 [1] CRAN (R 4.4.0)
+##  rstudioapi    0.16.0     2024-03-24 [1] CRAN (R 4.4.0)
+##  sass          0.4.9.9000 2024-06-05 [1] Github (rstudio/sass@9228fcf)
+##  scales        1.3.0      2023-11-28 [1] CRAN (R 4.4.0)
+##  sessioninfo   1.2.2      2021-12-06 [1] CRAN (R 4.4.0)
+##  stringi       1.8.4      2024-05-06 [1] CRAN (R 4.4.0)
+##  stringr     * 1.5.1      2023-11-14 [1] CRAN (R 4.4.0)
+##  tibble      * 3.2.1      2023-03-20 [1] CRAN (R 4.4.0)
+##  tidyr       * 1.3.1      2024-01-24 [1] CRAN (R 4.4.0)
+##  tidyselect    1.2.1      2024-03-11 [1] CRAN (R 4.4.0)
+##  tidyverse   * 2.0.0      2023-02-22 [1] CRAN (R 4.4.0)
+##  timechange    0.3.0      2024-01-18 [1] CRAN (R 4.4.0)
+##  tzdb          0.4.0      2023-05-12 [1] CRAN (R 4.4.0)
+##  utf8          1.2.4      2023-10-22 [1] CRAN (R 4.4.0)
+##  vctrs         0.6.5      2023-12-01 [1] CRAN (R 4.4.0)
+##  vroom         1.6.5      2023-12-05 [1] CRAN (R 4.4.0)
+##  withr         3.0.0      2024-01-16 [1] CRAN (R 4.4.0)
+##  xfun          0.45       2024-06-16 [1] CRAN (R 4.4.0)
+##  yaml          2.3.8      2023-12-11 [1] CRAN (R 4.4.0)
+## 
+##  [1] /Library/Frameworks/R.framework/Versions/4.4-arm64/Resources/library
+## 
+## ──────────────────────────────────────────────────────────────────────────────</code></pre>
+<!--chapter:end:99-appendix.Rmd-->
+</div>
+</div>
+</div>
+<!--bookdown:body:end-->
+            </section>
+
+          </div>
+        </div>
+      </div>
+<!--bookdown:link_prev-->
+<!--bookdown:link_next-->
+    </div>
+  </div>
+<!--bookdown:config-->
+
+</body>
+
+</html>

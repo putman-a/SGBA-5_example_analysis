@@ -1,4 +1,4 @@
-# Appendix {-}
+# Appendix {#appendix}
 
 ## Simulated Data Creation
 
@@ -231,14 +231,14 @@ sessioninfo::session_info(pkgs = "loaded")
 ## ─ Session info ───────────────────────────────────────────────────────────────
 ##  setting  value
 ##  version  R version 4.4.1 (2024-06-14)
-##  os       macOS Sonoma 14.5
+##  os       macOS Sonoma 14.6.1
 ##  system   aarch64, darwin20
 ##  ui       X11
 ##  language (EN)
 ##  collate  en_US.UTF-8
 ##  ctype    en_US.UTF-8
 ##  tz       America/Toronto
-##  date     2024-08-09
+##  date     2024-08-30
 ##  pandoc   3.1.11 @ /Applications/RStudio.app/Contents/Resources/app/quarto/bin/tools/aarch64/ (via rmarkdown)
 ## 
 ## ─ Packages ───────────────────────────────────────────────────────────────────
@@ -252,13 +252,11 @@ sessioninfo::session_info(pkgs = "loaded")
 ##  colorspace    2.1-0      2023-01-23 [1] CRAN (R 4.4.0)
 ##  crayon        1.5.3      2024-06-20 [1] CRAN (R 4.4.0)
 ##  digest        0.6.36     2024-06-23 [1] CRAN (R 4.4.0)
-##  downlit       0.4.4      2024-06-10 [1] CRAN (R 4.4.0)
 ##  dplyr       * 1.1.4      2023-11-17 [1] CRAN (R 4.4.0)
 ##  evaluate      0.24.0     2024-06-10 [1] CRAN (R 4.4.0)
 ##  fansi         1.0.6      2023-12-08 [1] CRAN (R 4.4.0)
 ##  fastmap       1.2.0      2024-05-15 [1] CRAN (R 4.4.0)
 ##  forcats     * 1.0.0      2023-01-29 [1] CRAN (R 4.4.0)
-##  fs            1.6.4      2024-04-25 [1] CRAN (R 4.4.0)
 ##  generics      0.1.3      2022-07-05 [1] CRAN (R 4.4.0)
 ##  ggplot2     * 3.5.1      2024-04-23 [1] CRAN (R 4.4.0)
 ##  glue          1.7.0      2024-01-09 [1] CRAN (R 4.4.0)
@@ -271,7 +269,6 @@ sessioninfo::session_info(pkgs = "loaded")
 ##  lifecycle     1.0.4      2023-11-07 [1] CRAN (R 4.4.0)
 ##  lubridate   * 1.9.3      2023-09-27 [1] CRAN (R 4.4.0)
 ##  magrittr      2.0.3      2022-03-30 [1] CRAN (R 4.4.0)
-##  memoise       2.0.1      2021-11-26 [1] CRAN (R 4.4.0)
 ##  munsell       0.5.1      2024-04-01 [1] CRAN (R 4.4.0)
 ##  pillar        1.9.0      2023-03-22 [1] CRAN (R 4.4.0)
 ##  pkgconfig     2.0.3      2019-09-22 [1] CRAN (R 4.4.0)
@@ -297,7 +294,6 @@ sessioninfo::session_info(pkgs = "loaded")
 ##  vroom         1.6.5      2023-12-05 [1] CRAN (R 4.4.0)
 ##  withr         3.0.0      2024-01-16 [1] CRAN (R 4.4.0)
 ##  xfun          0.45       2024-06-16 [1] CRAN (R 4.4.0)
-##  xml2          1.3.6      2023-12-04 [1] CRAN (R 4.4.0)
 ##  yaml          2.3.8      2023-12-11 [1] CRAN (R 4.4.0)
 ## 
 ##  [1] /Library/Frameworks/R.framework/Versions/4.4-arm64/Resources/library

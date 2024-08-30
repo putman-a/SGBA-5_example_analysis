@@ -1,4 +1,4 @@
-tab:01-data
+tab:01-example-table
 fig:02-univar-sex-plot
 fig:02-univar-gi-plot
 tab:02-tab
@@ -14,10 +14,14 @@ collected-sgba-5-responses
 simulated-data
 descriptive-analysis
 visualize-distribution-of-sgba-5-responses
+biological-sex-item
+gendered-aspect-of-health-items
+descriptive-table-of-sgba-5-responses
 continuous
 biological-sex
 density-plot
 summary-statistics
 statistical-test
+appendix
 simulated-data-creation
 session-info-for-data-creation
