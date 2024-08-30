@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 3 Descriptive Analysis | Example Analyses: Using the SGBA-5 with Simulated Data</title>
+  <meta name="description" content="The example analyses presented in this document are a demonstration of how sex-and gender-based analysis (SGBA) can be conducted using results from the Sex- and Gender-Based Analysis Tool – 5 item (SGBA-5) by Putman and Dogra.<br />
+</p>" />
+  <meta name="generator" content="bookdown 0.40 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 3 Descriptive Analysis | Example Analyses: Using the SGBA-5 with Simulated Data" />
+  <meta property="og:type" content="book" />
+  
+  <meta property="og:description" content="The example analyses presented in this document are a demonstration of how sex-and gender-based analysis (SGBA) can be conducted using results from the Sex- and Gender-Based Analysis Tool – 5 item (SGBA-5) by Putman and Dogra.<br />
+</p>" />
+  <meta name="github-repo" content="putman-a/SGBA-5_example_analysis" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 3 Descriptive Analysis | Example Analyses: Using the SGBA-5 with Simulated Data" />
+  
+  <meta name="twitter:description" content="The example analyses presented in this document are a demonstration of how sex-and gender-based analysis (SGBA) can be conducted using results from the Sex- and Gender-Based Analysis Tool – 5 item (SGBA-5) by Putman and Dogra.<br />
+</p>" />
+  
+
+<meta name="author" content="A Putman" />
+<meta name="author" content="S Dogra" />
+
+
+<meta name="date" content="2024-08-30" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="data-structure.html"/>
+<link rel="next" href="continuous.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Example Analyses: Using the SGBA-5 with Simulated Data</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> About</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#further-resources"><i class="fa fa-check"></i><b>1.1</b> Further Resources</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="data-structure.html"><a href="data-structure.html"><i class="fa fa-check"></i><b>2</b> Data Structure</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="data-structure.html"><a href="data-structure.html#collected-sgba-5-responses"><i class="fa fa-check"></i><b>2.1</b> Collected SGBA-5 Responses</a></li>
+<li class="chapter" data-level="2.2" data-path="data-structure.html"><a href="data-structure.html#simulated-data"><i class="fa fa-check"></i><b>2.2</b> Simulated Data</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="descriptive-analysis.html"><a href="descriptive-analysis.html"><i class="fa fa-check"></i><b>3</b> Descriptive Analysis</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="descriptive-analysis.html"><a href="descriptive-analysis.html#visualize-distribution-of-sgba-5-responses"><i class="fa fa-check"></i><b>3.1</b> Visualize Distribution of SGBA-5 Responses</a>
+<ul>
+<li class="chapter" data-level="3.1.1" data-path="descriptive-analysis.html"><a href="descriptive-analysis.html#biological-sex-item"><i class="fa fa-check"></i><b>3.1.1</b> Biological Sex Item</a></li>
+<li class="chapter" data-level="3.1.2" data-path="descriptive-analysis.html"><a href="descriptive-analysis.html#gendered-aspect-of-health-items"><i class="fa fa-check"></i><b>3.1.2</b> Gendered Aspect of Health Items</a></li>
+</ul></li>
+<li class="chapter" data-level="3.2" data-path="descriptive-analysis.html"><a href="descriptive-analysis.html#descriptive-table-of-sgba-5-responses"><i class="fa fa-check"></i><b>3.2</b> Descriptive Table of SGBA-5 Responses</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="continuous.html"><a href="continuous.html"><i class="fa fa-check"></i><b>4</b> SGBA of a Continuous Variable</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="continuous.html"><a href="continuous.html#biological-sex"><i class="fa fa-check"></i><b>4.1</b> Biological Sex</a>
+<ul>
+<li class="chapter" data-level="4.1.1" data-path="continuous.html"><a href="continuous.html#density-plot"><i class="fa fa-check"></i><b>4.1.1</b> Density Plot</a></li>
+<li class="chapter" data-level="4.1.2" data-path="continuous.html"><a href="continuous.html#summary-statistics"><i class="fa fa-check"></i><b>4.1.2</b> Summary Statistics</a></li>
+<li class="chapter" data-level="4.1.3" data-path="continuous.html"><a href="continuous.html#statistical-test"><i class="fa fa-check"></i><b>4.1.3</b> Statistical Test</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="appendix.html"><a href="appendix.html"><i class="fa fa-check"></i><b>5</b> Appendix</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="appendix.html"><a href="appendix.html#simulated-data-creation"><i class="fa fa-check"></i><b>5.1</b> Simulated Data Creation</a>
+<ul>
+<li class="chapter" data-level="5.1.1" data-path="appendix.html"><a href="appendix.html#session-info-for-data-creation"><i class="fa fa-check"></i><b>5.1.1</b> Session Info for Data Creation</a></li>
+</ul></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Example Analyses: Using the SGBA-5 with Simulated Data</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="descriptive-analysis" class="section level1 hasAnchor" number="3">
+<h1><span class="header-section-number">Chapter 3</span> Descriptive Analysis<a href="descriptive-analysis.html#descriptive-analysis" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<blockquote>
+<p><em>Note: for conciseness, the following examples will only show results for two of the four gendered aspects of health items from the SGBA-5 (gender identity, and gender roles)</em></p>
+</blockquote>
+<div id="visualize-distribution-of-sgba-5-responses" class="section level2 hasAnchor" number="3.1">
+<h2><span class="header-section-number">3.1</span> Visualize Distribution of SGBA-5 Responses<a href="descriptive-analysis.html#visualize-distribution-of-sgba-5-responses" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="biological-sex-item" class="section level3 hasAnchor" number="3.1.1">
+<h3><span class="header-section-number">3.1.1</span> Biological Sex Item<a href="descriptive-analysis.html#biological-sex-item" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>In plot <a href="descriptive-analysis.html#fig:02-univar-sex-plot">3.1</a> we see that there are more participants who report their <strong>biological sex</strong> as assigned as female at birth (n=18) than males (n=12).</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:02-univar-sex-plot"></span>
+<img src="02-descriptive-analysis_files/figure-html/02-univar-sex-plot-1.png" alt="Barplot of Biological Sex Responses" width="50%" />
+<p class="caption">
+Figure 3.1: Barplot of Biological Sex Responses
+</p>
+</div>
+</div>
+<div id="gendered-aspect-of-health-items" class="section level3 hasAnchor" number="3.1.2">
+<h3><span class="header-section-number">3.1.2</span> Gendered Aspect of Health Items<a href="descriptive-analysis.html#gendered-aspect-of-health-items" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Looking at the density plots for <strong>gender identity</strong> and <strong>gender role</strong> (figure <a href="descriptive-analysis.html#fig:02-univar-gi-plot">3.2</a>), we see that while both variables are bimodal, the <strong>gender identity</strong> responses is more strongly bimodal with one peak closer to the feminine side of the feminine-masculine continuum and one peak closer to masculine end of that continuum. Further, we can also see that in general, participants reported their <strong>gender identity</strong> and <strong>roles</strong> as being more feminine, again with the <strong>gender identity</strong> responses showing this trend more strongly than the <strong>gender role</strong> responses.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:02-univar-gi-plot"></span>
+<img src="02-descriptive-analysis_files/figure-html/02-univar-gi-plot-1.png" alt="Density plots of Gender Identity and Roles" width="50%" /><img src="02-descriptive-analysis_files/figure-html/02-univar-gi-plot-2.png" alt="Density plots of Gender Identity and Roles" width="50%" />
+<p class="caption">
+Figure 3.2: Density plots of Gender Identity and Roles
+</p>
+</div>
+<p>Presently, there is <em><span style="color:red">no clear consensus on how to present descriptive statistics of bimodal variables in health research.</span></em> Reporting the mean(sd) or median(IQR) of a variable does not clearly communicate that there is more than one peak in a bimodal variable’s distribution.</p>
+<p>When taken alongside the SGBA-5’s assumption that the feminine-masculine continuum doesn’t have a true 0 value, it is our suggestion that:</p>
+<blockquote>
+<p><em>If researchers decide to report a descriptive statistic for a bimodally distributed variable, they should report a nominal description of the variable’s distriubtion <strong>skew</strong>.</em></p>
+</blockquote>
+<p>For example, if a gendered aspect of health item from the SGBA-5 demonstrates a bimodal distribution, the variable’s <strong>skew</strong> can be described along the feminine-masculine continuum instead of reporting the numerical average alone.</p>
+<p>To be able to describe the <strong>skew</strong> of one of the gender variables, the authors suggest calculating the variable’s mean score along the feminine-masculine continuum and then reporting the skew using the suggested nominal classification guide seen in Table <a href="descriptive-analysis.html#tab:02-tab">3.1</a>.</p>
+<p><em>Please note that these suggested classification guidelines are arbitrary and may not be appropriate in all circumstances.</em></p>
+<table>
+<caption><span id="tab:02-tab">Table 3.1: </span>Potential Interpretation of Sample Means for Gendered Aspect of Health Items.</caption>
+<thead>
+<tr class="header">
+<th align="left">Mean</th>
+<th align="left">Interpretation</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">&gt;70</td>
+<td align="left">“Skews masculine”</td>
+</tr>
+<tr class="even">
+<td align="left">55 to 70</td>
+<td align="left">“More masculine than feminine”</td>
+</tr>
+<tr class="odd">
+<td align="left">45 to 55</td>
+<td align="left">“Not strongly skewed”</td>
+</tr>
+<tr class="even">
+<td align="left">30 to 45</td>
+<td align="left">“More feminine than masculine”</td>
+</tr>
+<tr class="odd">
+<td align="left">&lt;30</td>
+<td align="left">“Skews feminine”</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Note:</strong>
+This table assumes you have recorded the gendered aspects of health items as 0 being the most feminine score and 100 being the most masculine score.</p>
+<p>For the simulated dataset represented in the density plots above, the mean score for the <strong>gender identity</strong> item was 50.2 and 46.8 for the <strong>gender role</strong> item. This means that when reporting descriptive statistics on the simulated sample we could report that: <span style="color:purple">“<em>The simulated sample was not strongly skewed on a feminine to masculine continuum for either the gender identity or gender role measures from the SGBA-5</em>”</span>.</p>
+</div>
+</div>
+<div id="descriptive-table-of-sgba-5-responses" class="section level2 hasAnchor" number="3.2">
+<h2><span class="header-section-number">3.2</span> Descriptive Table of SGBA-5 Responses<a href="descriptive-analysis.html#descriptive-table-of-sgba-5-responses" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Taking all these together, an example of a sample characteristics table of the SGBA-5 items in the simulated dataset could be presented as has been displayed in Table <a href="descriptive-analysis.html#tab:02-tab02">3.2</a></p>
+<table>
+<caption><span id="tab:02-tab02">Table 3.2: </span>Simulated sample characteristics.</caption>
+<thead>
+<tr class="header">
+<th align="left">SGBA Item</th>
+<th align="left">Sample (n = 30)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">Biological Sex (n(%))</td>
+<td align="left"></td>
+</tr>
+<tr class="even">
+<td align="left"><i>Female</i></td>
+<td align="left">14(47%)</td>
+</tr>
+<tr class="odd">
+<td align="left"><i>Intersex</i></td>
+<td align="left">NA</td>
+</tr>
+<tr class="even">
+<td align="left"><i>Male</i></td>
+<td align="left">16(53%)</td>
+</tr>
+<tr class="odd">
+<td align="left">Gendered Aspect of Health (skew)</td>
+<td align="left"></td>
+</tr>
+<tr class="even">
+<td align="left"><i>Gender Identity</i></td>
+<td align="left">Not strongly skewed</td>
+</tr>
+<tr class="odd">
+<td align="left"><i>Gendered Roles</i></td>
+<td align="left">Not strongly skewed</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="data-structure.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="continuous.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": false,
+"twitter": false,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": null,
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "none",
+"scroll_highlight": true
+},
+"toolbar": {
+"position": "static"
+}
+});
+});
+</script>
+
+</body>
+
+</html>
