@@ -120,7 +120,6 @@ knitr::kable(neg_cont_sex_sum, booktabs = TRUE, caption = "No interation example
 
 ### Statistical Test
 
-**No interaction: Welch's t-test**
 ``` {r, echo=FALSE}
 con_sex_ttest_neg <- t.test(outcome_num_neg ~ bio_sex, data = sim_data)
 con_sex_ttest_pos <- t.test(outcome_num_pos_sex ~ bio_sex, data = sim_data)
