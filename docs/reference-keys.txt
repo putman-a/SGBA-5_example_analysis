@@ -26,3 +26,12 @@ appendix
 simulated-data-creation
 session-info-for-data-creation
 density-plots
+tab:04-tab-ttest
+template-interpretation-reporting
+fig:04-gi-scat-int
+interpretation-reporting-template
+gendered-aspects-of-health-gender-identity
+scatter-plots
+fig:04-gi-scatter
+fig:04-gi-2ddens
+d-density-plots

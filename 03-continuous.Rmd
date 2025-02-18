@@ -43,17 +43,15 @@ plot_dens_2D <- function(data, x, y){
 
 > *Note 2: for each of the following sections, an example outcome variable that demonstrates a relationship between that variable and the SGBA-5 item being assessed - the interaction example - and an example that does not demonstrate a relationship between itself and the SGBA-5 item - the no interaction example - are shown.*
 
-
 ## Biological Sex
 
-A good idea is to start by visualizing the continuous variable’s distribution disaggregated by sex like the density plot in Figure \@ref(fig:04-binary-pos-plot). Then calculate disaggregated summary statistics for the continuous variable disaggregated by sex (Tables \@ref(tab:03-tab-int) and  \@ref(tab:03-tab-no-int)), and conduct a statistical test of difference in means (Welch’s t-test for this example).
-
+A good idea is to start by visualizing the continuous variable’s distribution disaggregated by sex like the density plot in Figure \@ref(fig:04-binary-pos-plot). Then calculate disaggregated summary statistics for the continuous variable disaggregated by sex (Tables \@ref(tab:03-tab-int) and \@ref(tab:03-tab-no-int)), and conduct a statistical test of difference in means (Welch’s t-test for this example).
 
 ### Density Plots
 
 ```{r 04-binary-pos-plot, fig.cap="Density Plot of Continuous Variable by Biological Sex Examples", fig.width=3.5, fig.height=3.5, fig.align='center',fig.show='hold', out.width = '50%', echo=FALSE}
 
-# biological sex bar plot
+# biological sex bar plot - interaction
 ggplot(sim_data, aes(x = outcome_num_pos_sex, fill = bio_sex)) + 
   geom_density(alpha = 0.7) +
   scale_fill_manual(values = c('forestgreen', 'skyblue')) +
@@ -66,7 +64,7 @@ ggplot(sim_data, aes(x = outcome_num_pos_sex, fill = bio_sex)) +
   theme_classic() +
   theme(legend.position = 'bottom')
 
-# biological sex bar plot
+# biological sex bar plot - no interaction
 ggplot(sim_data, aes(x = outcome_num_neg, fill = bio_sex)) + 
   geom_density(alpha = 0.7) +
   scale_fill_manual(values = c('forestgreen', 'skyblue')) +
@@ -82,10 +80,9 @@ ggplot(sim_data, aes(x = outcome_num_neg, fill = bio_sex)) +
 
 **Interpretation:** From the above density plots (Figure \@ref(fig:04-binary-pos-plot)) we can see a distinct overlap in the **no interaction example** with suggests that in that example's sample does not have a meaningful difference in the continuous outcome by sex. Conversely, the **interaction example** density plot has two distinct peaks which suggests that its sample's continuous outcome scores are associated with a participant's sex.
 
-
 ### Summary Statistics
 
-``` {r 03-tab-int, echo=FALSE}
+```{r 03-tab-int, echo=FALSE}
 # summary stats
 pos_cont_sex_sum <- sim_data %>% group_by(bio_sex) %>% 
   summarise(
@@ -100,7 +97,7 @@ pos_cont_sex_sum <- sim_data %>% group_by(bio_sex) %>%
 knitr::kable(pos_cont_sex_sum, booktabs = TRUE, caption = "Interation example summary statisitics: Continuous outcome and biological sex")
 ```
 
-``` {r 03-tab-no-int, echo=FALSE}
+```{r 03-tab-no-int, echo=FALSE}
 # summary stats
 neg_cont_sex_sum <- sim_data %>% group_by(bio_sex) %>% 
   summarise(
@@ -117,10 +114,13 @@ knitr::kable(neg_cont_sex_sum, booktabs = TRUE, caption = "No interation example
 
 **Interpretation:** As with the density plots, we see that the standard deviations of the continuous variable for both males and females overlap in the **no interaction example** (Table \@ref(tab:03-tab-int)) - indicating a lack of significant difference by sex. The standard deviations of the continuous variable for both males and females do not overlap in the **interaction example** (Table \@ref(tab:03-tab-no-int)) - indicating a potential association between that continuous outcome variable and sex.
 
-
 ### Statistical Test
 
-``` {r, echo=FALSE}
+Next we will test the null hypothesis that biological sex does not have an impact on the continuous outcome variable being evaluated. Both the interaction example and no interaction example will be tested using a Welch's t-test at an alpha of .05.
+
+> *Note: Using a Welch's t-test to test for statistically significant difference in these examples is a way, but by no means the only way in which this could be tested.*
+
+```{r 04-tab-ttest, echo=FALSE}
 con_sex_ttest_neg <- t.test(outcome_num_neg ~ bio_sex, data = sim_data)
 con_sex_ttest_pos <- t.test(outcome_num_pos_sex ~ bio_sex, data = sim_data)
 
@@ -161,3 +161,94 @@ con_sex_tab <- tibble(
 knitr::kable(con_sex_tab, booktabs = TRUE, caption = "Statistical test of difference: Continuous outcome and biological sex.")
 ```
 
+**Interpretation:** Similarly to the descriptive table and density plots, we see that the **no interaction example** (Table \@ref(tab:04-tab-ttest)) does not show a significant difference by sex (T=-1.80, 95%CI=(-3.85,0.26), df=23.4, p-value\>0.08). The **interaction example** (Table \@ref(tab:04-tab-ttest)) shows a potential association between that continuous outcome variable and sex (T=-8.73, 95%CI=(-9.82,-6.02), df=23.4, p-value\<0.001), meriting further research into this potential interaction. This means that when reporting whether there was an association found between a continuous outcome and biological sex in the no interaction sample we can report that: [*"The no interaction sample did not show evidence that biological sex was associated with the continuous outcome in this study"*]{style="color:purple"}. Whereas the interaction sample, which did find a potential association, could report: [*"The interaction sample found statistically significant evidence that biological sex was associated with the continuous outcome in this study"*]{style="color:purple"}.
+
+### Interpretation Reporting Template
+
+Below are example templates for reporting whether an outcome variable is associated with biological sex as categorized by the SGBA-5. Replace the words in the square brackets to complete.
+
+> **If an association was found:**\
+> In this study's sample we found that a person's self-reported biological sex at birth had a statistically significant association with [continuous variable name]. More detailed investigation of this relationship is required to directly interpret the potential effects this interaction.
+
+> **If an association was not found:**\
+> In this study's sample we found that a person's self-reported biological sex at birth did not show a statistically significant association with [continuous variable name].
+
+## Gendered Aspects of Health: Gender Identity
+
+In this example we will analyze the gendered aspects of health results from the SGBA-5 with a continuous variable of interest. First we will generate scatter (Fig A3 Plot A) and 2D-density plots (Fig A3 Plot B) of the continuous variable by the feminine-masculine continuum used in the SGBA-5, then we shall calculate a Pearson correlation coefficient between each gendered aspect of health item and the continuous variable.
+
+### Scatter Plots
+
+```{r 04-gi-scatter, fig.cap="Scatter Plot of Continuous Variable by Gender Identity", fig.width=3.5, fig.height=3.5, fig.align='center',fig.show='hold', out.width = '50%', echo=FALSE}
+# scatter plot - interaction
+ggplot(data = sim_data, aes(x = gen_id, y = outcome_num_pos_gid)) +
+  coord_cartesian(ylim = c(0, 20)) + # ensures that the same y-axis length is used for both plots
+  geom_jitter(size = 3, colour = "forestgreen") +
+  labs(
+    title = 'Interaction Example',
+    subtitle = 'Scatter plot of continuous outcome \nand gender identity (n=30)'
+    ) +
+  ylab("Continuous Outcome") + xlab("Feminine - Masculine Continuum") +
+  gender_plot_theme
+
+# scatter plot - no interaction
+ggplot(data = sim_data, aes(x = gen_id, y = outcome_num_neg)) +
+  coord_cartesian(ylim = c(0, 20)) + # ensures that the same y-axis length is used for both plots
+  geom_jitter(size = 3, colour = "forestgreen") +
+  labs(
+    title = 'No Interaction Example',
+    subtitle = 'Scatter plot of continuous outcome \nand gender identity (n=30)'
+    ) +
+  ylab("Continuous Outcome") + xlab("Feminine - Masculine Continuum") +
+  gender_plot_theme
+```
+
+### 2-D Density Plots
+
+```{r 04-gi-2ddens, fig.cap="2D Density Plots of Continuous Variable by Gender Identity", fig.width=3.5, fig.height=3.5, fig.align='center',fig.show='hold', out.width = '50%', echo=FALSE}
+# 2d density plot - interaction
+ggplot(data = sim_data, aes(x = gen_id, y = outcome_num_pos_gid)) + 
+  geom_density_2d_filled(
+    aes(fill = after_stat(level)), bins = 9, contour_var = 'ndensity'
+    ) +
+  scale_fill_brewer(
+    palette = 16, direction = 1, 
+    labels = c('Low', '', '', '','','','','', 'High')
+    ) +
+  guides(fill = guide_legend(
+    title = 'Density of Occurences', 
+    direction = 'horizontal', nrow = 1, 
+    label.position = 'bottom')
+    ) +
+  labs(
+    title = 'Interaction Example',
+    subtitle = '2-D Density plot of continuous outcome \nand gender identity (n=30)'
+    ) +
+  ylab("Continuous Outcome") + xlab("Feminine - Masculine Continuum") +
+  gender_plot_theme +
+  geom_blank(aes(y = 20)) + # extends y axis to ensure plots are comparable
+  geom_blank(aes(y = 0))
+
+# 2d density plot - no interaction
+ggplot(data = sim_data, aes(x = gen_id, y = outcome_num_neg)) + 
+  geom_density_2d_filled(
+    aes(fill = after_stat(level)), bins = 9, contour_var = 'ndensity'
+    ) +
+  scale_fill_brewer(
+    palette = 16, direction = 1, 
+    labels = c('Low', '', '', '','','','','', 'High')
+    ) +
+  guides(fill = guide_legend(
+    title = 'Density of Occurences', 
+    direction = 'horizontal', nrow = 1, 
+    label.position = 'bottom')
+    ) +
+  labs(
+    title = 'No Interaction Example',
+    subtitle = '2-D Density plot of continuous outcome \nand gender identity (n=30)'
+    ) +
+  ylab("Continuous Outcome") + xlab("Feminine - Masculine Continuum") +
+  gender_plot_theme +
+  geom_blank(aes(y = 20)) + # extends y axis to ensure plots are comparable
+  geom_blank(aes(y = 0))
+```

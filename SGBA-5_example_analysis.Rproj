@@ -1,4 +1,5 @@
 Version: 1.0
+ProjectId: 3cfab71e-2019-480b-adbc-136ba6d15545
 
 RestoreWorkspace: No
 SaveWorkspace: No
@@ -11,3 +12,5 @@ Encoding: UTF-8
 
 RnwWeave: Sweave
 LaTeX: pdfLaTeX
+
+BuildType: Website

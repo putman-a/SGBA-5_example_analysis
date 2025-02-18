@@ -105,6 +105,12 @@
 <li class="chapter" data-level="4.1.1" data-path="continuous.html"><a href="continuous.html#density-plots"><i class="fa fa-check"></i><b>4.1.1</b> Density Plots</a></li>
 <li class="chapter" data-level="4.1.2" data-path="continuous.html"><a href="continuous.html#summary-statistics"><i class="fa fa-check"></i><b>4.1.2</b> Summary Statistics</a></li>
 <li class="chapter" data-level="4.1.3" data-path="continuous.html"><a href="continuous.html#statistical-test"><i class="fa fa-check"></i><b>4.1.3</b> Statistical Test</a></li>
+<li class="chapter" data-level="4.1.4" data-path="continuous.html"><a href="continuous.html#interpretation-reporting-template"><i class="fa fa-check"></i><b>4.1.4</b> Interpretation Reporting Template</a></li>
+</ul></li>
+<li class="chapter" data-level="4.2" data-path="continuous.html"><a href="continuous.html#gendered-aspects-of-health-gender-identity"><i class="fa fa-check"></i><b>4.2</b> Gendered Aspects of Health: Gender Identity</a>
+<ul>
+<li class="chapter" data-level="4.2.1" data-path="continuous.html"><a href="continuous.html#scatter-plots"><i class="fa fa-check"></i><b>4.2.1</b> Scatter Plots</a></li>
+<li class="chapter" data-level="4.2.2" data-path="continuous.html"><a href="continuous.html#d-density-plots"><i class="fa fa-check"></i><b>4.2.2</b> 2-D Density Plots</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="5" data-path="appendix.html"><a href="appendix.html"><i class="fa fa-check"></i><b>5</b> Appendix</a>
@@ -239,9 +245,12 @@ Figure 4.1: Density Plot of Continuous Variable by Biological Sex Examples
 </div>
 <div id="statistical-test" class="section level3 hasAnchor" number="4.1.3">
 <h3><span class="header-section-number">4.1.3</span> Statistical Test<a href="continuous.html#statistical-test" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p><strong>No interaction: Welch’s t-test</strong></p>
+<p>Next we will test the null hypothesis that biological sex does not have an impact on the continuous outcome variable being evaluated. Both the interaction example and no interaction example will be tested using a Welch’s t-test at an alpha of .05.</p>
+<blockquote>
+<p><em>Note: Using a Welch’s t-test to test for statistically significant difference in these examples is a way, but by no means the only way in which this could be tested.</em></p>
+</blockquote>
 <table>
-<caption><span id="tab:unnamed-chunk-1">Table 4.3: </span>Statistical test of difference: Continuous outcome and biological sex.</caption>
+<caption><span id="tab:04-tab-ttest">Table 4.3: </span>Statistical test of difference: Continuous outcome and biological sex.</caption>
 <colgroup>
 <col width="22%" />
 <col width="22%" />
@@ -279,6 +288,41 @@ Figure 4.1: Density Plot of Continuous Variable by Biological Sex Examples
 </tr>
 </tbody>
 </table>
+<p><strong>Interpretation:</strong> Similarly to the descriptive table and density plots, we see that the <strong>no interaction example</strong> (Table <a href="continuous.html#tab:04-tab-ttest">4.3</a>) does not show a significant difference by sex (T=-1.80, 95%CI=(-3.85,0.26), df=23.4, p-value&gt;0.08). The <strong>interaction example</strong> (Table <a href="continuous.html#tab:04-tab-ttest">4.3</a>) shows a potential association between that continuous outcome variable and sex (T=-8.73, 95%CI=(-9.82,-6.02), df=23.4, p-value&lt;0.001), meriting further research into this potential interaction. This means that when reporting whether there was an association found between a continuous outcome and biological sex in the no interaction sample we can report that: <span style="color:purple"><em>“The no interaction sample did not show evidence that biological sex was associated with the continuous outcome in this study”</em></span>. Whereas the interaction sample, which did find a potential association, could report: <span style="color:purple"><em>“The interaction sample found statistically significant evidence that biological sex was associated with the continuous outcome in this study”</em></span>.</p>
+</div>
+<div id="interpretation-reporting-template" class="section level3 hasAnchor" number="4.1.4">
+<h3><span class="header-section-number">4.1.4</span> Interpretation Reporting Template<a href="continuous.html#interpretation-reporting-template" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Below are example templates for reporting whether an outcome variable is associated with biological sex as categorized by the SGBA-5. Replace the words in the square brackets to complete.</p>
+<blockquote>
+<p><strong>If an association was found:</strong><br />
+In this study’s sample we found that a person’s self-reported biological sex at birth had a statistically significant association with [continuous variable name]. More detailed investigation of this relationship is required to directly interpret the potential effects this interaction.</p>
+</blockquote>
+<blockquote>
+<p><strong>If an association was not found:</strong><br />
+In this study’s sample we found that a person’s self-reported biological sex at birth did not show a statistically significant association with [continuous variable name].</p>
+</blockquote>
+</div>
+</div>
+<div id="gendered-aspects-of-health-gender-identity" class="section level2 hasAnchor" number="4.2">
+<h2><span class="header-section-number">4.2</span> Gendered Aspects of Health: Gender Identity<a href="continuous.html#gendered-aspects-of-health-gender-identity" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>In this example we will analyze the gendered aspects of health results from the SGBA-5 with a continuous variable of interest. First we will generate scatter (Fig A3 Plot A) and 2D-density plots (Fig A3 Plot B) of the continuous variable by the feminine-masculine continuum used in the SGBA-5, then we shall calculate a Pearson correlation coefficient between each gendered aspect of health item and the continuous variable.</p>
+<div id="scatter-plots" class="section level3 hasAnchor" number="4.2.1">
+<h3><span class="header-section-number">4.2.1</span> Scatter Plots<a href="continuous.html#scatter-plots" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:04-gi-scatter"></span>
+<img src="03-continuous_files/figure-html/04-gi-scatter-1.png" alt="Scatter Plot of Continuous Variable by Gender Identity" width="50%" /><img src="03-continuous_files/figure-html/04-gi-scatter-2.png" alt="Scatter Plot of Continuous Variable by Gender Identity" width="50%" />
+<p class="caption">
+Figure 4.2: Scatter Plot of Continuous Variable by Gender Identity
+</p>
+</div>
+</div>
+<div id="d-density-plots" class="section level3 hasAnchor" number="4.2.2">
+<h3><span class="header-section-number">4.2.2</span> 2-D Density Plots<a href="continuous.html#d-density-plots" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:04-gi-2ddens"></span>
+<img src="03-continuous_files/figure-html/04-gi-2ddens-1.png" alt="2D Density Plots of Continuous Variable by Gender Identity" width="50%" /><img src="03-continuous_files/figure-html/04-gi-2ddens-2.png" alt="2D Density Plots of Continuous Variable by Gender Identity" width="50%" />
+<p class="caption">
+Figure 4.3: 2D Density Plots of Continuous Variable by Gender Identity
+</p>
+</div>
 
 </div>
 </div>
