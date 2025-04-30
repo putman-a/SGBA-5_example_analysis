@@ -51,7 +51,7 @@ Table: (\#tab:02-tab)Potential Interpretation of Sample Means for Gendered Aspec
 __Note:__
 This table assumes you have recorded the gendered aspects of health items as 0 being the most feminine score and 100 being the most masculine score.
 
-For the simulated dataset represented in the density plots above, the mean score for the **gender identity** item was 50.2 and 46.8 for the **gender role** item. This means that when reporting descriptive statistics on the simulated sample we could report that: <span style="color:purple">“*The simulated sample was not strongly skewed on a feminine to masculine continuum for either the gender identity or gender role measures from the SGBA-5*”</span>. 
+For the simulated dataset represented in the density plots above, the mean score for the **gender identity** item was 50.2 and 46.8 for the **gender role** item. This means that when reporting descriptive statistics on the simulated sample we could report that: <span style="color:purple">*"The simulated sample was not strongly skewed on a feminine to masculine continuum for either the gender identity or gender role measures from the SGBA-5"*</span>. 
 
 ## Descriptive Table of SGBA-5 Responses
 

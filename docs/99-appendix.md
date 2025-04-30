@@ -11,13 +11,13 @@ library(tidyverse)
 ```
 
 ```
-## ── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
+## ── Attaching core tidyverse packages ──────────────────────────────────────────── tidyverse 2.0.0 ──
 ## ✔ dplyr     1.1.4     ✔ readr     2.1.5
 ## ✔ forcats   1.0.0     ✔ stringr   1.5.1
 ## ✔ ggplot2   3.5.1     ✔ tibble    3.2.1
 ## ✔ lubridate 1.9.3     ✔ tidyr     1.3.1
 ## ✔ purrr     1.0.2     
-## ── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
+## ── Conflicts ────────────────────────────────────────────────────────────── tidyverse_conflicts() ──
 ## ✖ dplyr::filter() masks stats::filter()
 ## ✖ dplyr::lag()    masks stats::lag()
 ## ℹ Use the conflicted package (<http://conflicted.r-lib.org/>) to force all conflicts to become errors
@@ -228,44 +228,44 @@ sessioninfo::session_info(pkgs = "loaded")
 ```
 
 ```
-## ─ Session info ───────────────────────────────────────────────────────────────
+## ─ Session info ───────────────────────────────────────────────────────────────────────────────────
 ##  setting  value
-##  version  R version 4.4.1 (2024-06-14)
-##  os       macOS Sonoma 14.6.1
+##  version  R version 4.4.2 (2024-10-31)
+##  os       macOS Sequoia 15.4.1
 ##  system   aarch64, darwin20
 ##  ui       X11
 ##  language (EN)
 ##  collate  en_US.UTF-8
 ##  ctype    en_US.UTF-8
 ##  tz       America/Toronto
-##  date     2024-08-30
-##  pandoc   3.1.11 @ /Applications/RStudio.app/Contents/Resources/app/quarto/bin/tools/aarch64/ (via rmarkdown)
+##  date     2025-04-30
+##  pandoc   3.2 @ /Applications/RStudio.app/Contents/Resources/app/quarto/bin/tools/aarch64/ (via rmarkdown)
 ## 
-## ─ Packages ───────────────────────────────────────────────────────────────────
+## ─ Packages ───────────────────────────────────────────────────────────────────────────────────────
 ##  package     * version    date (UTC) lib source
-##  bit           4.0.5      2022-11-15 [1] CRAN (R 4.4.0)
-##  bit64         4.0.5      2020-08-30 [1] CRAN (R 4.4.0)
-##  bookdown      0.40       2024-07-02 [1] CRAN (R 4.4.0)
-##  bslib         0.7.0      2024-03-29 [1] CRAN (R 4.4.0)
+##  bit           4.5.0      2024-09-20 [1] CRAN (R 4.4.1)
+##  bit64         4.5.2      2024-09-22 [1] CRAN (R 4.4.1)
+##  bookdown      0.41       2024-10-16 [1] CRAN (R 4.4.1)
+##  bslib         0.8.0      2024-07-29 [1] CRAN (R 4.4.0)
 ##  cachem        1.1.0      2024-05-16 [1] CRAN (R 4.4.0)
 ##  cli           3.6.3      2024-06-21 [1] CRAN (R 4.4.0)
-##  colorspace    2.1-0      2023-01-23 [1] CRAN (R 4.4.0)
+##  colorspace    2.1-1      2024-07-26 [1] CRAN (R 4.4.0)
 ##  crayon        1.5.3      2024-06-20 [1] CRAN (R 4.4.0)
-##  digest        0.6.36     2024-06-23 [1] CRAN (R 4.4.0)
+##  digest        0.6.37     2024-08-19 [1] CRAN (R 4.4.1)
 ##  dplyr       * 1.1.4      2023-11-17 [1] CRAN (R 4.4.0)
-##  evaluate      0.24.0     2024-06-10 [1] CRAN (R 4.4.0)
+##  evaluate      1.0.1      2024-10-10 [1] CRAN (R 4.4.1)
 ##  fansi         1.0.6      2023-12-08 [1] CRAN (R 4.4.0)
 ##  fastmap       1.2.0      2024-05-15 [1] CRAN (R 4.4.0)
 ##  forcats     * 1.0.0      2023-01-29 [1] CRAN (R 4.4.0)
 ##  generics      0.1.3      2022-07-05 [1] CRAN (R 4.4.0)
 ##  ggplot2     * 3.5.1      2024-04-23 [1] CRAN (R 4.4.0)
-##  glue          1.7.0      2024-01-09 [1] CRAN (R 4.4.0)
-##  gtable        0.3.5      2024-04-22 [1] CRAN (R 4.4.0)
+##  glue          1.8.0      2024-09-30 [1] CRAN (R 4.4.1)
+##  gtable        0.3.6      2024-10-25 [1] CRAN (R 4.4.1)
 ##  hms           1.1.3      2023-03-21 [1] CRAN (R 4.4.0)
 ##  htmltools     0.5.8.1    2024-04-04 [1] CRAN (R 4.4.0)
 ##  jquerylib     0.1.4      2021-04-26 [1] CRAN (R 4.4.0)
-##  jsonlite      1.8.8      2023-12-04 [1] CRAN (R 4.4.0)
-##  knitr         1.47       2024-05-29 [1] CRAN (R 4.4.0)
+##  jsonlite      1.8.9      2024-09-20 [1] CRAN (R 4.4.1)
+##  knitr         1.49       2024-11-08 [1] CRAN (R 4.4.1)
 ##  lifecycle     1.0.4      2023-11-07 [1] CRAN (R 4.4.0)
 ##  lubridate   * 1.9.3      2023-09-27 [1] CRAN (R 4.4.0)
 ##  magrittr      2.0.3      2022-03-30 [1] CRAN (R 4.4.0)
@@ -276,8 +276,8 @@ sessioninfo::session_info(pkgs = "loaded")
 ##  R6            2.5.1      2021-08-19 [1] CRAN (R 4.4.0)
 ##  readr       * 2.1.5      2024-01-10 [1] CRAN (R 4.4.0)
 ##  rlang         1.1.4      2024-06-04 [1] CRAN (R 4.4.0)
-##  rmarkdown     2.27       2024-05-17 [1] CRAN (R 4.4.0)
-##  rstudioapi    0.16.0     2024-03-24 [1] CRAN (R 4.4.0)
+##  rmarkdown     2.29       2024-11-04 [1] CRAN (R 4.4.1)
+##  rstudioapi    0.17.1     2024-10-22 [1] CRAN (R 4.4.1)
 ##  sass          0.4.9.9000 2024-06-05 [1] Github (rstudio/sass@9228fcf)
 ##  scales        1.3.0      2023-11-28 [1] CRAN (R 4.4.0)
 ##  sessioninfo   1.2.2      2021-12-06 [1] CRAN (R 4.4.0)
@@ -292,11 +292,11 @@ sessioninfo::session_info(pkgs = "loaded")
 ##  utf8          1.2.4      2023-10-22 [1] CRAN (R 4.4.0)
 ##  vctrs         0.6.5      2023-12-01 [1] CRAN (R 4.4.0)
 ##  vroom         1.6.5      2023-12-05 [1] CRAN (R 4.4.0)
-##  withr         3.0.0      2024-01-16 [1] CRAN (R 4.4.0)
-##  xfun          0.45       2024-06-16 [1] CRAN (R 4.4.0)
-##  yaml          2.3.8      2023-12-11 [1] CRAN (R 4.4.0)
+##  withr         3.0.2      2024-10-28 [1] CRAN (R 4.4.1)
+##  xfun          0.49       2024-10-31 [1] CRAN (R 4.4.1)
+##  yaml          2.3.10     2024-07-26 [1] CRAN (R 4.4.0)
 ## 
 ##  [1] /Library/Frameworks/R.framework/Versions/4.4-arm64/Resources/library
 ## 
-## ──────────────────────────────────────────────────────────────────────────────
+## ──────────────────────────────────────────────────────────────────────────────────────────────────
 ```
