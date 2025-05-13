@@ -238,8 +238,8 @@ sessioninfo::session_info(pkgs = "loaded")
 ##  collate  en_US.UTF-8
 ##  ctype    en_US.UTF-8
 ##  tz       America/Toronto
-##  date     2025-04-30
-##  pandoc   3.2 @ /Applications/RStudio.app/Contents/Resources/app/quarto/bin/tools/aarch64/ (via rmarkdown)
+##  date     2025-05-13
+##  pandoc   3.4 @ /Applications/RStudio.app/Contents/Resources/app/quarto/bin/tools/aarch64/ (via rmarkdown)
 ## 
 ## ─ Packages ───────────────────────────────────────────────────────────────────────────────────────
 ##  package     * version    date (UTC) lib source
