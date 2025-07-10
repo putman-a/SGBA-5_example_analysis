@@ -2,10 +2,8 @@
 
 ```{r setup-02-descriptive, include=FALSE}
 # load libraries and simulated data ---------------------------------------
-
 library(tidyverse)
 library(ggpubr)
-library(extrafont)  # for exporting plots with Times New Roman Font
 
 # set seed for reproducibility
 set.seed(42)
@@ -13,19 +11,7 @@ set.seed(42)
 # load data set (from RDS if using previous script to simulate the data)
 sim_data <- read_csv(file = "sim-data.csv")
 
-# store plot theme preset -------------------------------------------------
-
-# store axis options for gender variable plots
-gender_plot_theme <-   
-  theme_classic() +
-  theme(
-#    text = element_text(family = 'serif'),
-    legend.position = 'none',
-    axis.ticks.x = element_blank(),
-    axis.text.x = element_blank()
-  )
-
-# default density plots and scale
+# default density plots and scale function ----------------------------------
 plot_dens_2D <- function(data, x, y){
   plot <- ggplot(data = data, aes(x = x, y = y)) + 
     geom_density_2d_filled(aes(fill = after_stat(level)),
@@ -39,6 +25,8 @@ plot_dens_2D <- function(data, x, y){
 }
 
 ```
+
+> See Appendix section \@ref(sec:rcode-ch3) for the R code used in this chapter.
 
 > *Note: for conciseness, the following examples will only show results for two of the four gendered aspects of health items from the SGBA-5 (gender identity, and gender roles)*
 
@@ -56,8 +44,7 @@ ggplot(sim_data, aes(x = bio_sex)) +
   geom_bar(aes(fill = bio_sex), show.legend = F) + 
   labs(title = 'Barplot of Simulated Biological Sex') +
   ylab('Count') + xlab('Biological Sex') +
-  theme_classic() #+
-  #theme(text = element_text(family = 'serif'))
+  theme_classic()
 ```
 
 ### Gendered Aspect of Health Items
@@ -70,13 +57,23 @@ ggplot(sim_data, aes(x = gen_id)) +
   geom_density(alpha=.5, fill = 'forestgreen', colour = 'black') +
   labs(title = 'Density plot of Simulated\nGender Identity Responses') +
   ylab('Density') + xlab('Feminine - Masculine Continuum') +
-  gender_plot_theme
+  theme_classic() +
+  theme(
+    legend.position = 'none',
+    axis.ticks.x = element_blank(),
+    axis.text.x = element_blank()
+  )
 # gender role density plot
 ggplot(sim_data, aes(x = gen_role)) +
   geom_density(alpha=.5, fill = 'purple2', colour = 'black') +
   labs(title = 'Densityplot of Simulated\nGender Role Responses') +
   ylab('Density') + xlab('Feminine - Masculine Continuum') +
-  gender_plot_theme  
+  theme_classic() +
+  theme(
+    legend.position = 'none',
+    axis.ticks.x = element_blank(),
+    axis.text.x = element_blank()
+  )  
 ```
 
 Presently, there is _<span style="color:red">no clear consensus on how to present descriptive statistics of bimodal variables in health research.</span>_ Reporting the mean(sd) or median(IQR) of a variable does not clearly communicate that there is more than one peak in a bimodal variable’s distribution. 
@@ -117,3 +114,5 @@ sum_tab <- tibble(
 
 knitr::kable(sum_tab, booktabs = TRUE, caption = "Simulated sample characteristics.") 
 ```
+
+> See Appendix section \@ref(sec:rcode-ch3) for the R code used in this chapter.

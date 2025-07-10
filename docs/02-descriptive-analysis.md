@@ -2,6 +2,8 @@
 
 
 
+> See Appendix section \@ref(sec:rcode-ch3) for the R code used in this chapter.
+
 > *Note: for conciseness, the following examples will only show results for two of the four gendered aspects of health items from the SGBA-5 (gender identity, and gender roles)*
 
 
@@ -69,3 +71,5 @@ Table: (\#tab:02-tab02)Simulated sample characteristics.
 |Gendered Aspect of Health (skew) |                    |
 |<i>Gender Identity</i>           |Not strongly skewed |
 |<i>Gendered Roles</i>            |Not strongly skewed |
+
+> See Appendix section \@ref(sec:rcode-ch3) for the R code used in this chapter.

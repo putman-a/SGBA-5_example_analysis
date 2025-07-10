@@ -5,7 +5,7 @@ bookdown::gitbook:
       collapse: none
       scroll_highlight: true
       before: |
-        <li><a href="./">Example Analyses: Using the SGBA-5 with Simulated Data</a></li>
+        <li><a href="./">Example Analysis: Using the SGBA-5 with Simulated Data</a></li>
       after: |
         <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
     toolbar:

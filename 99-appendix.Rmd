@@ -1,6 +1,6 @@
 # Appendix {#appendix}
 
-## Simulated Data Creation
+## Simulated Data Creation {#sec:sim-data}
 
 Below is the code used to create the simulated data that will be used to create the example SGBA seen throughout the rest of this example analysis.
 
@@ -209,4 +209,498 @@ write_csv(sim_data, file = "sim-data.csv")
 
 ```{r session-info}
 sessioninfo::session_info(pkgs = "loaded")
+```
+
+## Ch. 3 Descriptive Analysis {#sec:rcode-ch3}
+
+### Ch. 3 Set Up 
+
+```{r eval=FALSE}
+# load libraries and simulated data ---------------------------------------
+library(tidyverse)
+library(ggpubr)
+
+# set seed for reproducibility
+set.seed(42)
+
+# load data set (from RDS if using previous script to simulate the data)
+sim_data <- read_csv(file = "sim-data.csv")
+
+# default density plots and scale function ----------------------------------
+plot_dens_2D <- function(data, x, y){
+  plot <- ggplot(data = data, aes(x = x, y = y)) + 
+    geom_density_2d_filled(aes(fill = after_stat(level)),
+                           bins = 9, contour_var = 'ndensity') +
+    scale_fill_brewer(palette = 16, direction = 1, 
+                      labels = c('Low', '', '', '','','','','', 'High')) +
+    guides(fill = guide_legend(title = 'Density of Occurences', 
+                               direction = 'horizontal', nrow = 1, 
+                               label.position = 'bottom'))
+  plot
+}
+```
+
+### Figure 3.1
+
+```{r eval=FALSE}
+# biological sex bar plot
+ggplot(sim_data, aes(x = bio_sex)) +
+  geom_bar(aes(fill = bio_sex), show.legend = F) + 
+  labs(title = 'Barplot of Simulated Biological Sex') +
+  ylab('Count') + xlab('Biological Sex') +
+  theme_classic()
+```
+
+### Figure 3.2
+
+```{r eval=FALSE}
+# gender identity density plot
+ggplot(sim_data, aes(x = gen_id)) +
+  geom_density(alpha=.5, fill = 'forestgreen', colour = 'black') +
+  labs(title = 'Density plot of Simulated\nGender Identity Responses') +
+  ylab('Density') + xlab('Feminine - Masculine Continuum') +
+  theme_classic() +
+  theme(
+    legend.position = 'none',
+    axis.ticks.x = element_blank(),
+    axis.text.x = element_blank()
+  )
+
+# gender role density plot
+ggplot(sim_data, aes(x = gen_role)) +
+  geom_density(alpha=.5, fill = 'purple2', colour = 'black') +
+  labs(title = 'Densityplot of Simulated\nGender Role Responses') +
+  ylab('Density') + xlab('Feminine - Masculine Continuum') +
+  theme_classic() +
+  theme(
+    legend.position = 'none',
+    axis.ticks.x = element_blank(),
+    axis.text.x = element_blank()
+  )
+```
+
+## Ch. 4 SGBA of a Continuous Variable {#sec:rcode-ch4}
+
+### Ch. 4 Set Up
+
+```{r eval=FALSE}
+# load libraries and simulated data ---------------------------------------
+library(tidyverse)
+library(ggpubr)
+
+# set seed for reproducibility
+set.seed(42)
+
+# load data set (from RDS if using previous script to simulate the data)
+sim_data <- read_csv(file = "sim-data.csv")
+
+# default density plots and scale function ----------------------------------
+plot_dens_2D <- function(data, x, y){
+  plot <- ggplot(data = data, aes(x = x, y = y)) + 
+    geom_density_2d_filled(aes(fill = after_stat(level)),
+                           bins = 9, contour_var = 'ndensity') +
+    scale_fill_brewer(palette = 16, direction = 1, 
+                      labels = c('Low', '', '', '','','','','', 'High')) +
+    guides(fill = guide_legend(title = 'Density of Occurences', 
+                               direction = 'horizontal', nrow = 1, 
+                               label.position = 'bottom'))
+  plot
+}
+```
+
+### Figure 4.1
+
+```{r eval=FALSE}
+# biological sex bar plot - interaction
+ggplot(sim_data, aes(x = outcome_num_pos_sex, fill = bio_sex)) + 
+  geom_density(alpha = 0.7) +
+  scale_fill_manual(values = c('forestgreen', 'skyblue')) +
+  labs(
+    title = 'Interaction example',
+    subtitle = 'Density plot of continuous \noutcome and biological sex (n=30)'
+    ) +
+  xlab('Continuous Outcome') + 
+  ylab('Response Density') +
+  theme_classic() +
+  theme(legend.position = 'bottom')
+
+# biological sex bar plot - no interaction
+ggplot(sim_data, aes(x = outcome_num_neg, fill = bio_sex)) + 
+  geom_density(alpha = 0.7) +
+  scale_fill_manual(values = c('forestgreen', 'skyblue')) +
+  labs(
+    title = 'No interaction example',
+    subtitle = 'Density plot of continuous \noutcome and biological sex (n=30)'
+    ) +
+  xlab('Continuous Outcome') + 
+  ylab('Response Density') +
+  theme_classic() +
+  theme(legend.position = 'bottom')
+```
+
+### Table 4.1
+
+```{r eval=FALSE}
+# summary stats
+pos_cont_sex_sum <- sim_data %>% group_by(bio_sex) %>% 
+  summarise(
+    n = n(), 
+    `mean continuous` = round(mean(outcome_num_pos_sex),1),
+    `SD continuous` = round(sd(outcome_num_pos_sex),2),
+    `median continuous` = round(median(outcome_num_pos_sex),0),
+    `IQR continuous` = round(IQR(outcome_num_pos_sex),)
+  ) %>% 
+  rename(`biological sex` = bio_sex) 
+
+knitr::kable(pos_cont_sex_sum, booktabs = TRUE, caption = "Interation example summary statisitics: Continuous outcome and biological sex")
+```
+
+### Table 4.2
+
+```{r eval=FALSE}
+neg_cont_sex_sum <- sim_data %>% group_by(bio_sex) %>% 
+  summarise(
+    n = n(), 
+    `mean continuous` = round(mean(outcome_num_neg),1),
+    `SD continuous` = round(sd(outcome_num_neg),2),
+    `median continuous` = round(median(outcome_num_neg),0),
+    `IQR continuous` = round(IQR(outcome_num_neg),)
+  ) %>% 
+  rename(`biological sex` = bio_sex) 
+
+knitr::kable(neg_cont_sex_sum, booktabs = TRUE, caption = "No interation example summary statisitics: Continuous outcome and biological sex")
+```
+
+### Table 4.3
+
+```{r eval=FALSE}
+# t-tests
+con_sex_ttest_neg <- t.test(outcome_num_neg ~ bio_sex, data = sim_data)
+con_sex_ttest_pos <- t.test(outcome_num_pos_sex ~ bio_sex, data = sim_data)
+
+# example of collected data
+con_sex_tab <- tibble(
+  "Example" = c("Interaction", "No interaction"),
+  "Test" = c("Welch's t-test", "Welch's t-test"),
+  "T-score" = c(
+    round(con_sex_ttest_pos$statistic,2),
+    round(con_sex_ttest_neg$statistic,2)
+  ),
+  "95% CI" = c(
+    paste0(
+      "(", 
+      round(con_sex_ttest_pos$conf.int[[1]],2), 
+      ", ",  
+      round(con_sex_ttest_pos$conf.int[[2]],2), 
+      ")", sep = ""
+    ),
+    paste0(
+      "(", 
+      round(con_sex_ttest_neg$conf.int[[1]],2),
+      ", ", 
+      round(con_sex_ttest_neg$conf.int[[2]],2), 
+      ")", sep = ""
+    )
+  ),
+  "df" = c(
+    round(con_sex_ttest_pos$parameter,1), 
+    round(con_sex_ttest_neg$parameter,1)
+  ),
+  "p-value" = c(
+    round(con_sex_ttest_pos$p.value, 3),
+    round(con_sex_ttest_neg$p.value,3)
+  )
+)
+
+knitr::kable(con_sex_tab, booktabs = TRUE, caption = "Statistical test of difference: Continuous outcome and biological sex.")
+```
+
+### Figure 4.2
+
+```{r eval=FALSE}
+# scatter plot - interaction
+ggplot(data = sim_data, aes(x = gen_id, y = outcome_num_pos_gid)) +
+  coord_cartesian(ylim = c(0, 20)) + # ensures that the same y-axis length is used for both plots
+  geom_jitter(size = 3, colour = "forestgreen") +
+  labs(
+    title = 'Interaction Example',
+    subtitle = 'Scatter plot of continuous outcome \nand gender identity (n=30)'
+    ) +
+  ylab("Continuous Outcome") + xlab("Feminine - Masculine Continuum") +
+  theme_classic() +
+  theme(
+    legend.position = 'none',
+    axis.ticks.x = element_blank(),
+    axis.text.x = element_blank()
+  )
+
+# scatter plot - no interaction
+ggplot(data = sim_data, aes(x = gen_id, y = outcome_num_neg)) +
+  coord_cartesian(ylim = c(0, 20)) + # ensures that the same y-axis length is used for both plots
+  geom_jitter(size = 3, colour = "forestgreen") +
+  labs(
+    title = 'No Interaction Example',
+    subtitle = 'Scatter plot of continuous outcome \nand gender identity (n=30)'
+    ) +
+  ylab("Continuous Outcome") + xlab("Feminine - Masculine Continuum") +
+  theme_classic() +
+  theme(
+    legend.position = 'none',
+    axis.ticks.x = element_blank(),
+    axis.text.x = element_blank()
+  )
+```
+
+### Figure 4.3
+
+```{r eval=FALSE}
+# 2d density plot - interaction
+ggplot(data = sim_data, aes(x = gen_id, y = outcome_num_pos_gid)) + 
+  geom_density_2d_filled(
+    aes(fill = after_stat(level)), bins = 9, contour_var = 'ndensity'
+    ) +
+  scale_fill_brewer(
+    palette = 16, direction = 1, 
+    labels = c('Low', '', '', '','','','','', 'High')
+    ) +
+  guides(fill = guide_legend(
+    title = 'Density of Occurences', 
+    direction = 'horizontal', nrow = 1, 
+    label.position = 'bottom')
+    ) +
+  labs(
+    title = 'Interaction Example',
+    subtitle = '2-D Density plot of continuous outcome \nand gender identity (n=30)'
+    ) +
+  ylab("Continuous Outcome") + xlab("Feminine - Masculine Continuum") +
+  theme_classic() +
+  theme(
+    legend.position = 'none',
+    axis.ticks.x = element_blank(),
+    axis.text.x = element_blank()
+  ) +
+  geom_blank(aes(y = 20)) + # extends y axis to ensure plots are comparable
+  geom_blank(aes(y = 0))
+
+# 2d density plot - no interaction
+ggplot(data = sim_data, aes(x = gen_id, y = outcome_num_neg)) + 
+  geom_density_2d_filled(
+    aes(fill = after_stat(level)), bins = 9, contour_var = 'ndensity'
+    ) +
+  scale_fill_brewer(
+    palette = 16, direction = 1, 
+    labels = c('Low', '', '', '','','','','', 'High')
+    ) +
+  guides(fill = guide_legend(
+    title = 'Density of Occurences', 
+    direction = 'horizontal', nrow = 1, 
+    label.position = 'bottom')
+    ) +
+  labs(
+    title = 'No Interaction Example',
+    subtitle = '2-D Density plot of continuous outcome \nand gender identity (n=30)'
+    ) +
+  ylab("Continuous Outcome") + xlab("Feminine - Masculine Continuum") +
+  theme_classic() +
+  theme(
+    legend.position = 'none',
+    axis.ticks.x = element_blank(),
+    axis.text.x = element_blank()
+  ) +
+  geom_blank(aes(y = 20)) + # extends y axis to ensure plots are comparable
+  geom_blank(aes(y = 0))
+```
+
+### Table 4.5
+
+```{r eval=FALSE}
+# calculate correlations
+con_gi_r_neg <- cor.test(sim_data$outcome_num_neg, sim_data$gen_id)
+con_gi_r_pos <- cor.test(sim_data$outcome_num_pos_gid, sim_data$gen_id)
+
+# output table of results
+con_gi_tab <- tibble(
+  "Example" = c("Interaction", "No interaction"),
+  "Correlation Type" = c("Pearson's r", "Pearson's r"),
+  "r" = c(
+    round(con_gi_r_pos$estimate,2),
+    round(con_gi_r_neg$estimate,2)
+  ),
+  "95% CI" = c(
+    paste0(
+      "(",
+      round(con_gi_r_pos$conf.int[[1]],2),
+      ", ",
+      round(con_gi_r_pos$conf.int[[2]],2),
+      ")", sep = ""
+    ),
+    paste0(
+      "(",
+      round(con_gi_r_neg$conf.int[[1]],2),
+      ", ",
+      round(con_gi_r_neg$conf.int[[2]],2),
+      ")", sep = ""
+    )
+  ),
+  "df" = c(
+    round(con_gi_r_pos$parameter,1),
+    round(con_gi_r_neg$parameter,1)
+  ),
+  "Significance Test" = c("t-test", "t-test"),
+  "T-score" = c(
+    round(con_gi_r_pos$statistic,2),
+    round(con_gi_r_neg$statistic,2)
+  ),
+  "p-value" = c(
+    round(con_gi_r_pos$p.value, 3),
+    round(con_gi_r_neg$p.value,3)
+  )
+)
+
+knitr::kable(con_gi_tab, booktabs = TRUE, caption = "Statistical test of difference: Continuous outcome and Gender Idenity Item from the SGBA-5.")
+```
+
+### Figure 4.4
+
+```{r eval=FALSE}
+# scatter plot - interaction
+ggplot(data = sim_data, aes(x = gen_id, y = outcome_num_pos_gid)) +
+  coord_cartesian(ylim = c(0, 20)) + # ensures that the same y-axis length is used for both plots
+  geom_jitter(size = 3, colour = "forestgreen") +
+  labs(
+    title = 'Gender Identity',
+    subtitle = 'Scatter plot of continuous outcome \nand gender identity (n=30)'
+    ) +
+  ylab("Continuous Outcome") + xlab("Feminine - Masculine Continuum") +
+  theme_classic() +
+  theme(
+    legend.position = 'none',
+    axis.ticks.x = element_blank(),
+    axis.text.x = element_blank()
+  )
+
+# scatter plot - no interaction
+ggplot(data = sim_data, aes(x = gen_role, y = outcome_num_pos_gid)) +
+  coord_cartesian(ylim = c(0, 20)) + # ensures that the same y-axis length is used for both plots
+  geom_jitter(size = 3, colour = "forestgreen") +
+  labs(
+    title = 'Gendered Roles',
+    subtitle = 'Scatter plot of continuous outcome \nand gendered roles (n=30)'
+    ) +
+  ylab("Continuous Outcome") + xlab("Feminine - Masculine Continuum") +
+  theme_classic() +
+  theme(
+    legend.position = 'none',
+    axis.ticks.x = element_blank(),
+    axis.text.x = element_blank()
+  )
+```
+
+### Figure 4.5
+
+```{r eval=FALSE}
+# 2d density plot - interaction
+ggplot(data = sim_data, aes(x = gen_id, y = outcome_num_pos_gid)) + 
+  geom_density_2d_filled(
+    aes(fill = after_stat(level)), bins = 9, contour_var = 'ndensity'
+    ) +
+  scale_fill_brewer(
+    palette = 16, direction = 1, 
+    labels = c('Low', '', '', '','','','','', 'High')
+    ) +
+  guides(fill = guide_legend(
+    title = 'Density of Occurences', 
+    direction = 'horizontal', nrow = 1, 
+    label.position = 'bottom')
+    ) +
+  labs(
+    title = 'Gender Identity',
+    subtitle = '2-D Density plot of continuous outcome \nand gender identity (n=30)'
+    ) +
+  ylab("Continuous Outcome") + xlab("Feminine - Masculine Continuum") +
+  theme_classic() +
+  theme(
+    legend.position = 'none',
+    axis.ticks.x = element_blank(),
+    axis.text.x = element_blank()
+  ) +
+  geom_blank(aes(y = 20)) + # extends y axis to ensure plots are comparable
+  geom_blank(aes(y = 0))
+
+# 2d density plot - no interaction
+ggplot(data = sim_data, aes(x = gen_role, y = outcome_num_pos_gid)) + 
+  geom_density_2d_filled(
+    aes(fill = after_stat(level)), bins = 9, contour_var = 'ndensity'
+    ) +
+  scale_fill_brewer(
+    palette = 16, direction = 1, 
+    labels = c('Low', '', '', '','','','','', 'High')
+    ) +
+  guides(fill = guide_legend(
+    title = 'Density of Occurences', 
+    direction = 'horizontal', nrow = 1, 
+    label.position = 'bottom')
+    ) +
+  labs(
+    title = 'Gendered Roles',
+    subtitle = '2-D Density plot of continuous outcome \nand gendered roles (n=30)'
+    ) +
+  ylab("Continuous Outcome") + xlab("Feminine - Masculine Continuum") +
+  theme_classic() +
+  theme(
+    legend.position = 'none',
+    axis.ticks.x = element_blank(),
+    axis.text.x = element_blank()
+  ) +
+  geom_blank(aes(y = 20)) + # extends y axis to ensure plots are comparable
+  geom_blank(aes(y = 0))
+```
+
+### Table 4.6
+
+```{r eval=FALSE}
+# calculate correlations
+con_gi_r_pos <- cor.test(sim_data$outcome_num_pos_gid, sim_data$gen_id)
+con_gr_r_pos <- cor.test(sim_data$outcome_num_pos_gid, sim_data$gen_role)
+
+# output table of results
+con_2gah_tab <- tibble(
+  "Example" = c("Gender Identity", "Gendered Roles"),
+  "Correlation Type" = c("Pearson's r", "Pearson's r"),
+  "r" = c(
+    round(con_gi_r_pos$estimate,2),
+    round(con_gr_r_pos$estimate,2)
+  ),
+  "95% CI" = c(
+    paste0(
+      "(",
+      round(con_gi_r_pos$conf.int[[1]],2),
+      ", ",
+      round(con_gi_r_pos$conf.int[[2]],2),
+      ")", sep = ""
+    ),
+    paste0(
+      "(",
+      round(con_gr_r_pos$conf.int[[1]],2),
+      ", ",
+      round(con_gr_r_pos$conf.int[[2]],2),
+      ")", sep = ""
+    )
+  ),
+  "df" = c(
+    round(con_gi_r_pos$parameter,1),
+    round(con_gr_r_pos$parameter,1)
+  ),
+  "Significance Test" = c("t-test", "t-test"),
+  "T-score" = c(
+    round(con_gi_r_pos$statistic,2),
+    round(con_gr_r_pos$statistic,2)
+  ),
+  "p-value" = c(
+    round(con_gi_r_pos$p.value, 3),
+    round(con_gr_r_pos$p.value,3)
+  )
+)
+
+knitr::kable(con_2gah_tab, booktabs = TRUE, caption = "Statistical test of difference: Continuous outcome by Gender Idenity and Gendered Roles Items from the SGBA-5.")
 ```

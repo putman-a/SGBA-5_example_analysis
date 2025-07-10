@@ -1,6 +1,6 @@
 # Appendix {#appendix}
 
-## Simulated Data Creation
+## Simulated Data Creation {#sec:sim-data}
 
 Below is the code used to create the simulated data that will be used to create the example SGBA seen throughout the rest of this example analysis.
 
@@ -14,9 +14,9 @@ library(tidyverse)
 ## ── Attaching core tidyverse packages ──────────────────────────────────────────── tidyverse 2.0.0 ──
 ## ✔ dplyr     1.1.4     ✔ readr     2.1.5
 ## ✔ forcats   1.0.0     ✔ stringr   1.5.1
-## ✔ ggplot2   3.5.1     ✔ tibble    3.2.1
-## ✔ lubridate 1.9.3     ✔ tidyr     1.3.1
-## ✔ purrr     1.0.2     
+## ✔ ggplot2   3.5.2     ✔ tibble    3.2.1
+## ✔ lubridate 1.9.4     ✔ tidyr     1.3.1
+## ✔ purrr     1.0.4     
 ## ── Conflicts ────────────────────────────────────────────────────────────── tidyverse_conflicts() ──
 ## ✖ dplyr::filter() masks stats::filter()
 ## ✖ dplyr::lag()    masks stats::lag()
@@ -230,73 +230,581 @@ sessioninfo::session_info(pkgs = "loaded")
 ```
 ## ─ Session info ───────────────────────────────────────────────────────────────────────────────────
 ##  setting  value
-##  version  R version 4.4.2 (2024-10-31)
-##  os       macOS Sequoia 15.4.1
+##  version  R version 4.5.0 (2025-04-11)
+##  os       macOS Sequoia 15.5
 ##  system   aarch64, darwin20
 ##  ui       X11
 ##  language (EN)
 ##  collate  en_US.UTF-8
 ##  ctype    en_US.UTF-8
 ##  tz       America/Toronto
-##  date     2025-05-13
+##  date     2025-07-10
 ##  pandoc   3.4 @ /Applications/RStudio.app/Contents/Resources/app/quarto/bin/tools/aarch64/ (via rmarkdown)
+##  quarto   1.6.42 @ /Applications/RStudio.app/Contents/Resources/app/quarto/bin/quarto
 ## 
 ## ─ Packages ───────────────────────────────────────────────────────────────────────────────────────
-##  package     * version    date (UTC) lib source
-##  bit           4.5.0      2024-09-20 [1] CRAN (R 4.4.1)
-##  bit64         4.5.2      2024-09-22 [1] CRAN (R 4.4.1)
-##  bookdown      0.41       2024-10-16 [1] CRAN (R 4.4.1)
-##  bslib         0.8.0      2024-07-29 [1] CRAN (R 4.4.0)
-##  cachem        1.1.0      2024-05-16 [1] CRAN (R 4.4.0)
-##  cli           3.6.3      2024-06-21 [1] CRAN (R 4.4.0)
-##  colorspace    2.1-1      2024-07-26 [1] CRAN (R 4.4.0)
-##  crayon        1.5.3      2024-06-20 [1] CRAN (R 4.4.0)
-##  digest        0.6.37     2024-08-19 [1] CRAN (R 4.4.1)
-##  dplyr       * 1.1.4      2023-11-17 [1] CRAN (R 4.4.0)
-##  evaluate      1.0.1      2024-10-10 [1] CRAN (R 4.4.1)
-##  fansi         1.0.6      2023-12-08 [1] CRAN (R 4.4.0)
-##  fastmap       1.2.0      2024-05-15 [1] CRAN (R 4.4.0)
-##  forcats     * 1.0.0      2023-01-29 [1] CRAN (R 4.4.0)
-##  generics      0.1.3      2022-07-05 [1] CRAN (R 4.4.0)
-##  ggplot2     * 3.5.1      2024-04-23 [1] CRAN (R 4.4.0)
-##  glue          1.8.0      2024-09-30 [1] CRAN (R 4.4.1)
-##  gtable        0.3.6      2024-10-25 [1] CRAN (R 4.4.1)
-##  hms           1.1.3      2023-03-21 [1] CRAN (R 4.4.0)
-##  htmltools     0.5.8.1    2024-04-04 [1] CRAN (R 4.4.0)
-##  jquerylib     0.1.4      2021-04-26 [1] CRAN (R 4.4.0)
-##  jsonlite      1.8.9      2024-09-20 [1] CRAN (R 4.4.1)
-##  knitr         1.49       2024-11-08 [1] CRAN (R 4.4.1)
-##  lifecycle     1.0.4      2023-11-07 [1] CRAN (R 4.4.0)
-##  lubridate   * 1.9.3      2023-09-27 [1] CRAN (R 4.4.0)
-##  magrittr      2.0.3      2022-03-30 [1] CRAN (R 4.4.0)
-##  munsell       0.5.1      2024-04-01 [1] CRAN (R 4.4.0)
-##  pillar        1.9.0      2023-03-22 [1] CRAN (R 4.4.0)
-##  pkgconfig     2.0.3      2019-09-22 [1] CRAN (R 4.4.0)
-##  purrr       * 1.0.2      2023-08-10 [1] CRAN (R 4.4.0)
-##  R6            2.5.1      2021-08-19 [1] CRAN (R 4.4.0)
-##  readr       * 2.1.5      2024-01-10 [1] CRAN (R 4.4.0)
-##  rlang         1.1.4      2024-06-04 [1] CRAN (R 4.4.0)
-##  rmarkdown     2.29       2024-11-04 [1] CRAN (R 4.4.1)
-##  rstudioapi    0.17.1     2024-10-22 [1] CRAN (R 4.4.1)
-##  sass          0.4.9.9000 2024-06-05 [1] Github (rstudio/sass@9228fcf)
-##  scales        1.3.0      2023-11-28 [1] CRAN (R 4.4.0)
-##  sessioninfo   1.2.2      2021-12-06 [1] CRAN (R 4.4.0)
-##  stringi       1.8.4      2024-05-06 [1] CRAN (R 4.4.0)
-##  stringr     * 1.5.1      2023-11-14 [1] CRAN (R 4.4.0)
-##  tibble      * 3.2.1      2023-03-20 [1] CRAN (R 4.4.0)
-##  tidyr       * 1.3.1      2024-01-24 [1] CRAN (R 4.4.0)
-##  tidyselect    1.2.1      2024-03-11 [1] CRAN (R 4.4.0)
-##  tidyverse   * 2.0.0      2023-02-22 [1] CRAN (R 4.4.0)
-##  timechange    0.3.0      2024-01-18 [1] CRAN (R 4.4.0)
-##  tzdb          0.4.0      2023-05-12 [1] CRAN (R 4.4.0)
-##  utf8          1.2.4      2023-10-22 [1] CRAN (R 4.4.0)
-##  vctrs         0.6.5      2023-12-01 [1] CRAN (R 4.4.0)
-##  vroom         1.6.5      2023-12-05 [1] CRAN (R 4.4.0)
-##  withr         3.0.2      2024-10-28 [1] CRAN (R 4.4.1)
-##  xfun          0.49       2024-10-31 [1] CRAN (R 4.4.1)
-##  yaml          2.3.10     2024-07-26 [1] CRAN (R 4.4.0)
+##  package      * version date (UTC) lib source
+##  bit            4.6.0   2025-03-06 [1] CRAN (R 4.5.0)
+##  bit64          4.6.0-1 2025-01-16 [1] CRAN (R 4.5.0)
+##  bookdown       0.43    2025-04-15 [1] CRAN (R 4.5.0)
+##  bslib          0.9.0   2025-01-30 [1] CRAN (R 4.5.0)
+##  cachem         1.1.0   2024-05-16 [1] CRAN (R 4.5.0)
+##  cli            3.6.5   2025-04-23 [1] CRAN (R 4.5.0)
+##  crayon         1.5.3   2024-06-20 [1] CRAN (R 4.5.0)
+##  digest         0.6.37  2024-08-19 [1] CRAN (R 4.5.0)
+##  dplyr        * 1.1.4   2023-11-17 [1] CRAN (R 4.5.0)
+##  evaluate       1.0.3   2025-01-10 [1] CRAN (R 4.5.0)
+##  farver         2.1.2   2024-05-13 [1] CRAN (R 4.5.0)
+##  fastmap        1.2.0   2024-05-15 [1] CRAN (R 4.5.0)
+##  forcats      * 1.0.0   2023-01-29 [1] CRAN (R 4.5.0)
+##  generics       0.1.4   2025-05-09 [1] CRAN (R 4.5.0)
+##  ggplot2      * 3.5.2   2025-04-09 [1] CRAN (R 4.5.0)
+##  glue           1.8.0   2024-09-30 [1] CRAN (R 4.5.0)
+##  gtable         0.3.6   2024-10-25 [1] CRAN (R 4.5.0)
+##  hms            1.1.3   2023-03-21 [1] CRAN (R 4.5.0)
+##  htmltools      0.5.8.1 2024-04-04 [1] CRAN (R 4.5.0)
+##  jquerylib      0.1.4   2021-04-26 [1] CRAN (R 4.5.0)
+##  jsonlite       2.0.0   2025-03-27 [1] CRAN (R 4.5.0)
+##  knitr          1.50    2025-03-16 [1] CRAN (R 4.5.0)
+##  lifecycle      1.0.4   2023-11-07 [1] CRAN (R 4.5.0)
+##  lubridate    * 1.9.4   2024-12-08 [1] CRAN (R 4.5.0)
+##  magrittr       2.0.3   2022-03-30 [1] CRAN (R 4.5.0)
+##  pillar         1.10.2  2025-04-05 [1] CRAN (R 4.5.0)
+##  pkgconfig      2.0.3   2019-09-22 [1] CRAN (R 4.5.0)
+##  purrr        * 1.0.4   2025-02-05 [1] CRAN (R 4.5.0)
+##  R6             2.6.1   2025-02-15 [1] CRAN (R 4.5.0)
+##  RColorBrewer   1.1-3   2022-04-03 [1] CRAN (R 4.5.0)
+##  readr        * 2.1.5   2024-01-10 [1] CRAN (R 4.5.0)
+##  rlang          1.1.6   2025-04-11 [1] CRAN (R 4.5.0)
+##  rmarkdown      2.29    2024-11-04 [1] CRAN (R 4.5.0)
+##  rstudioapi     0.17.1  2024-10-22 [1] CRAN (R 4.5.0)
+##  sass           0.4.10  2025-04-11 [1] CRAN (R 4.5.0)
+##  scales         1.4.0   2025-04-24 [1] CRAN (R 4.5.0)
+##  sessioninfo    1.2.3   2025-02-05 [1] CRAN (R 4.5.0)
+##  stringi        1.8.7   2025-03-27 [1] CRAN (R 4.5.0)
+##  stringr      * 1.5.1   2023-11-14 [1] CRAN (R 4.5.0)
+##  tibble       * 3.2.1   2023-03-20 [1] CRAN (R 4.5.0)
+##  tidyr        * 1.3.1   2024-01-24 [1] CRAN (R 4.5.0)
+##  tidyselect     1.2.1   2024-03-11 [1] CRAN (R 4.5.0)
+##  tidyverse    * 2.0.0   2023-02-22 [1] CRAN (R 4.5.0)
+##  timechange     0.3.0   2024-01-18 [1] CRAN (R 4.5.0)
+##  tzdb           0.5.0   2025-03-15 [1] CRAN (R 4.5.0)
+##  vctrs          0.6.5   2023-12-01 [1] CRAN (R 4.5.0)
+##  vroom          1.6.5   2023-12-05 [1] CRAN (R 4.5.0)
+##  withr          3.0.2   2024-10-28 [1] CRAN (R 4.5.0)
+##  xfun           0.52    2025-04-02 [1] CRAN (R 4.5.0)
+##  yaml           2.3.10  2024-07-26 [1] CRAN (R 4.5.0)
 ## 
-##  [1] /Library/Frameworks/R.framework/Versions/4.4-arm64/Resources/library
+##  [1] /Library/Frameworks/R.framework/Versions/4.5-arm64/Resources/library
+##  * ── Packages attached to the search path.
 ## 
 ## ──────────────────────────────────────────────────────────────────────────────────────────────────
+```
+
+## Ch. 3 Descriptive Analysis {#sec:rcode-ch3}
+
+### Ch. 3 Set Up 
+
+
+``` r
+# load libraries and simulated data ---------------------------------------
+library(tidyverse)
+library(ggpubr)
+
+# set seed for reproducibility
+set.seed(42)
+
+# load data set (from RDS if using previous script to simulate the data)
+sim_data <- read_csv(file = "sim-data.csv")
+
+# default density plots and scale function ----------------------------------
+plot_dens_2D <- function(data, x, y){
+  plot <- ggplot(data = data, aes(x = x, y = y)) + 
+    geom_density_2d_filled(aes(fill = after_stat(level)),
+                           bins = 9, contour_var = 'ndensity') +
+    scale_fill_brewer(palette = 16, direction = 1, 
+                      labels = c('Low', '', '', '','','','','', 'High')) +
+    guides(fill = guide_legend(title = 'Density of Occurences', 
+                               direction = 'horizontal', nrow = 1, 
+                               label.position = 'bottom'))
+  plot
+}
+```
+
+### Figure 3.1
+
+
+``` r
+# biological sex bar plot
+ggplot(sim_data, aes(x = bio_sex)) +
+  geom_bar(aes(fill = bio_sex), show.legend = F) + 
+  labs(title = 'Barplot of Simulated Biological Sex') +
+  ylab('Count') + xlab('Biological Sex') +
+  theme_classic()
+```
+
+### Figure 3.2
+
+
+``` r
+# gender identity density plot
+ggplot(sim_data, aes(x = gen_id)) +
+  geom_density(alpha=.5, fill = 'forestgreen', colour = 'black') +
+  labs(title = 'Density plot of Simulated\nGender Identity Responses') +
+  ylab('Density') + xlab('Feminine - Masculine Continuum') +
+  theme_classic() +
+  theme(
+    legend.position = 'none',
+    axis.ticks.x = element_blank(),
+    axis.text.x = element_blank()
+  )
+
+# gender role density plot
+ggplot(sim_data, aes(x = gen_role)) +
+  geom_density(alpha=.5, fill = 'purple2', colour = 'black') +
+  labs(title = 'Densityplot of Simulated\nGender Role Responses') +
+  ylab('Density') + xlab('Feminine - Masculine Continuum') +
+  theme_classic() +
+  theme(
+    legend.position = 'none',
+    axis.ticks.x = element_blank(),
+    axis.text.x = element_blank()
+  )
+```
+
+## Ch. 4 SGBA of a Continuous Variable {#sec:rcode-ch4}
+
+### Ch. 4 Set Up
+
+
+``` r
+# load libraries and simulated data ---------------------------------------
+library(tidyverse)
+library(ggpubr)
+
+# set seed for reproducibility
+set.seed(42)
+
+# load data set (from RDS if using previous script to simulate the data)
+sim_data <- read_csv(file = "sim-data.csv")
+
+# default density plots and scale function ----------------------------------
+plot_dens_2D <- function(data, x, y){
+  plot <- ggplot(data = data, aes(x = x, y = y)) + 
+    geom_density_2d_filled(aes(fill = after_stat(level)),
+                           bins = 9, contour_var = 'ndensity') +
+    scale_fill_brewer(palette = 16, direction = 1, 
+                      labels = c('Low', '', '', '','','','','', 'High')) +
+    guides(fill = guide_legend(title = 'Density of Occurences', 
+                               direction = 'horizontal', nrow = 1, 
+                               label.position = 'bottom'))
+  plot
+}
+```
+
+### Figure 4.1
+
+
+``` r
+# biological sex bar plot - interaction
+ggplot(sim_data, aes(x = outcome_num_pos_sex, fill = bio_sex)) + 
+  geom_density(alpha = 0.7) +
+  scale_fill_manual(values = c('forestgreen', 'skyblue')) +
+  labs(
+    title = 'Interaction example',
+    subtitle = 'Density plot of continuous \noutcome and biological sex (n=30)'
+    ) +
+  xlab('Continuous Outcome') + 
+  ylab('Response Density') +
+  theme_classic() +
+  theme(legend.position = 'bottom')
+
+# biological sex bar plot - no interaction
+ggplot(sim_data, aes(x = outcome_num_neg, fill = bio_sex)) + 
+  geom_density(alpha = 0.7) +
+  scale_fill_manual(values = c('forestgreen', 'skyblue')) +
+  labs(
+    title = 'No interaction example',
+    subtitle = 'Density plot of continuous \noutcome and biological sex (n=30)'
+    ) +
+  xlab('Continuous Outcome') + 
+  ylab('Response Density') +
+  theme_classic() +
+  theme(legend.position = 'bottom')
+```
+
+### Table 4.1
+
+
+``` r
+# summary stats
+pos_cont_sex_sum <- sim_data %>% group_by(bio_sex) %>% 
+  summarise(
+    n = n(), 
+    `mean continuous` = round(mean(outcome_num_pos_sex),1),
+    `SD continuous` = round(sd(outcome_num_pos_sex),2),
+    `median continuous` = round(median(outcome_num_pos_sex),0),
+    `IQR continuous` = round(IQR(outcome_num_pos_sex),)
+  ) %>% 
+  rename(`biological sex` = bio_sex) 
+
+knitr::kable(pos_cont_sex_sum, booktabs = TRUE, caption = "Interation example summary statisitics: Continuous outcome and biological sex")
+```
+
+### Table 4.2
+
+
+``` r
+neg_cont_sex_sum <- sim_data %>% group_by(bio_sex) %>% 
+  summarise(
+    n = n(), 
+    `mean continuous` = round(mean(outcome_num_neg),1),
+    `SD continuous` = round(sd(outcome_num_neg),2),
+    `median continuous` = round(median(outcome_num_neg),0),
+    `IQR continuous` = round(IQR(outcome_num_neg),)
+  ) %>% 
+  rename(`biological sex` = bio_sex) 
+
+knitr::kable(neg_cont_sex_sum, booktabs = TRUE, caption = "No interation example summary statisitics: Continuous outcome and biological sex")
+```
+
+### Table 4.3
+
+
+``` r
+# t-tests
+con_sex_ttest_neg <- t.test(outcome_num_neg ~ bio_sex, data = sim_data)
+con_sex_ttest_pos <- t.test(outcome_num_pos_sex ~ bio_sex, data = sim_data)
+
+# example of collected data
+con_sex_tab <- tibble(
+  "Example" = c("Interaction", "No interaction"),
+  "Test" = c("Welch's t-test", "Welch's t-test"),
+  "T-score" = c(
+    round(con_sex_ttest_pos$statistic,2),
+    round(con_sex_ttest_neg$statistic,2)
+  ),
+  "95% CI" = c(
+    paste0(
+      "(", 
+      round(con_sex_ttest_pos$conf.int[[1]],2), 
+      ", ",  
+      round(con_sex_ttest_pos$conf.int[[2]],2), 
+      ")", sep = ""
+    ),
+    paste0(
+      "(", 
+      round(con_sex_ttest_neg$conf.int[[1]],2),
+      ", ", 
+      round(con_sex_ttest_neg$conf.int[[2]],2), 
+      ")", sep = ""
+    )
+  ),
+  "df" = c(
+    round(con_sex_ttest_pos$parameter,1), 
+    round(con_sex_ttest_neg$parameter,1)
+  ),
+  "p-value" = c(
+    round(con_sex_ttest_pos$p.value, 3),
+    round(con_sex_ttest_neg$p.value,3)
+  )
+)
+
+knitr::kable(con_sex_tab, booktabs = TRUE, caption = "Statistical test of difference: Continuous outcome and biological sex.")
+```
+
+### Figure 4.2
+
+
+``` r
+# scatter plot - interaction
+ggplot(data = sim_data, aes(x = gen_id, y = outcome_num_pos_gid)) +
+  coord_cartesian(ylim = c(0, 20)) + # ensures that the same y-axis length is used for both plots
+  geom_jitter(size = 3, colour = "forestgreen") +
+  labs(
+    title = 'Interaction Example',
+    subtitle = 'Scatter plot of continuous outcome \nand gender identity (n=30)'
+    ) +
+  ylab("Continuous Outcome") + xlab("Feminine - Masculine Continuum") +
+  theme_classic() +
+  theme(
+    legend.position = 'none',
+    axis.ticks.x = element_blank(),
+    axis.text.x = element_blank()
+  )
+
+# scatter plot - no interaction
+ggplot(data = sim_data, aes(x = gen_id, y = outcome_num_neg)) +
+  coord_cartesian(ylim = c(0, 20)) + # ensures that the same y-axis length is used for both plots
+  geom_jitter(size = 3, colour = "forestgreen") +
+  labs(
+    title = 'No Interaction Example',
+    subtitle = 'Scatter plot of continuous outcome \nand gender identity (n=30)'
+    ) +
+  ylab("Continuous Outcome") + xlab("Feminine - Masculine Continuum") +
+  theme_classic() +
+  theme(
+    legend.position = 'none',
+    axis.ticks.x = element_blank(),
+    axis.text.x = element_blank()
+  )
+```
+
+### Figure 4.3
+
+
+``` r
+# 2d density plot - interaction
+ggplot(data = sim_data, aes(x = gen_id, y = outcome_num_pos_gid)) + 
+  geom_density_2d_filled(
+    aes(fill = after_stat(level)), bins = 9, contour_var = 'ndensity'
+    ) +
+  scale_fill_brewer(
+    palette = 16, direction = 1, 
+    labels = c('Low', '', '', '','','','','', 'High')
+    ) +
+  guides(fill = guide_legend(
+    title = 'Density of Occurences', 
+    direction = 'horizontal', nrow = 1, 
+    label.position = 'bottom')
+    ) +
+  labs(
+    title = 'Interaction Example',
+    subtitle = '2-D Density plot of continuous outcome \nand gender identity (n=30)'
+    ) +
+  ylab("Continuous Outcome") + xlab("Feminine - Masculine Continuum") +
+  theme_classic() +
+  theme(
+    legend.position = 'none',
+    axis.ticks.x = element_blank(),
+    axis.text.x = element_blank()
+  ) +
+  geom_blank(aes(y = 20)) + # extends y axis to ensure plots are comparable
+  geom_blank(aes(y = 0))
+
+# 2d density plot - no interaction
+ggplot(data = sim_data, aes(x = gen_id, y = outcome_num_neg)) + 
+  geom_density_2d_filled(
+    aes(fill = after_stat(level)), bins = 9, contour_var = 'ndensity'
+    ) +
+  scale_fill_brewer(
+    palette = 16, direction = 1, 
+    labels = c('Low', '', '', '','','','','', 'High')
+    ) +
+  guides(fill = guide_legend(
+    title = 'Density of Occurences', 
+    direction = 'horizontal', nrow = 1, 
+    label.position = 'bottom')
+    ) +
+  labs(
+    title = 'No Interaction Example',
+    subtitle = '2-D Density plot of continuous outcome \nand gender identity (n=30)'
+    ) +
+  ylab("Continuous Outcome") + xlab("Feminine - Masculine Continuum") +
+  theme_classic() +
+  theme(
+    legend.position = 'none',
+    axis.ticks.x = element_blank(),
+    axis.text.x = element_blank()
+  ) +
+  geom_blank(aes(y = 20)) + # extends y axis to ensure plots are comparable
+  geom_blank(aes(y = 0))
+```
+
+### Table 4.5
+
+
+``` r
+# calculate correlations
+con_gi_r_neg <- cor.test(sim_data$outcome_num_neg, sim_data$gen_id)
+con_gi_r_pos <- cor.test(sim_data$outcome_num_pos_gid, sim_data$gen_id)
+
+# output table of results
+con_gi_tab <- tibble(
+  "Example" = c("Interaction", "No interaction"),
+  "Correlation Type" = c("Pearson's r", "Pearson's r"),
+  "r" = c(
+    round(con_gi_r_pos$estimate,2),
+    round(con_gi_r_neg$estimate,2)
+  ),
+  "95% CI" = c(
+    paste0(
+      "(",
+      round(con_gi_r_pos$conf.int[[1]],2),
+      ", ",
+      round(con_gi_r_pos$conf.int[[2]],2),
+      ")", sep = ""
+    ),
+    paste0(
+      "(",
+      round(con_gi_r_neg$conf.int[[1]],2),
+      ", ",
+      round(con_gi_r_neg$conf.int[[2]],2),
+      ")", sep = ""
+    )
+  ),
+  "df" = c(
+    round(con_gi_r_pos$parameter,1),
+    round(con_gi_r_neg$parameter,1)
+  ),
+  "Significance Test" = c("t-test", "t-test"),
+  "T-score" = c(
+    round(con_gi_r_pos$statistic,2),
+    round(con_gi_r_neg$statistic,2)
+  ),
+  "p-value" = c(
+    round(con_gi_r_pos$p.value, 3),
+    round(con_gi_r_neg$p.value,3)
+  )
+)
+
+knitr::kable(con_gi_tab, booktabs = TRUE, caption = "Statistical test of difference: Continuous outcome and Gender Idenity Item from the SGBA-5.")
+```
+
+### Figure 4.4
+
+
+``` r
+# scatter plot - interaction
+ggplot(data = sim_data, aes(x = gen_id, y = outcome_num_pos_gid)) +
+  coord_cartesian(ylim = c(0, 20)) + # ensures that the same y-axis length is used for both plots
+  geom_jitter(size = 3, colour = "forestgreen") +
+  labs(
+    title = 'Gender Identity',
+    subtitle = 'Scatter plot of continuous outcome \nand gender identity (n=30)'
+    ) +
+  ylab("Continuous Outcome") + xlab("Feminine - Masculine Continuum") +
+  theme_classic() +
+  theme(
+    legend.position = 'none',
+    axis.ticks.x = element_blank(),
+    axis.text.x = element_blank()
+  )
+
+# scatter plot - no interaction
+ggplot(data = sim_data, aes(x = gen_role, y = outcome_num_pos_gid)) +
+  coord_cartesian(ylim = c(0, 20)) + # ensures that the same y-axis length is used for both plots
+  geom_jitter(size = 3, colour = "forestgreen") +
+  labs(
+    title = 'Gendered Roles',
+    subtitle = 'Scatter plot of continuous outcome \nand gendered roles (n=30)'
+    ) +
+  ylab("Continuous Outcome") + xlab("Feminine - Masculine Continuum") +
+  theme_classic() +
+  theme(
+    legend.position = 'none',
+    axis.ticks.x = element_blank(),
+    axis.text.x = element_blank()
+  )
+```
+
+### Figure 4.5
+
+
+``` r
+# 2d density plot - interaction
+ggplot(data = sim_data, aes(x = gen_id, y = outcome_num_pos_gid)) + 
+  geom_density_2d_filled(
+    aes(fill = after_stat(level)), bins = 9, contour_var = 'ndensity'
+    ) +
+  scale_fill_brewer(
+    palette = 16, direction = 1, 
+    labels = c('Low', '', '', '','','','','', 'High')
+    ) +
+  guides(fill = guide_legend(
+    title = 'Density of Occurences', 
+    direction = 'horizontal', nrow = 1, 
+    label.position = 'bottom')
+    ) +
+  labs(
+    title = 'Gender Identity',
+    subtitle = '2-D Density plot of continuous outcome \nand gender identity (n=30)'
+    ) +
+  ylab("Continuous Outcome") + xlab("Feminine - Masculine Continuum") +
+  theme_classic() +
+  theme(
+    legend.position = 'none',
+    axis.ticks.x = element_blank(),
+    axis.text.x = element_blank()
+  ) +
+  geom_blank(aes(y = 20)) + # extends y axis to ensure plots are comparable
+  geom_blank(aes(y = 0))
+
+# 2d density plot - no interaction
+ggplot(data = sim_data, aes(x = gen_role, y = outcome_num_pos_gid)) + 
+  geom_density_2d_filled(
+    aes(fill = after_stat(level)), bins = 9, contour_var = 'ndensity'
+    ) +
+  scale_fill_brewer(
+    palette = 16, direction = 1, 
+    labels = c('Low', '', '', '','','','','', 'High')
+    ) +
+  guides(fill = guide_legend(
+    title = 'Density of Occurences', 
+    direction = 'horizontal', nrow = 1, 
+    label.position = 'bottom')
+    ) +
+  labs(
+    title = 'Gendered Roles',
+    subtitle = '2-D Density plot of continuous outcome \nand gendered roles (n=30)'
+    ) +
+  ylab("Continuous Outcome") + xlab("Feminine - Masculine Continuum") +
+  theme_classic() +
+  theme(
+    legend.position = 'none',
+    axis.ticks.x = element_blank(),
+    axis.text.x = element_blank()
+  ) +
+  geom_blank(aes(y = 20)) + # extends y axis to ensure plots are comparable
+  geom_blank(aes(y = 0))
+```
+
+### Table 4.6
+
+
+``` r
+# calculate correlations
+con_gi_r_pos <- cor.test(sim_data$outcome_num_pos_gid, sim_data$gen_id)
+con_gr_r_pos <- cor.test(sim_data$outcome_num_pos_gid, sim_data$gen_role)
+
+# output table of results
+con_2gah_tab <- tibble(
+  "Example" = c("Gender Identity", "Gendered Roles"),
+  "Correlation Type" = c("Pearson's r", "Pearson's r"),
+  "r" = c(
+    round(con_gi_r_pos$estimate,2),
+    round(con_gr_r_pos$estimate,2)
+  ),
+  "95% CI" = c(
+    paste0(
+      "(",
+      round(con_gi_r_pos$conf.int[[1]],2),
+      ", ",
+      round(con_gi_r_pos$conf.int[[2]],2),
+      ")", sep = ""
+    ),
+    paste0(
+      "(",
+      round(con_gr_r_pos$conf.int[[1]],2),
+      ", ",
+      round(con_gr_r_pos$conf.int[[2]],2),
+      ")", sep = ""
+    )
+  ),
+  "df" = c(
+    round(con_gi_r_pos$parameter,1),
+    round(con_gr_r_pos$parameter,1)
+  ),
+  "Significance Test" = c("t-test", "t-test"),
+  "T-score" = c(
+    round(con_gi_r_pos$statistic,2),
+    round(con_gr_r_pos$statistic,2)
+  ),
+  "p-value" = c(
+    round(con_gi_r_pos$p.value, 3),
+    round(con_gr_r_pos$p.value,3)
+  )
+)
+
+knitr::kable(con_2gah_tab, booktabs = TRUE, caption = "Statistical test of difference: Continuous outcome by Gender Idenity and Gendered Roles Items from the SGBA-5.")
 ```

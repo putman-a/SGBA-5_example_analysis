@@ -1,28 +1,30 @@
 ---
-title: "Example Analyses: Using the SGBA-5 with Simulated Data"
+title: "Example Analysis: Using the SGBA-5 with Simulated Data"
 author: 
 - "A Putman"
 - "S Dogra"
-date: "2025-05-13"
+date: "2025-07-10"
 site: "bookdown::bookdown_site"
 documentclass: book
 bibliography: ["book.bib", "packages.bib"]
 biblio-style: apalike
 link-citations: yes
 url: "https://github.com/putman-a/SGBA-5_example_analysis/docs"
-# cover-image: path to the social sharing image like images/cover.jpg
+cover-image: images/coverPage.png
 description: |
-  The example analyses presented in this document are a demonstration of how sex-and gender-based analysis (SGBA) can be conducted using results from the Sex- and Gender-Based Analysis Tool – 5 item (SGBA-5) by Putman and Dogra.\
+  The example analysis presented in this document are a demonstration of how sex-and gender-based analysis (SGBA) can be conducted using results from the Sex- and Gender-Based Analysis Tool – 5 item (SGBA-5) by Putman and Dogra.\
 github-repo: "putman-a/SGBA-5_example_analysis"
 ---
 
 
 # About
 
-The example analyses presented in this document are a demonstration of how sex-and gender-based analysis (SGBA) can be conducted using results from the Sex- and Gender-Based Analysis Tool – 5 item (SGBA-5) by Putman and Dogra [DOI].The examples in this document demonstrate a [descriptive analysis](#descriptive-analysis) of simulated SGBA-5 responses and an SGBA of primary outcomes which are [continuous](#continuous) or categorical (binary) to examine potential interactions between the primary outcome variable and the biological sex item or two of the gendered aspects of health items.
+The following example analysis demonstrates a way in which sex-and gender-based analysis (SGBA) can be conducted using results from the Sex- and Gender-Based Analysis Tool – 5 item (SGBA-5) by Putman and Dogra which can be downloaded [here](https://figshare.com/articles/journal_contribution/Sex-_and_gender-based_analysis_tool_5-item_v1_0_/29090615?file=54611480).The SGBA-5 is free to use and is licensed under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/).
 
-The examples do not cover all potential analyses that could be done using the SGBA-5 but does provide a solid foundation from which researchers can select from and build upon.
+The examples shown in the following sections cover a [descriptive analysis](#descriptive-analysis) of simulated SGBA-5 responses (e.g., what SGBA-5 results may look like in a Table 1). Then an approach is demonstrated where a [continuous](#continuous) variable (i.e., the primary outcome of a study) is assessed by looking for potential interactions between that continuous variable and the biological sex item or the gendered aspects of health items from the SGBA-5. The examples provided do not cover all potential analyses that could be done using the SGBA-5 but do provide a solid foundation from which researchers can select from and build upon.
+
+The R code to reproduce the plots and statistical tests used in the examples is included in the [Appendix](#appendix).
 
 ## Further Resources
 
-More information on the SGBA-5, instructions for its use, and rationale for are included in the SGBA-5’s documentation [SUPPLEMENTARY MATERIAL URL]. Initial reliability and validity testing of the SGBA-5 are reported in the paper by Putman, Cole, & Dogra [DOI] and in A Putman's [thesis work](https://ontariotechu.scholaris.ca/items/fddf2667-8cd6-429d-85bd-74b0076ab561).
+More information on the SGBA-5, instructions for its use, and rationale for are included in the SGBA-5’s [documentation](https://figshare.com/articles/journal_contribution/Sex-_and_gender-based_analysis_tool_5-item_v1_0_/29090615?file=54611480). Initial reliability and validity testing of the SGBA-5 are reported in the paper by Putman, Cole, & Dogra (2025) in [PLOS ONE](https://doi.org/10.1371/journal.pone.0323834) and in A Putman's [thesis work](https://ontariotechu.scholaris.ca/items/fddf2667-8cd6-429d-85bd-74b0076ab561).

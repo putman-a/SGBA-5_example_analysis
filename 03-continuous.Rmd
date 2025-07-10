@@ -2,10 +2,8 @@
 
 ```{r setup-03-continuous, include=FALSE}
 # load libraries and simulated data ---------------------------------------
-
 library(tidyverse)
 library(ggpubr)
-library(extrafont)  # for exporting plots with Times New Roman Font
 
 # set seed for reproducibility
 set.seed(42)
@@ -13,19 +11,7 @@ set.seed(42)
 # load data set (from RDS if using previous script to simulate the data)
 sim_data <- read_csv(file = "sim-data.csv")
 
-# store plot theme preset -------------------------------------------------
-
-# store axis options for gender variable plots
-gender_plot_theme <-   
-  theme_classic() +
-  theme(
-#    text = element_text(family = 'serif'),
-    legend.position = 'none',
-    axis.ticks.x = element_blank(),
-    axis.text.x = element_blank()
-  )
-
-# default density plots and scale
+# default density plots and scale function ----------------------------------
 plot_dens_2D <- function(data, x, y){
   plot <- ggplot(data = data, aes(x = x, y = y)) + 
     geom_density_2d_filled(aes(fill = after_stat(level)),
@@ -38,6 +24,8 @@ plot_dens_2D <- function(data, x, y){
   plot
 }
 ```
+
+> See Appendix section \@ref(sec:rcode-ch4) for the R code used in this chapter.
 
 > *Note: for the biological sex and single gendered aspect of health item examples, an example outcome variable that demonstrates a relationship between that variable and the SGBA-5 item being assessed - the interaction example - and an example that does not demonstrate a relationship between itself and the SGBA-5 item - the no interaction example - is shown.*
 
@@ -119,6 +107,7 @@ Next we will test the null hypothesis that biological sex does not have an impac
 > *Note: Using a Welch's t-test to test for statistically significant difference in these examples is a way, but by no means the only way in which this could be tested.*
 
 ```{r 04-tab-ttest, echo=FALSE}
+# t-tests
 con_sex_ttest_neg <- t.test(outcome_num_neg ~ bio_sex, data = sim_data)
 con_sex_ttest_pos <- t.test(outcome_num_pos_sex ~ bio_sex, data = sim_data)
 
@@ -187,7 +176,12 @@ ggplot(data = sim_data, aes(x = gen_id, y = outcome_num_pos_gid)) +
     subtitle = 'Scatter plot of continuous outcome \nand gender identity (n=30)'
     ) +
   ylab("Continuous Outcome") + xlab("Feminine - Masculine Continuum") +
-  gender_plot_theme
+  theme_classic() +
+  theme(
+    legend.position = 'none',
+    axis.ticks.x = element_blank(),
+    axis.text.x = element_blank()
+  )
 
 # scatter plot - no interaction
 ggplot(data = sim_data, aes(x = gen_id, y = outcome_num_neg)) +
@@ -198,7 +192,12 @@ ggplot(data = sim_data, aes(x = gen_id, y = outcome_num_neg)) +
     subtitle = 'Scatter plot of continuous outcome \nand gender identity (n=30)'
     ) +
   ylab("Continuous Outcome") + xlab("Feminine - Masculine Continuum") +
-  gender_plot_theme
+  theme_classic() +
+  theme(
+    legend.position = 'none',
+    axis.ticks.x = element_blank(),
+    axis.text.x = element_blank()
+  )
 ```
 
 ```{r 04-gi-2ddens, fig.cap="2D Density Plots of Continuous Variable by Gender Identity", fig.width=3.5, fig.height=3.5, fig.align='center',fig.show='hold', out.width = '50%', echo=FALSE}
@@ -221,7 +220,12 @@ ggplot(data = sim_data, aes(x = gen_id, y = outcome_num_pos_gid)) +
     subtitle = '2-D Density plot of continuous outcome \nand gender identity (n=30)'
     ) +
   ylab("Continuous Outcome") + xlab("Feminine - Masculine Continuum") +
-  gender_plot_theme +
+  theme_classic() +
+  theme(
+    legend.position = 'none',
+    axis.ticks.x = element_blank(),
+    axis.text.x = element_blank()
+  ) +
   geom_blank(aes(y = 20)) + # extends y axis to ensure plots are comparable
   geom_blank(aes(y = 0))
 
@@ -244,7 +248,12 @@ ggplot(data = sim_data, aes(x = gen_id, y = outcome_num_neg)) +
     subtitle = '2-D Density plot of continuous outcome \nand gender identity (n=30)'
     ) +
   ylab("Continuous Outcome") + xlab("Feminine - Masculine Continuum") +
-  gender_plot_theme +
+  theme_classic() +
+  theme(
+    legend.position = 'none',
+    axis.ticks.x = element_blank(),
+    axis.text.x = element_blank()
+  ) +
   geom_blank(aes(y = 20)) + # extends y axis to ensure plots are comparable
   geom_blank(aes(y = 0))
 ```
@@ -357,7 +366,12 @@ ggplot(data = sim_data, aes(x = gen_id, y = outcome_num_pos_gid)) +
     subtitle = 'Scatter plot of continuous outcome \nand gender identity (n=30)'
     ) +
   ylab("Continuous Outcome") + xlab("Feminine - Masculine Continuum") +
-  gender_plot_theme
+  theme_classic() +
+  theme(
+    legend.position = 'none',
+    axis.ticks.x = element_blank(),
+    axis.text.x = element_blank()
+  )
 
 # scatter plot - no interaction
 ggplot(data = sim_data, aes(x = gen_role, y = outcome_num_pos_gid)) +
@@ -368,7 +382,12 @@ ggplot(data = sim_data, aes(x = gen_role, y = outcome_num_pos_gid)) +
     subtitle = 'Scatter plot of continuous outcome \nand gendered roles (n=30)'
     ) +
   ylab("Continuous Outcome") + xlab("Feminine - Masculine Continuum") +
-  gender_plot_theme
+  theme_classic() +
+  theme(
+    legend.position = 'none',
+    axis.ticks.x = element_blank(),
+    axis.text.x = element_blank()
+  )
 ```
 
 ```{r 04-2gah-2ddens, fig.cap="2D Density Plots of Continuous Variable by Gender Identityand Gendered Roles", fig.width=3.5, fig.height=3.5, fig.align='center',fig.show='hold', out.width = '50%', echo=FALSE}
@@ -391,7 +410,12 @@ ggplot(data = sim_data, aes(x = gen_id, y = outcome_num_pos_gid)) +
     subtitle = '2-D Density plot of continuous outcome \nand gender identity (n=30)'
     ) +
   ylab("Continuous Outcome") + xlab("Feminine - Masculine Continuum") +
-  gender_plot_theme +
+  theme_classic() +
+  theme(
+    legend.position = 'none',
+    axis.ticks.x = element_blank(),
+    axis.text.x = element_blank()
+  ) +
   geom_blank(aes(y = 20)) + # extends y axis to ensure plots are comparable
   geom_blank(aes(y = 0))
 
@@ -414,7 +438,12 @@ ggplot(data = sim_data, aes(x = gen_role, y = outcome_num_pos_gid)) +
     subtitle = '2-D Density plot of continuous outcome \nand gendered roles (n=30)'
     ) +
   ylab("Continuous Outcome") + xlab("Feminine - Masculine Continuum") +
-  gender_plot_theme +
+  theme_classic() +
+  theme(
+    legend.position = 'none',
+    axis.ticks.x = element_blank(),
+    axis.text.x = element_blank()
+  ) +
   geom_blank(aes(y = 20)) + # extends y axis to ensure plots are comparable
   geom_blank(aes(y = 0))
 ```
@@ -501,3 +530,5 @@ Below are example templates for reporting whether an outcome variable is associa
 
 > **If no association was found:**\
 > In this study's sample we found that a person's self-reported \[gendered aspect of health items] did not show a statistically significant association with \[continuous variable name].
+
+> See Appendix section \@ref(sec:rcode-ch4) for the R code used in this chapter.

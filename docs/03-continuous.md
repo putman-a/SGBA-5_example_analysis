@@ -2,6 +2,8 @@
 
 
 
+> See Appendix section \@ref(sec:rcode-ch4) for the R code used in this chapter.
+
 > *Note: for the biological sex and single gendered aspect of health item examples, an example outcome variable that demonstrates a relationship between that variable and the SGBA-5 item being assessed - the interaction example - and an example that does not demonstrate a relationship between itself and the SGBA-5 item - the no interaction example - is shown.*
 
 ## Biological Sex
@@ -192,3 +194,5 @@ Below are example templates for reporting whether an outcome variable is associa
 
 > **If no association was found:**\
 > In this study's sample we found that a person's self-reported \[gendered aspect of health items] did not show a statistically significant association with \[continuous variable name].
+
+> See Appendix section \@ref(sec:rcode-ch4) for the R code used in this chapter.
