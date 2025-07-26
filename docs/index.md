@@ -3,7 +3,7 @@ title: "Example Analysis: Using the SGBA-5 with Simulated Data"
 author: 
 - "A Putman"
 - "S Dogra"
-date: "2025-07-10"
+date: "2025-07-26"
 site: "bookdown::bookdown_site"
 documentclass: book
 bibliography: ["book.bib", "packages.bib"]

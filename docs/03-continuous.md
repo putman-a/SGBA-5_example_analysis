@@ -13,7 +13,7 @@ A good idea is to start by visualizing the continuous variable’s distribution 
 ### Density Plots by Biological Sex
 
 <div class="figure" style="text-align: center">
-<img src="03-continuous_files/figure-html/04-binary-pos-plot-1.png" alt="Density Plot of Continuous Variable by Biological Sex Examples" width="50%" /><img src="03-continuous_files/figure-html/04-binary-pos-plot-2.png" alt="Density Plot of Continuous Variable by Biological Sex Examples" width="50%" />
+<img src="03-continuous_files/figure-epub3/04-binary-pos-plot-1.png" alt="Density Plot of Continuous Variable by Biological Sex Examples" width="50%" /><img src="03-continuous_files/figure-epub3/04-binary-pos-plot-2.png" alt="Density Plot of Continuous Variable by Biological Sex Examples" width="50%" />
 <p class="caption">(\#fig:04-binary-pos-plot)Density Plot of Continuous Variable by Biological Sex Examples</p>
 </div>
 
@@ -72,12 +72,12 @@ In this section we will analyze a single of the gendered aspects of health resul
 ### Scatter & 2-D Density Plots for One Item
 
 <div class="figure" style="text-align: center">
-<img src="03-continuous_files/figure-html/04-gi-scatter-1.png" alt="Scatter Plot of Continuous Variable by Gender Identity" width="50%" /><img src="03-continuous_files/figure-html/04-gi-scatter-2.png" alt="Scatter Plot of Continuous Variable by Gender Identity" width="50%" />
+<img src="03-continuous_files/figure-epub3/04-gi-scatter-1.png" alt="Scatter Plot of Continuous Variable by Gender Identity" width="50%" /><img src="03-continuous_files/figure-epub3/04-gi-scatter-2.png" alt="Scatter Plot of Continuous Variable by Gender Identity" width="50%" />
 <p class="caption">(\#fig:04-gi-scatter)Scatter Plot of Continuous Variable by Gender Identity</p>
 </div>
 
 <div class="figure" style="text-align: center">
-<img src="03-continuous_files/figure-html/04-gi-2ddens-1.png" alt="2D Density Plots of Continuous Variable by Gender Identity" width="50%" /><img src="03-continuous_files/figure-html/04-gi-2ddens-2.png" alt="2D Density Plots of Continuous Variable by Gender Identity" width="50%" />
+<img src="03-continuous_files/figure-epub3/04-gi-2ddens-1.png" alt="2D Density Plots of Continuous Variable by Gender Identity" width="50%" /><img src="03-continuous_files/figure-epub3/04-gi-2ddens-2.png" alt="2D Density Plots of Continuous Variable by Gender Identity" width="50%" />
 <p class="caption">(\#fig:04-gi-2ddens)2D Density Plots of Continuous Variable by Gender Identity</p>
 </div>
 
@@ -142,12 +142,12 @@ Like when assessing only one of the gendered aspect of health items, we will sta
 ### Scatter & 2-D Density Plots for Two Items
 
 <div class="figure" style="text-align: center">
-<img src="03-continuous_files/figure-html/04-2gah-scatter-1.png" alt="Scatter Plot of Continuous Variable by Gender Identity and Gendered Roles" width="50%" /><img src="03-continuous_files/figure-html/04-2gah-scatter-2.png" alt="Scatter Plot of Continuous Variable by Gender Identity and Gendered Roles" width="50%" />
+<img src="03-continuous_files/figure-epub3/04-2gah-scatter-1.png" alt="Scatter Plot of Continuous Variable by Gender Identity and Gendered Roles" width="50%" /><img src="03-continuous_files/figure-epub3/04-2gah-scatter-2.png" alt="Scatter Plot of Continuous Variable by Gender Identity and Gendered Roles" width="50%" />
 <p class="caption">(\#fig:04-2gah-scatter)Scatter Plot of Continuous Variable by Gender Identity and Gendered Roles</p>
 </div>
 
 <div class="figure" style="text-align: center">
-<img src="03-continuous_files/figure-html/04-2gah-2ddens-1.png" alt="2D Density Plots of Continuous Variable by Gender Identityand Gendered Roles" width="50%" /><img src="03-continuous_files/figure-html/04-2gah-2ddens-2.png" alt="2D Density Plots of Continuous Variable by Gender Identityand Gendered Roles" width="50%" />
+<img src="03-continuous_files/figure-epub3/04-2gah-2ddens-1.png" alt="2D Density Plots of Continuous Variable by Gender Identityand Gendered Roles" width="50%" /><img src="03-continuous_files/figure-epub3/04-2gah-2ddens-2.png" alt="2D Density Plots of Continuous Variable by Gender Identityand Gendered Roles" width="50%" />
 <p class="caption">(\#fig:04-2gah-2ddens)2D Density Plots of Continuous Variable by Gender Identityand Gendered Roles</p>
 </div>
 

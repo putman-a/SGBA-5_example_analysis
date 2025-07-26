@@ -14,7 +14,7 @@ library(tidyverse)
 ## ── Attaching core tidyverse packages ──────────────────────────────────────────── tidyverse 2.0.0 ──
 ## ✔ dplyr     1.1.4     ✔ readr     2.1.5
 ## ✔ forcats   1.0.0     ✔ stringr   1.5.1
-## ✔ ggplot2   3.5.2     ✔ tibble    3.2.1
+## ✔ ggplot2   3.5.2     ✔ tibble    3.3.0
 ## ✔ lubridate 1.9.4     ✔ tidyr     1.3.1
 ## ✔ purrr     1.0.4     
 ## ── Conflicts ────────────────────────────────────────────────────────────── tidyverse_conflicts() ──
@@ -238,7 +238,7 @@ sessioninfo::session_info(pkgs = "loaded")
 ##  collate  en_US.UTF-8
 ##  ctype    en_US.UTF-8
 ##  tz       America/Toronto
-##  date     2025-07-10
+##  date     2025-07-26
 ##  pandoc   3.4 @ /Applications/RStudio.app/Contents/Resources/app/quarto/bin/tools/aarch64/ (via rmarkdown)
 ##  quarto   1.6.42 @ /Applications/RStudio.app/Contents/Resources/app/quarto/bin/quarto
 ## 
@@ -247,13 +247,11 @@ sessioninfo::session_info(pkgs = "loaded")
 ##  bit            4.6.0   2025-03-06 [1] CRAN (R 4.5.0)
 ##  bit64          4.6.0-1 2025-01-16 [1] CRAN (R 4.5.0)
 ##  bookdown       0.43    2025-04-15 [1] CRAN (R 4.5.0)
-##  bslib          0.9.0   2025-01-30 [1] CRAN (R 4.5.0)
-##  cachem         1.1.0   2024-05-16 [1] CRAN (R 4.5.0)
 ##  cli            3.6.5   2025-04-23 [1] CRAN (R 4.5.0)
 ##  crayon         1.5.3   2024-06-20 [1] CRAN (R 4.5.0)
 ##  digest         0.6.37  2024-08-19 [1] CRAN (R 4.5.0)
 ##  dplyr        * 1.1.4   2023-11-17 [1] CRAN (R 4.5.0)
-##  evaluate       1.0.3   2025-01-10 [1] CRAN (R 4.5.0)
+##  evaluate       1.0.4   2025-06-18 [1] CRAN (R 4.5.0)
 ##  farver         2.1.2   2024-05-13 [1] CRAN (R 4.5.0)
 ##  fastmap        1.2.0   2024-05-15 [1] CRAN (R 4.5.0)
 ##  forcats      * 1.0.0   2023-01-29 [1] CRAN (R 4.5.0)
@@ -263,13 +261,11 @@ sessioninfo::session_info(pkgs = "loaded")
 ##  gtable         0.3.6   2024-10-25 [1] CRAN (R 4.5.0)
 ##  hms            1.1.3   2023-03-21 [1] CRAN (R 4.5.0)
 ##  htmltools      0.5.8.1 2024-04-04 [1] CRAN (R 4.5.0)
-##  jquerylib      0.1.4   2021-04-26 [1] CRAN (R 4.5.0)
-##  jsonlite       2.0.0   2025-03-27 [1] CRAN (R 4.5.0)
 ##  knitr          1.50    2025-03-16 [1] CRAN (R 4.5.0)
 ##  lifecycle      1.0.4   2023-11-07 [1] CRAN (R 4.5.0)
 ##  lubridate    * 1.9.4   2024-12-08 [1] CRAN (R 4.5.0)
 ##  magrittr       2.0.3   2022-03-30 [1] CRAN (R 4.5.0)
-##  pillar         1.10.2  2025-04-05 [1] CRAN (R 4.5.0)
+##  pillar         1.11.0  2025-07-04 [1] CRAN (R 4.5.0)
 ##  pkgconfig      2.0.3   2019-09-22 [1] CRAN (R 4.5.0)
 ##  purrr        * 1.0.4   2025-02-05 [1] CRAN (R 4.5.0)
 ##  R6             2.6.1   2025-02-15 [1] CRAN (R 4.5.0)
@@ -278,12 +274,11 @@ sessioninfo::session_info(pkgs = "loaded")
 ##  rlang          1.1.6   2025-04-11 [1] CRAN (R 4.5.0)
 ##  rmarkdown      2.29    2024-11-04 [1] CRAN (R 4.5.0)
 ##  rstudioapi     0.17.1  2024-10-22 [1] CRAN (R 4.5.0)
-##  sass           0.4.10  2025-04-11 [1] CRAN (R 4.5.0)
 ##  scales         1.4.0   2025-04-24 [1] CRAN (R 4.5.0)
 ##  sessioninfo    1.2.3   2025-02-05 [1] CRAN (R 4.5.0)
 ##  stringi        1.8.7   2025-03-27 [1] CRAN (R 4.5.0)
 ##  stringr      * 1.5.1   2023-11-14 [1] CRAN (R 4.5.0)
-##  tibble       * 3.2.1   2023-03-20 [1] CRAN (R 4.5.0)
+##  tibble       * 3.3.0   2025-06-08 [1] CRAN (R 4.5.0)
 ##  tidyr        * 1.3.1   2024-01-24 [1] CRAN (R 4.5.0)
 ##  tidyselect     1.2.1   2024-03-11 [1] CRAN (R 4.5.0)
 ##  tidyverse    * 2.0.0   2023-02-22 [1] CRAN (R 4.5.0)
