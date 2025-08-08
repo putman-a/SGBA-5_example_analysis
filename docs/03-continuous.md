@@ -13,7 +13,7 @@ A good idea is to start by visualizing the continuous variable’s distribution 
 ### Density Plots by Biological Sex
 
 <div class="figure" style="text-align: center">
-<img src="03-continuous_files/figure-epub3/04-binary-pos-plot-1.png" alt="Density Plot of Continuous Variable by Biological Sex Examples" width="50%" /><img src="03-continuous_files/figure-epub3/04-binary-pos-plot-2.png" alt="Density Plot of Continuous Variable by Biological Sex Examples" width="50%" />
+<img src="03-continuous_files/figure-html/04-binary-pos-plot-1.png" alt="Density Plot of Continuous Variable by Biological Sex Examples" width="50%" /><img src="03-continuous_files/figure-html/04-binary-pos-plot-2.png" alt="Density Plot of Continuous Variable by Biological Sex Examples" width="50%" />
 <p class="caption">(\#fig:04-binary-pos-plot)Density Plot of Continuous Variable by Biological Sex Examples</p>
 </div>
 
@@ -22,7 +22,7 @@ A good idea is to start by visualizing the continuous variable’s distribution 
 ### Summary Statistics by Biological Sex
 
 
-Table: (\#tab:03-tab-int)Interation example summary statisitics: Continuous outcome and biological sex
+Table: (\#tab:03-tab-int)Interaction example summary statisitics: Continuous outcome and biological sex
 
 |biological sex |  n| mean continuous| SD continuous| median continuous| IQR continuous|
 |:--------------|--:|---------------:|-------------:|-----------------:|--------------:|
@@ -30,7 +30,7 @@ Table: (\#tab:03-tab-int)Interation example summary statisitics: Continuous outc
 |Male           | 16|            11.3|          2.95|                11|              2|
 
 
-Table: (\#tab:03-tab-no-int)No interation example summary statisitics: Continuous outcome and biological sex
+Table: (\#tab:03-tab-no-int)No interaction example summary statisitics: Continuous outcome and biological sex
 
 |biological sex |  n| mean continuous| SD continuous| median continuous| IQR continuous|
 |:--------------|--:|---------------:|-------------:|-----------------:|--------------:|
@@ -72,12 +72,12 @@ In this section we will analyze a single of the gendered aspects of health resul
 ### Scatter & 2-D Density Plots for One Item
 
 <div class="figure" style="text-align: center">
-<img src="03-continuous_files/figure-epub3/04-gi-scatter-1.png" alt="Scatter Plot of Continuous Variable by Gender Identity" width="50%" /><img src="03-continuous_files/figure-epub3/04-gi-scatter-2.png" alt="Scatter Plot of Continuous Variable by Gender Identity" width="50%" />
+<img src="03-continuous_files/figure-html/04-gi-scatter-1.png" alt="Scatter Plot of Continuous Variable by Gender Identity" width="50%" /><img src="03-continuous_files/figure-html/04-gi-scatter-2.png" alt="Scatter Plot of Continuous Variable by Gender Identity" width="50%" />
 <p class="caption">(\#fig:04-gi-scatter)Scatter Plot of Continuous Variable by Gender Identity</p>
 </div>
 
 <div class="figure" style="text-align: center">
-<img src="03-continuous_files/figure-epub3/04-gi-2ddens-1.png" alt="2D Density Plots of Continuous Variable by Gender Identity" width="50%" /><img src="03-continuous_files/figure-epub3/04-gi-2ddens-2.png" alt="2D Density Plots of Continuous Variable by Gender Identity" width="50%" />
+<img src="03-continuous_files/figure-html/04-gi-2ddens-1.png" alt="2D Density Plots of Continuous Variable by Gender Identity" width="50%" /><img src="03-continuous_files/figure-html/04-gi-2ddens-2.png" alt="2D Density Plots of Continuous Variable by Gender Identity" width="50%" />
 <p class="caption">(\#fig:04-gi-2ddens)2D Density Plots of Continuous Variable by Gender Identity</p>
 </div>
 
@@ -142,13 +142,13 @@ Like when assessing only one of the gendered aspect of health items, we will sta
 ### Scatter & 2-D Density Plots for Two Items
 
 <div class="figure" style="text-align: center">
-<img src="03-continuous_files/figure-epub3/04-2gah-scatter-1.png" alt="Scatter Plot of Continuous Variable by Gender Identity and Gendered Roles" width="50%" /><img src="03-continuous_files/figure-epub3/04-2gah-scatter-2.png" alt="Scatter Plot of Continuous Variable by Gender Identity and Gendered Roles" width="50%" />
+<img src="03-continuous_files/figure-html/04-2gah-scatter-1.png" alt="Scatter Plot of Continuous Variable by Gender Identity and Gendered Roles" width="50%" /><img src="03-continuous_files/figure-html/04-2gah-scatter-2.png" alt="Scatter Plot of Continuous Variable by Gender Identity and Gendered Roles" width="50%" />
 <p class="caption">(\#fig:04-2gah-scatter)Scatter Plot of Continuous Variable by Gender Identity and Gendered Roles</p>
 </div>
 
 <div class="figure" style="text-align: center">
-<img src="03-continuous_files/figure-epub3/04-2gah-2ddens-1.png" alt="2D Density Plots of Continuous Variable by Gender Identityand Gendered Roles" width="50%" /><img src="03-continuous_files/figure-epub3/04-2gah-2ddens-2.png" alt="2D Density Plots of Continuous Variable by Gender Identityand Gendered Roles" width="50%" />
-<p class="caption">(\#fig:04-2gah-2ddens)2D Density Plots of Continuous Variable by Gender Identityand Gendered Roles</p>
+<img src="03-continuous_files/figure-html/04-2gah-2ddens-1.png" alt="2D Density Plots of Continuous Variable by Gender Identity and Gendered Roles" width="50%" /><img src="03-continuous_files/figure-html/04-2gah-2ddens-2.png" alt="2D Density Plots of Continuous Variable by Gender Identity and Gendered Roles" width="50%" />
+<p class="caption">(\#fig:04-2gah-2ddens)2D Density Plots of Continuous Variable by Gender Identity and Gendered Roles</p>
 </div>
 
 **Interpretation:** From the above scatter and 2-D density plots (Figures \@ref(fig:04-2gah-scatter) and \@ref(fig:04-2gah-2ddens)) we can see a relatively clear pattern difference in the continuous outcome value across the feminine-masculine continuum in the **gender identity** item. Whereas, the **gendered roles** item scatter and 2-D density plots show less distinct clustering with a cluster closer to the masculine end of the continuum having lower continuous outcome values and the continuous outcome values closer to the feminine end of the continuum showing both high and low values. This suggests that in this example the **gender identity** SGBA-5 item is associated with the continuous outcome variable in this example and the **gendered roles** item is not clear, but may suggest the potential of a more complicated relationship between the continuous outcome and **gendered roles**.

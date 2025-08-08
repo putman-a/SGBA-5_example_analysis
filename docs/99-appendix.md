@@ -238,7 +238,7 @@ sessioninfo::session_info(pkgs = "loaded")
 ##  collate  en_US.UTF-8
 ##  ctype    en_US.UTF-8
 ##  tz       America/Toronto
-##  date     2025-07-26
+##  date     2025-08-08
 ##  pandoc   3.4 @ /Applications/RStudio.app/Contents/Resources/app/quarto/bin/tools/aarch64/ (via rmarkdown)
 ##  quarto   1.6.42 @ /Applications/RStudio.app/Contents/Resources/app/quarto/bin/quarto
 ## 
@@ -247,6 +247,8 @@ sessioninfo::session_info(pkgs = "loaded")
 ##  bit            4.6.0   2025-03-06 [1] CRAN (R 4.5.0)
 ##  bit64          4.6.0-1 2025-01-16 [1] CRAN (R 4.5.0)
 ##  bookdown       0.43    2025-04-15 [1] CRAN (R 4.5.0)
+##  bslib          0.9.0   2025-01-30 [1] CRAN (R 4.5.0)
+##  cachem         1.1.0   2024-05-16 [1] CRAN (R 4.5.0)
 ##  cli            3.6.5   2025-04-23 [1] CRAN (R 4.5.0)
 ##  crayon         1.5.3   2024-06-20 [1] CRAN (R 4.5.0)
 ##  digest         0.6.37  2024-08-19 [1] CRAN (R 4.5.0)
@@ -261,6 +263,8 @@ sessioninfo::session_info(pkgs = "loaded")
 ##  gtable         0.3.6   2024-10-25 [1] CRAN (R 4.5.0)
 ##  hms            1.1.3   2023-03-21 [1] CRAN (R 4.5.0)
 ##  htmltools      0.5.8.1 2024-04-04 [1] CRAN (R 4.5.0)
+##  jquerylib      0.1.4   2021-04-26 [1] CRAN (R 4.5.0)
+##  jsonlite       2.0.0   2025-03-27 [1] CRAN (R 4.5.0)
 ##  knitr          1.50    2025-03-16 [1] CRAN (R 4.5.0)
 ##  lifecycle      1.0.4   2023-11-07 [1] CRAN (R 4.5.0)
 ##  lubridate    * 1.9.4   2024-12-08 [1] CRAN (R 4.5.0)
@@ -274,6 +278,7 @@ sessioninfo::session_info(pkgs = "loaded")
 ##  rlang          1.1.6   2025-04-11 [1] CRAN (R 4.5.0)
 ##  rmarkdown      2.29    2024-11-04 [1] CRAN (R 4.5.0)
 ##  rstudioapi     0.17.1  2024-10-22 [1] CRAN (R 4.5.0)
+##  sass           0.4.10  2025-04-11 [1] CRAN (R 4.5.0)
 ##  scales         1.4.0   2025-04-24 [1] CRAN (R 4.5.0)
 ##  sessioninfo    1.2.3   2025-02-05 [1] CRAN (R 4.5.0)
 ##  stringi        1.8.7   2025-03-27 [1] CRAN (R 4.5.0)

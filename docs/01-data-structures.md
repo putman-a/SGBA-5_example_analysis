@@ -47,4 +47,4 @@ Where:
 
 ## Simulated Data
 
-This example analysis uses simulated data, if you wish to replicate the simulate data the code to do so is included in the [Appendix](#sec:sim-data) or a .csv file of the simulated data can be downloaded from this example's [github page](https://github.com/putman-a/SGBA-5_example_analysis/%s).
+This example analysis uses simulated data. If you wish to replicate the simulate data, the R code to do so is included in the [Appendix](#sec:sim-data) or a .csv file of the simulated data can be downloaded from this example's [github page](https://github.com/putman-a/SGBA-5_example_analysis/%s).

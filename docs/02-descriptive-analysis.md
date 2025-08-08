@@ -14,7 +14,7 @@
 In plot \@ref(fig:02-univar-sex-plot) we see that there are more participants who report their **biological sex** as assigned as female at birth (n=18) than males (n=12). 
 
 <div class="figure" style="text-align: center">
-<img src="02-descriptive-analysis_files/figure-epub3/02-univar-sex-plot-1.png" alt="Barplot of Biological Sex Responses" width="50%" />
+<img src="02-descriptive-analysis_files/figure-html/02-univar-sex-plot-1.png" alt="Barplot of Biological Sex Responses" width="50%" />
 <p class="caption">(\#fig:02-univar-sex-plot)Barplot of Biological Sex Responses</p>
 </div>
 
@@ -23,7 +23,7 @@ In plot \@ref(fig:02-univar-sex-plot) we see that there are more participants wh
 Looking at the density plots for **gender identity** and **gender role** (figure \@ref(fig:02-univar-gi-plot)), we see that while both variables are bimodal, the **gender identity** responses is more strongly bimodal with one peak closer to the feminine side of the feminine-masculine continuum and one peak closer to masculine end of that continuum. Further, we can also see that in general, participants reported their **gender identity** and **roles** as being more feminine, again with the **gender identity** responses showing this trend more strongly than the **gender role** responses.  
 
 <div class="figure" style="text-align: center">
-<img src="02-descriptive-analysis_files/figure-epub3/02-univar-gi-plot-1.png" alt="Density plots of Gender Identity and Roles" width="50%" /><img src="02-descriptive-analysis_files/figure-epub3/02-univar-gi-plot-2.png" alt="Density plots of Gender Identity and Roles" width="50%" />
+<img src="02-descriptive-analysis_files/figure-html/02-univar-gi-plot-1.png" alt="Density plots of Gender Identity and Roles" width="50%" /><img src="02-descriptive-analysis_files/figure-html/02-univar-gi-plot-2.png" alt="Density plots of Gender Identity and Roles" width="50%" />
 <p class="caption">(\#fig:02-univar-gi-plot)Density plots of Gender Identity and Roles</p>
 </div>
 

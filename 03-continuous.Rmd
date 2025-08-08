@@ -80,7 +80,7 @@ pos_cont_sex_sum <- sim_data %>% group_by(bio_sex) %>%
   ) %>% 
   rename(`biological sex` = bio_sex) 
 
-knitr::kable(pos_cont_sex_sum, booktabs = TRUE, caption = "Interation example summary statisitics: Continuous outcome and biological sex")
+knitr::kable(pos_cont_sex_sum, booktabs = TRUE, caption = "Interaction example summary statisitics: Continuous outcome and biological sex")
 ```
 
 ```{r 03-tab-no-int, echo=FALSE}
@@ -95,7 +95,7 @@ neg_cont_sex_sum <- sim_data %>% group_by(bio_sex) %>%
   ) %>% 
   rename(`biological sex` = bio_sex) 
 
-knitr::kable(neg_cont_sex_sum, booktabs = TRUE, caption = "No interation example summary statisitics: Continuous outcome and biological sex")
+knitr::kable(neg_cont_sex_sum, booktabs = TRUE, caption = "No interaction example summary statisitics: Continuous outcome and biological sex")
 ```
 
 **Interpretation:** As with the density plots, we see that the standard deviations of the continuous variable for both males and females overlap in the **no interaction example** (Table \@ref(tab:03-tab-int)) - indicating a lack of significant difference by sex. The standard deviations of the continuous variable for both males and females do not overlap in the **interaction example** (Table \@ref(tab:03-tab-no-int)) - indicating a potential association between that continuous outcome variable and sex.
@@ -390,7 +390,7 @@ ggplot(data = sim_data, aes(x = gen_role, y = outcome_num_pos_gid)) +
   )
 ```
 
-```{r 04-2gah-2ddens, fig.cap="2D Density Plots of Continuous Variable by Gender Identityand Gendered Roles", fig.width=3.5, fig.height=3.5, fig.align='center',fig.show='hold', out.width = '50%', echo=FALSE}
+```{r 04-2gah-2ddens, fig.cap="2D Density Plots of Continuous Variable by Gender Identity and Gendered Roles", fig.width=3.5, fig.height=3.5, fig.align='center',fig.show='hold', out.width = '50%', echo=FALSE}
 # 2d density plot - interaction
 ggplot(data = sim_data, aes(x = gen_id, y = outcome_num_pos_gid)) + 
   geom_density_2d_filled(

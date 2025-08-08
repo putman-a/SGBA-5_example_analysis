@@ -42,7 +42,7 @@ In plot \@ref(fig:02-univar-sex-plot) we see that there are more participants wh
 # biological sex bar plot
 ggplot(sim_data, aes(x = bio_sex)) +
   geom_bar(aes(fill = bio_sex), show.legend = F) + 
-  labs(title = 'Barplot of Simulated Biological Sex') +
+  labs(title = 'Simulated Biological Sex Responses') +
   ylab('Count') + xlab('Biological Sex') +
   theme_classic()
 ```
@@ -66,7 +66,7 @@ ggplot(sim_data, aes(x = gen_id)) +
 # gender role density plot
 ggplot(sim_data, aes(x = gen_role)) +
   geom_density(alpha=.5, fill = 'purple2', colour = 'black') +
-  labs(title = 'Densityplot of Simulated\nGender Role Responses') +
+  labs(title = 'Density plot of Simulated\nGender Role Responses') +
   ylab('Density') + xlab('Feminine - Masculine Continuum') +
   theme_classic() +
   theme(
