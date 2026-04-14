@@ -1,10 +1,11 @@
 % Options for packages loaded elsewhere
 \PassOptionsToPackage{unicode}{hyperref}
 \PassOptionsToPackage{hyphens}{url}
-%
 \documentclass[
 ]{book}
+\usepackage{xcolor}
 \usepackage{amsmath,amssymb}
+\setcounter{secnumdepth}{5}
 \usepackage{iftex}
 \ifPDFTeX
   \usepackage[T1]{fontenc}
@@ -35,7 +36,6 @@
 }{% if KOMA class
   \KOMAoptions{parskip=half}}
 \makeatother
-\usepackage{xcolor}
 \usepackage{color}
 \usepackage{fancyvrb}
 \newcommand{\VerbBar}{|}
@@ -104,7 +104,8 @@
 \setlength{\emergencystretch}{3em} % prevent overfull lines
 \providecommand{\tightlist}{%
   \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
-\setcounter{secnumdepth}{5}
+\usepackage[]{natbib}
+\bibliographystyle{apalike}
 \usepackage{booktabs}
 \usepackage{booktabs}
 \usepackage{longtable}
@@ -120,8 +121,6 @@
 \usepackage[normalem]{ulem}
 \usepackage{makecell}
 \usepackage{xcolor}
-\usepackage[]{natbib}
-\bibliographystyle{apalike}
 \usepackage{bookmark}
 \IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
 \urlstyle{same}
@@ -133,7 +132,7 @@
 
 \title{Example Analysis: Using the SGBA-5 with Simulated Data}
 \author{A Putman \and S Dogra}
-\date{2025-07-26}
+\date{2026-04-14}
 
 \begin{document}
 \maketitle
@@ -144,7 +143,7 @@
 }
 \chapter{About}\label{about}
 
-The following example analysis demonstrates a way in which sex-and gender-based analysis (SGBA) can be conducted using results from the Sex- and Gender-Based Analysis Tool -- 5 item (SGBA-5) by Putman and Dogra which can be downloaded \href{https://figshare.com/articles/journal_contribution/Sex-_and_gender-based_analysis_tool_5-item_v1_0_/29090615?file=54611480}{here}.The SGBA-5 is free to use and is licensed under \href{https://creativecommons.org/licenses/by/4.0/}{CC BY 4.0}.
+The following example analysis demonstrates a way in which sex-and gender-based analysis (SGBA) can be conducted using results from the Sex- and Gender-Based Analysis Tool -- 5 item (SGBA-5) by Putman and Dogra which can be downloaded \href{https://doi.org/10.1371/journal.pone.0323834.s001}{here}. The SGBA-5 is free to use and is licensed under \href{https://creativecommons.org/licenses/by/4.0/}{CC BY 4.0}.
 
 The examples shown in the following sections cover a \hyperref[descriptive-analysis]{descriptive analysis} of simulated SGBA-5 responses (e.g., what SGBA-5 results may look like in a Table 1). Then an approach is demonstrated where a \hyperref[continuous]{continuous} variable (i.e., the primary outcome of a study) is assessed by looking for potential interactions between that continuous variable and the biological sex item or the gendered aspects of health items from the SGBA-5. The examples provided do not cover all potential analyses that could be done using the SGBA-5 but do provide a solid foundation from which researchers can select from and build upon.
 
@@ -225,7 +224,7 @@ Where:
 
 \section{Simulated Data}\label{simulated-data}
 
-This example analysis uses simulated data, if you wish to replicate the simulate data the code to do so is included in the \hyperref[sec:sim-data]{Appendix} or a .csv file of the simulated data can be downloaded from this example's \href{https://github.com/putman-a/SGBA-5_example_analysis/\%s}{github page}.
+This example analysis uses simulated data. If you wish to replicate the simulate data, the R code to do so is included in the \hyperref[sec:sim-data]{Appendix} or a .csv file of the simulated data can be downloaded from this example's \href{https://github.com/putman-a/SGBA-5_example_analysis/\%s}{github page}.
 
 \chapter{Descriptive Analysis}\label{descriptive-analysis}
 
@@ -361,7 +360,7 @@ A good idea is to start by visualizing the continuous variable's distribution di
 
 \begin{table}
 
-\caption{\label{tab:03-tab-int}Interation example summary statisitics: Continuous outcome and biological sex}
+\caption{\label{tab:03-tab-int}Interaction example summary statisitics: Continuous outcome and biological sex}
 \centering
 \begin{tabular}[t]{lrrrrr}
 \toprule
@@ -375,7 +374,7 @@ Male & 16 & 11.3 & 2.95 & 11 & 2\\
 
 \begin{table}
 
-\caption{\label{tab:03-tab-no-int}No interation example summary statisitics: Continuous outcome and biological sex}
+\caption{\label{tab:03-tab-no-int}No interaction example summary statisitics: Continuous outcome and biological sex}
 \centering
 \begin{tabular}[t]{lrrrrr}
 \toprule
@@ -544,7 +543,7 @@ Like when assessing only one of the gendered aspect of health items, we will sta
 
 }
 
-\caption{2D Density Plots of Continuous Variable by Gender Identityand Gendered Roles}\label{fig:04-2gah-2ddens}
+\caption{2D Density Plots of Continuous Variable by Gender Identity and Gendered Roles}\label{fig:04-2gah-2ddens}
 \end{figure}
 
 \textbf{Interpretation:} From the above scatter and 2-D density plots (Figures \ref{fig:04-2gah-scatter} and \ref{fig:04-2gah-2ddens}) we can see a relatively clear pattern difference in the continuous outcome value across the feminine-masculine continuum in the \textbf{gender identity} item. Whereas, the \textbf{gendered roles} item scatter and 2-D density plots show less distinct clustering with a cluster closer to the masculine end of the continuum having lower continuous outcome values and the continuous outcome values closer to the feminine end of the continuum showing both high and low values. This suggests that in this example the \textbf{gender identity} SGBA-5 item is associated with the continuous outcome variable in this example and the \textbf{gendered roles} item is not clear, but may suggest the potential of a more complicated relationship between the continuous outcome and \textbf{gendered roles}.
@@ -627,11 +626,11 @@ Below is the code used to create the simulated data that will be used to create 
 
 \begin{verbatim}
 ## -- Attaching core tidyverse packages -------------------------------------------- tidyverse 2.0.0 --
-## v dplyr     1.1.4     v readr     2.1.5
-## v forcats   1.0.0     v stringr   1.5.1
-## v ggplot2   3.5.2     v tibble    3.3.0
-## v lubridate 1.9.4     v tidyr     1.3.1
-## v purrr     1.0.4     
+## v dplyr     1.2.0     v readr     2.2.0
+## v forcats   1.0.1     v stringr   1.6.0
+## v ggplot2   4.0.2     v tibble    3.3.1
+## v lubridate 1.9.5     v tidyr     1.3.2
+## v purrr     1.2.1     
 ## -- Conflicts -------------------------------------------------------------- tidyverse_conflicts() --
 ## x dplyr::filter() masks stats::filter()
 ## x dplyr::lag()    masks stats::lag()
@@ -848,65 +847,67 @@ Below is the code used to create the simulated data that will be used to create 
 \begin{verbatim}
 ## - Session info -----------------------------------------------------------------------------------
 ##  setting  value
-##  version  R version 4.5.0 (2025-04-11)
-##  os       macOS Sequoia 15.5
+##  version  R version 4.5.2 (2025-10-31)
+##  os       macOS Tahoe 26.4
 ##  system   aarch64, darwin20
 ##  ui       X11
 ##  language (EN)
 ##  collate  en_US.UTF-8
 ##  ctype    en_US.UTF-8
 ##  tz       America/Toronto
-##  date     2025-07-26
-##  pandoc   3.4 @ /Applications/RStudio.app/Contents/Resources/app/quarto/bin/tools/aarch64/ (via rmarkdown)
-##  quarto   1.6.42 @ /Applications/RStudio.app/Contents/Resources/app/quarto/bin/quarto
+##  date     2026-04-14
+##  pandoc   3.6.3 @ /Applications/RStudio.app/Contents/Resources/app/quarto/bin/tools/aarch64/ (via rmarkdown)
+##  quarto   1.8.25 @ /Applications/RStudio.app/Contents/Resources/app/quarto/bin/quarto
 ## 
 ## - Packages ---------------------------------------------------------------------------------------
 ##  package      * version date (UTC) lib source
 ##  bit            4.6.0   2025-03-06 [1] CRAN (R 4.5.0)
 ##  bit64          4.6.0-1 2025-01-16 [1] CRAN (R 4.5.0)
-##  bookdown       0.43    2025-04-15 [1] CRAN (R 4.5.0)
+##  bookdown       0.46    2025-12-05 [1] CRAN (R 4.5.2)
 ##  cli            3.6.5   2025-04-23 [1] CRAN (R 4.5.0)
 ##  crayon         1.5.3   2024-06-20 [1] CRAN (R 4.5.0)
-##  digest         0.6.37  2024-08-19 [1] CRAN (R 4.5.0)
-##  dplyr        * 1.1.4   2023-11-17 [1] CRAN (R 4.5.0)
-##  evaluate       1.0.4   2025-06-18 [1] CRAN (R 4.5.0)
+##  digest         0.6.39  2025-11-19 [1] CRAN (R 4.5.2)
+##  dplyr        * 1.2.0   2026-02-03 [1] CRAN (R 4.5.2)
+##  evaluate       1.0.5   2025-08-27 [1] CRAN (R 4.5.0)
 ##  farver         2.1.2   2024-05-13 [1] CRAN (R 4.5.0)
 ##  fastmap        1.2.0   2024-05-15 [1] CRAN (R 4.5.0)
-##  forcats      * 1.0.0   2023-01-29 [1] CRAN (R 4.5.0)
+##  forcats      * 1.0.1   2025-09-25 [1] CRAN (R 4.5.0)
 ##  generics       0.1.4   2025-05-09 [1] CRAN (R 4.5.0)
-##  ggplot2      * 3.5.2   2025-04-09 [1] CRAN (R 4.5.0)
+##  ggplot2      * 4.0.2   2026-02-03 [1] CRAN (R 4.5.2)
 ##  glue           1.8.0   2024-09-30 [1] CRAN (R 4.5.0)
 ##  gtable         0.3.6   2024-10-25 [1] CRAN (R 4.5.0)
-##  hms            1.1.3   2023-03-21 [1] CRAN (R 4.5.0)
-##  htmltools      0.5.8.1 2024-04-04 [1] CRAN (R 4.5.0)
-##  knitr          1.50    2025-03-16 [1] CRAN (R 4.5.0)
-##  lifecycle      1.0.4   2023-11-07 [1] CRAN (R 4.5.0)
-##  lubridate    * 1.9.4   2024-12-08 [1] CRAN (R 4.5.0)
-##  magrittr       2.0.3   2022-03-30 [1] CRAN (R 4.5.0)
-##  pillar         1.11.0  2025-07-04 [1] CRAN (R 4.5.0)
+##  hms            1.1.4   2025-10-17 [1] CRAN (R 4.5.0)
+##  htmltools      0.5.9   2025-12-04 [1] CRAN (R 4.5.2)
+##  knitr          1.51    2025-12-20 [1] CRAN (R 4.5.2)
+##  lifecycle      1.0.5   2026-01-08 [1] CRAN (R 4.5.2)
+##  lubridate    * 1.9.5   2026-02-04 [1] CRAN (R 4.5.2)
+##  magrittr       2.0.4   2025-09-12 [1] CRAN (R 4.5.0)
+##  otel           0.2.0   2025-08-29 [1] CRAN (R 4.5.0)
+##  pillar         1.11.1  2025-09-17 [1] CRAN (R 4.5.0)
 ##  pkgconfig      2.0.3   2019-09-22 [1] CRAN (R 4.5.0)
-##  purrr        * 1.0.4   2025-02-05 [1] CRAN (R 4.5.0)
+##  purrr        * 1.2.1   2026-01-09 [1] CRAN (R 4.5.2)
 ##  R6             2.6.1   2025-02-15 [1] CRAN (R 4.5.0)
 ##  RColorBrewer   1.1-3   2022-04-03 [1] CRAN (R 4.5.0)
-##  readr        * 2.1.5   2024-01-10 [1] CRAN (R 4.5.0)
-##  rlang          1.1.6   2025-04-11 [1] CRAN (R 4.5.0)
-##  rmarkdown      2.29    2024-11-04 [1] CRAN (R 4.5.0)
-##  rstudioapi     0.17.1  2024-10-22 [1] CRAN (R 4.5.0)
+##  readr        * 2.2.0   2026-02-19 [1] CRAN (R 4.5.2)
+##  rlang          1.1.7   2026-01-09 [1] CRAN (R 4.5.2)
+##  rmarkdown      2.30    2025-09-28 [1] CRAN (R 4.5.0)
+##  rstudioapi     0.18.0  2026-01-16 [1] CRAN (R 4.5.2)
+##  S7             0.2.1   2025-11-14 [1] CRAN (R 4.5.2)
 ##  scales         1.4.0   2025-04-24 [1] CRAN (R 4.5.0)
 ##  sessioninfo    1.2.3   2025-02-05 [1] CRAN (R 4.5.0)
 ##  stringi        1.8.7   2025-03-27 [1] CRAN (R 4.5.0)
-##  stringr      * 1.5.1   2023-11-14 [1] CRAN (R 4.5.0)
-##  tibble       * 3.3.0   2025-06-08 [1] CRAN (R 4.5.0)
-##  tidyr        * 1.3.1   2024-01-24 [1] CRAN (R 4.5.0)
+##  stringr      * 1.6.0   2025-11-04 [1] CRAN (R 4.5.0)
+##  tibble       * 3.3.1   2026-01-11 [1] CRAN (R 4.5.2)
+##  tidyr        * 1.3.2   2025-12-19 [1] CRAN (R 4.5.2)
 ##  tidyselect     1.2.1   2024-03-11 [1] CRAN (R 4.5.0)
 ##  tidyverse    * 2.0.0   2023-02-22 [1] CRAN (R 4.5.0)
-##  timechange     0.3.0   2024-01-18 [1] CRAN (R 4.5.0)
+##  timechange     0.4.0   2026-01-29 [1] CRAN (R 4.5.2)
 ##  tzdb           0.5.0   2025-03-15 [1] CRAN (R 4.5.0)
-##  vctrs          0.6.5   2023-12-01 [1] CRAN (R 4.5.0)
-##  vroom          1.6.5   2023-12-05 [1] CRAN (R 4.5.0)
+##  vctrs          0.7.1   2026-01-23 [1] CRAN (R 4.5.2)
+##  vroom          1.7.0   2026-01-27 [1] CRAN (R 4.5.2)
 ##  withr          3.0.2   2024-10-28 [1] CRAN (R 4.5.0)
-##  xfun           0.52    2025-04-02 [1] CRAN (R 4.5.0)
-##  yaml           2.3.10  2024-07-26 [1] CRAN (R 4.5.0)
+##  xfun           0.56    2026-01-18 [1] CRAN (R 4.5.2)
+##  yaml           2.3.12  2025-12-10 [1] CRAN (R 4.5.2)
 ## 
 ##  [1] /Library/Frameworks/R.framework/Versions/4.5-arm64/Resources/library
 ##  * -- Packages attached to the search path.
@@ -1437,6 +1438,6 @@ Below is the code used to create the simulated data that will be used to create 
 \end{Shaded}
 
 
-  \bibliography{book.bib,packages.bib}
+\bibliography{book.bib,packages.bib}
 
 \end{document}
